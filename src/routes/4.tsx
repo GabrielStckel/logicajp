@@ -128,7 +128,7 @@ function Page4() {
   });
 
   return (
-    <div style={{ backgroundColor: C.darkBg, fontFamily: SANS, WebkitFontSmoothing: "antialiased" }}>
+    <div style={{ backgroundColor: C.lightBg, fontFamily: SANS, WebkitFontSmoothing: "antialiased" }}>
       <style>{`
         @keyframes l-spin { to { transform: rotate(360deg); } }
         @keyframes l-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
@@ -144,21 +144,21 @@ function Page4() {
         input:focus { border-color: ${C.accent} !important; }
       `}</style>
 
-      {/* NAVBAR — DARK */}
+      {/* NAVBAR — LIGHT */}
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
         display: "flex", alignItems: "center", justifyContent: "space-between",
         padding: "1.125rem 1.5rem",
-        backgroundColor: `${C.darkBg}E8`,
+        backgroundColor: `${C.lightBg}E8`,
         backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)",
-        borderBottom: `1px solid ${C.lineDark}`,
+        borderBottom: `1px solid ${C.lineLight}`,
       }}>
-        <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", color: C.darkMuted }}>
+        <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", color: C.lightMuted }}>
           Ciência Sistêmica · Jonas Peress
         </span>
         <a href="#inscricao" className="l-ghost" style={{
           fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500,
-          color: C.accent, textDecoration: "none",
+          color: C.accentDeep, textDecoration: "none",
           padding: "0.5rem 1.125rem", border: `1px solid ${C.accent}33`,
           borderRadius: "2px", transition: "all .2s ease",
         }}>Garantir vaga</a>
@@ -301,20 +301,20 @@ function Page4() {
         </div>
       </section>
 
-      {/* PAIN MIRROR — DARK */}
-      <section style={{ backgroundColor: C.darkBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      {/* PAIN MIRROR — LIGHT */}
+      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <p style={eyebrow(C.darkMuted)}>Você se reconhece</p>
-          <h2 style={{ ...h2Style(C.darkInk), marginBottom: "0.75rem" }}>Isso não é uma fraqueza sua.</h2>
-          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2.5rem", textAlign: "justify", hyphens: "auto" }}>
+          <p style={eyebrow(C.lightMuted)}>Você se reconhece</p>
+          <h2 style={{ ...h2Style(C.lightInk), marginBottom: "0.75rem" }}>Isso não é uma fraqueza sua.</h2>
+          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem", textAlign: "justify", hyphens: "auto" }}>
             Se você se identifica com um ou mais dos pontos abaixo, saiba que não está sozinho. É algo muito mais profundo do que falta de disciplina.
           </p>
           {painPoints.map((p, i) => (
-            <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineDark}` }}>
-              <span aria-hidden style={{ color: C.accent, fontSize: "0.875rem", marginTop: "0.25rem", flexShrink: 0, fontWeight: 500 }}>✓</span>
+            <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineLight}` }}>
+              <span aria-hidden style={{ color: C.accentDeep, fontSize: "0.875rem", marginTop: "0.25rem", flexShrink: 0, fontWeight: 500 }}>✓</span>
               <div>
-                <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.accent, display: "block", marginBottom: "0.25rem" }}>{p.label}</span>
-                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.darkInk, margin: 0 }}>{p.text}</p>
+                <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.accentDeep, display: "block", marginBottom: "0.25rem" }}>{p.label}</span>
+                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightInk, margin: 0 }}>{p.text}</p>
               </div>
             </div>
           ))}
@@ -337,29 +337,29 @@ function Page4() {
         </div>
       </section>
 
-      {/* ABOUT JONAS — DARK */}
-      <section style={{ backgroundColor: C.darkBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      {/* ABOUT JONAS — LIGHT */}
+      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-          <p style={eyebrow(C.darkMuted)}>Quem conduz</p>
+          <p style={eyebrow(C.lightMuted)}>Quem conduz</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "3rem", alignItems: "center" }}>
-            <div style={{ position: "relative", borderRadius: "2px", overflow: "hidden", aspectRatio: "4/5", backgroundColor: C.darkBgSoft }}>
-              <div aria-hidden style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: C.darkMuted, fontFamily: SANS, fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            <div style={{ position: "relative", borderRadius: "2px", overflow: "hidden", aspectRatio: "4/5", backgroundColor: C.lightBgSoft }}>
+              <div aria-hidden style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: C.lightMuted, fontFamily: SANS, fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                 Foto de Jonas
               </div>
-              <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(to top, ${C.darkBg}BB 0%, transparent 55%, ${C.accent}0A 100%)` }} />
+              <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(to top, ${C.lightBgSoft}BB 0%, transparent 55%, ${C.accent}0A 100%)` }} />
             </div>
             <div>
-              <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.75rem,4vw,2.5rem)", lineHeight: 1.12, letterSpacing: "-0.015em", color: C.darkInk, marginBottom: "0.375rem" }}>
+              <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.75rem,4vw,2.5rem)", lineHeight: 1.12, letterSpacing: "-0.015em", color: C.lightInk, marginBottom: "0.375rem" }}>
                 Jonas Peress
               </h2>
-              <p style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.accent, marginBottom: "1.5rem" }}>
+              <p style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.accentDeep, marginBottom: "1.5rem" }}>
                 Facilitador · Ciência Sistêmica
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.darkMuted, marginBottom: "1rem", textAlign: "justify", hyphens: "auto" }}>
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, marginBottom: "1rem", textAlign: "justify", hyphens: "auto" }}>
                 Há mais de uma década investigando os sistemas invisíveis que governam nossas vidas, Jonas sistematizou os padrões que mantêm as pessoas presas em ciclos de escassez — mesmo quando ganham bem, trabalham muito ou já fizeram terapia.
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.darkMuted, margin: 0, textAlign: "justify", hyphens: "auto" }}>
-                Sua abordagem une <span style={{ color: C.accent, fontWeight: 600 }}>ciência sistêmica</span> à leitura de comportamento financeiro inconsciente. Não é terapia convencional — é um sistema de percepção que muda a relação com o dinheiro a partir da raiz.
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, margin: 0, textAlign: "justify", hyphens: "auto" }}>
+                Sua abordagem une <span style={{ color: C.accentDeep, fontWeight: 600 }}>ciência sistêmica</span> à leitura de comportamento financeiro inconsciente. Não é terapia convencional — é um sistema de percepção que muda a relação com o dinheiro a partir da raiz.
               </p>
             </div>
           </div>
@@ -388,23 +388,23 @@ function Page4() {
         </div>
       </section>
 
-      {/* EVENT INFO — DARK */}
-      <section style={{ backgroundColor: C.darkBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      {/* EVENT INFO — LIGHT */}
+      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <p style={eyebrow(C.darkMuted)}>O Encontro</p>
-          <h2 style={h2Style(C.darkInk)}>
+          <p style={eyebrow(C.lightMuted)}>O Encontro</p>
+          <h2 style={h2Style(C.lightInk)}>
             Um encontro presencial{" "}
-            <span style={{ color: C.accent, fontWeight: 600 }}>exclusivo</span>
+            <span style={{ color: C.accentDeep, fontWeight: 600 }}>exclusivo</span>
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2rem", textAlign: "justify", hyphens: "auto" }}>
+          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2rem", textAlign: "justify", hyphens: "auto" }}>
             Este é um encontro presencial exclusivo em Balneário Camboriú, desenhado para quem busca respostas profundas e definitivas.
           </p>
           {eventDetails.map((d, i) => (
-            <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineDark}`, gap: "1rem", flexWrap: "wrap" }}>
-              <span style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.darkMuted, minWidth: "90px", paddingTop: "0.2rem" }}>{d.label}</span>
+            <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineLight}`, gap: "1rem", flexWrap: "wrap" }}>
+              <span style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.lightMuted, minWidth: "90px", paddingTop: "0.2rem" }}>{d.label}</span>
               <div style={{ textAlign: "right" }}>
-                <p style={{ fontFamily: DISPLAY, fontSize: "1.0625rem", fontWeight: d.label === "Investimento" ? 700 : 400, color: d.label === "Investimento" ? C.accent : C.darkInk, margin: 0, lineHeight: 1.3 }}>{d.value}</p>
-                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, margin: "0.2rem 0 0" }}>{d.sub}</p>
+                <p style={{ fontFamily: DISPLAY, fontSize: "1.0625rem", fontWeight: d.label === "Investimento" ? 700 : 400, color: d.label === "Investimento" ? C.accentDeep : C.lightInk, margin: 0, lineHeight: 1.3 }}>{d.value}</p>
+                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, margin: "0.2rem 0 0" }}>{d.sub}</p>
               </div>
             </div>
           ))}
@@ -475,18 +475,18 @@ function Page4() {
         </div>
       </section>
 
-      {/* FAQ — DARK */}
-      <section style={{ backgroundColor: C.darkBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      {/* FAQ — LIGHT */}
+      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <p style={eyebrow(C.darkMuted)}>Dúvidas Frequentes</p>
-          <h2 style={{ ...h2Style(C.darkInk), marginBottom: "2.5rem" }}>
+          <p style={eyebrow(C.lightMuted)}>Dúvidas Frequentes</p>
+          <h2 style={{ ...h2Style(C.lightInk), marginBottom: "2.5rem" }}>
             Respostas{" "}
-            <span style={{ color: C.accent, fontWeight: 600 }}>diretas</span>
+            <span style={{ color: C.accentDeep, fontWeight: 600 }}>diretas</span>
           </h2>
           {faqs.map((f, i) => {
             const open = openFaq === i;
             return (
-              <div key={i} style={{ borderBottom: `1px solid ${C.lineDark}` }}>
+              <div key={i} style={{ borderBottom: `1px solid ${C.lineLight}` }}>
                 <button
                   onClick={() => setOpenFaq(open ? null : i)}
                   aria-expanded={open}
@@ -497,14 +497,14 @@ function Page4() {
                     textAlign: "left", gap: "1rem", color: "inherit",
                   }}
                 >
-                  <span style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.35, letterSpacing: "-0.01em", color: C.darkInk }}>
+                  <span style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.35, letterSpacing: "-0.01em", color: C.lightInk }}>
                     {f.q}
                   </span>
-                  <span aria-hidden style={{ color: C.accent, fontSize: "1.375rem", lineHeight: 1, flexShrink: 0, transform: open ? "rotate(45deg)" : "rotate(0deg)", transition: "transform .25s ease" }}>+</span>
+                  <span aria-hidden style={{ color: C.accentDeep, fontSize: "1.375rem", lineHeight: 1, flexShrink: 0, transform: open ? "rotate(45deg)" : "rotate(0deg)", transition: "transform .25s ease" }}>+</span>
                 </button>
                 <div className={`l-faq-panel${open ? " open" : ""}`}>
                   <div>
-                    <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.darkMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify", hyphens: "auto" }}>
+                    <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify", hyphens: "auto" }}>
                       {f.a}
                     </p>
                   </div>
@@ -538,50 +538,50 @@ function Page4() {
         </div>
       </section>
 
-      {/* FOOTER — DARK */}
-      <footer style={{ backgroundColor: C.darkBg, padding: "clamp(3.5rem,6vw,5rem) 1.5rem 2rem", borderTop: `1px solid ${C.lineDark}` }}>
+      {/* FOOTER — LIGHT */}
+      <footer style={{ backgroundColor: C.lightBgSoft, padding: "clamp(3.5rem,6vw,5rem) 1.5rem 2rem", borderTop: `1px solid ${C.lineLight}` }}>
         <div style={{ maxWidth: "1080px", margin: "0 auto" }}>
           <div style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
             gap: "2.5rem",
             paddingBottom: "2.5rem",
-            borderBottom: `1px solid ${C.lineDark}`,
+            borderBottom: `1px solid ${C.lineLight}`,
           }}>
             {/* Brand */}
             <div>
-              <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.125rem", letterSpacing: "-0.01em", color: C.darkInk, margin: "0 0 0.5rem" }}>
+              <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.125rem", letterSpacing: "-0.01em", color: C.lightInk, margin: "0 0 0.5rem" }}>
                 Jonas Peress
               </p>
-              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.accent, margin: "0 0 0.875rem" }}>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.accentDeep, margin: "0 0 0.875rem" }}>
                 Ciência Sistêmica
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.65, color: C.darkMuted, margin: 0, maxWidth: "28ch" }}>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.65, color: C.lightMuted, margin: 0, maxWidth: "28ch" }}>
                 A lógica sistêmica por trás da sua relação com o dinheiro.
               </p>
             </div>
 
             {/* Event */}
             <div>
-              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.darkMuted, margin: "0 0 1rem" }}>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.lightMuted, margin: "0 0 1rem" }}>
                 Evento
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.darkInk, margin: "0 0 0.25rem" }}>08 de julho · 2026</p>
-              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.darkMuted, margin: "0 0 0.875rem" }}>Balneário Camboriú · SC</p>
-              <a href="#inscricao" style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.accent, textDecoration: "none", borderBottom: `1px solid ${C.accent}55`, paddingBottom: "2px" }}>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightInk, margin: "0 0 0.25rem" }}>08 de julho · 2026</p>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightMuted, margin: "0 0 0.875rem" }}>Balneário Camboriú · SC</p>
+              <a href="#inscricao" style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.accentDeep, textDecoration: "none", borderBottom: `1px solid ${C.accent}55`, paddingBottom: "2px" }}>
                 Garantir vaga →
               </a>
             </div>
 
             {/* Contact */}
             <div>
-              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.darkMuted, margin: "0 0 1rem" }}>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.lightMuted, margin: "0 0 1rem" }}>
                 Contato
               </p>
-              <a href="mailto:contato@jonasperess.com" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.darkInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
+              <a href="mailto:contato@jonasperess.com" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
                 contato@jonasperess.com
               </a>
-              <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, textDecoration: "none" }}>
+              <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, textDecoration: "none" }}>
                 Grupo no WhatsApp
               </a>
             </div>
@@ -591,10 +591,10 @@ function Page4() {
             display: "flex", justifyContent: "space-between", alignItems: "center",
             flexWrap: "wrap", gap: "0.75rem", paddingTop: "1.5rem",
           }}>
-            <p style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.darkMuted, margin: 0 }}>
+            <p style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, margin: 0 }}>
               © 2026 Jonas Peress
             </p>
-            <a href="#top" style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.darkMuted, textDecoration: "none" }}>
+            <a href="#top" style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, textDecoration: "none" }}>
               Voltar ao topo ↑
             </a>
           </div>
