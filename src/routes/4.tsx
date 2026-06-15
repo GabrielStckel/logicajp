@@ -185,7 +185,7 @@ function Page4() {
           </p>
           <h1 className="l-rise-2" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "clamp(2.5rem,7.5vw,5rem)", lineHeight: 1.05, letterSpacing: "-0.02em", color: C.darkInk, margin: "0 0 1.75rem" }}>
             A lógica{" "}
-            <em style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>por trás do dinheiro</em>
+            <em style={{ color: C.accent, fontWeight: 600 }}>por trás do dinheiro</em>
           </h1>
           <p className="l-rise-3" style={{ fontFamily: SANS, fontSize: "clamp(1rem,1.8vw,1.125rem)", lineHeight: 1.75, color: C.darkMuted, maxWidth: "520px", margin: "0 auto 2.5rem" }}>
             A maioria dos seus problemas com dinheiro não são sobre dinheiro. Descubra como sua consciência funciona — e por que tudo muda quando você percebe isso.
@@ -207,7 +207,7 @@ function Page4() {
           <p style={eyebrow(C.accent)}>Falar sobre dinheiro te incomoda?</p>
           <h2 style={h2Style(C.lightInk)}>
             O sofrimento não vem dos problemas.{" "}
-            <em style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>Vem de como você os carrega.</em>
+            <em style={{ color: C.accent, fontWeight: 600 }}>Vem de como você os carrega.</em>
           </h2>
           {[
             <>Você não consegue cobrar bem pelo seu trabalho. Você sente vergonha de falar sobre dinheiro com seu parceiro. Você ganha, mas o dinheiro não fica. Ou simplesmente não consegue ganhar o suficiente para viver com dignidade.</>,
@@ -244,7 +244,7 @@ function Page4() {
         <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" }}>
           <div aria-hidden style={{ width: 36, height: 2, backgroundColor: C.accent, margin: "0 auto 2.75rem" }} />
           <blockquote style={{ margin: 0 }}>
-            <p style={{ fontFamily: SERIF, fontWeight: 400, fontStyle: "italic", fontSize: "clamp(1.25rem,2.8vw,1.625rem)", lineHeight: 1.58, letterSpacing: "-0.01em", color: C.lightInk, marginBottom: "2rem" }}>
+            <p style={{ fontFamily: SERIF, fontWeight: 500, fontSize: "clamp(1.25rem,2.8vw,1.625rem)", lineHeight: 1.58, letterSpacing: "-0.01em", color: C.lightInk, marginBottom: "2rem" }}>
               "A verdade é diferente do que te contaram. Enquanto você não compreender essa <em style={{ color: C.accent }}>lógica sistêmica</em>, continuará tentando resolver sintomas. Mas quando você percebe… <em style={{ color: C.accent }}>tudo muda</em>."
             </p>
             <p style={{ fontFamily: SANS, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, margin: 0 }}>
@@ -277,7 +277,7 @@ function Page4() {
                 Há mais de uma década investigando os sistemas invisíveis que governam nossas vidas, Jonas sistematizou os padrões que mantêm as pessoas presas em ciclos de escassez — mesmo quando ganham bem, trabalham muito ou já fizeram terapia.
               </p>
               <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.darkMuted, margin: 0 }}>
-                Sua abordagem une <em style={{ color: C.accent, fontStyle: "italic", fontFamily: SERIF }}>ciência sistêmica</em> à leitura de comportamento financeiro inconsciente. Não é terapia convencional — é um sistema de percepção que muda a relação com o dinheiro a partir da raiz.
+                Sua abordagem une <em style={{ color: C.accent, fontWeight: 600 }}>ciência sistêmica</em> à leitura de comportamento financeiro inconsciente. Não é terapia convencional — é um sistema de percepção que muda a relação com o dinheiro a partir da raiz.
               </p>
             </div>
           </div>
@@ -290,7 +290,7 @@ function Page4() {
           <p style={eyebrow(C.accent)}>No Workshop</p>
           <h2 style={{ ...h2Style(C.lightInk), marginBottom: "0.75rem" }}>
             O que você vai{" "}
-            <em style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>compreender</em>
+            <em style={{ color: C.accent, fontWeight: 600 }}>compreender</em>
           </h2>
           <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem" }}>
             Você sairá deste encontro com uma percepção diferente. Vai acessar a si mesmo de um jeito que nunca foi possível antes.
@@ -312,7 +312,7 @@ function Page4() {
           <p style={eyebrow(C.darkMuted)}>O Encontro</p>
           <h2 style={h2Style(C.darkInk)}>
             Um encontro presencial{" "}
-            <em style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>exclusivo</em>
+            <em style={{ color: C.accent, fontWeight: 600 }}>exclusivo</em>
           </h2>
           <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2rem" }}>
             Este é um encontro presencial exclusivo em Balneário Camboriú, desenhado para quem busca respostas profundas e definitivas.
@@ -349,7 +349,7 @@ function Page4() {
               <p style={{ ...eyebrow(C.accent), textAlign: "center" }}>Garanta sua vaga</p>
               <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "clamp(1.875rem,4.5vw,3rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: C.lightInk, marginBottom: "0.75rem", textAlign: "center" }}>
                 Você merece{" "}
-                <em style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>compreender</em>
+                <em style={{ color: C.accent, fontWeight: 600 }}>compreender</em>
               </h2>
               <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.65, color: C.lightMuted, textAlign: "center", marginBottom: "2.5rem" }}>
                 Dia 08 de julho · Balneário Camboriú · Gratuito · 60 vagas
@@ -399,7 +399,7 @@ function Page4() {
           <p style={eyebrow(C.darkMuted)}>Dúvidas Frequentes</p>
           <h2 style={{ ...h2Style(C.darkInk), marginBottom: "2.5rem" }}>
             Respostas{" "}
-            <em style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>diretas</em>
+            <em style={{ color: C.accent, fontWeight: 600 }}>diretas</em>
           </h2>
           {faqs.map((f, i) => {
             const open = openFaq === i;
@@ -438,7 +438,7 @@ function Page4() {
         <div style={{ maxWidth: "580px", margin: "0 auto" }}>
           <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "clamp(1.875rem,4.5vw,3rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: C.lightInk, marginBottom: "1.25rem" }}>
             Você merece entender por que funciona{" "}
-            <em style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>do jeito que funciona.</em>
+            <em style={{ color: C.accent, fontWeight: 600 }}>do jeito que funciona.</em>
           </h2>
           <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.72, color: C.lightMuted, marginBottom: "2.25rem" }}>
             Você merece sair do ciclo de inferioridade e da sensação de impotência que a escassez provoca. Você merece, finalmente, compreender a lógica sistêmica do dinheiro e assumir o seu lugar de abundância.
