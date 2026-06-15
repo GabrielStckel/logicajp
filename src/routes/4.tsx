@@ -475,18 +475,18 @@ function Page4() {
         </div>
       </section>
 
-      {/* FAQ — DARK */}
-      <section style={{ backgroundColor: C.darkBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      {/* FAQ — LIGHT */}
+      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <p style={eyebrow(C.darkMuted)}>Dúvidas Frequentes</p>
-          <h2 style={{ ...h2Style(C.darkInk), marginBottom: "2.5rem" }}>
+          <p style={eyebrow(C.lightMuted)}>Dúvidas Frequentes</p>
+          <h2 style={{ ...h2Style(C.lightInk), marginBottom: "2.5rem" }}>
             Respostas{" "}
-            <span style={{ color: C.accent, fontWeight: 600 }}>diretas</span>
+            <span style={{ color: C.accentDeep, fontWeight: 600 }}>diretas</span>
           </h2>
           {faqs.map((f, i) => {
             const open = openFaq === i;
             return (
-              <div key={i} style={{ borderBottom: `1px solid ${C.lineDark}` }}>
+              <div key={i} style={{ borderBottom: `1px solid ${C.lineLight}` }}>
                 <button
                   onClick={() => setOpenFaq(open ? null : i)}
                   aria-expanded={open}
@@ -497,14 +497,14 @@ function Page4() {
                     textAlign: "left", gap: "1rem", color: "inherit",
                   }}
                 >
-                  <span style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.35, letterSpacing: "-0.01em", color: C.darkInk }}>
+                  <span style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.35, letterSpacing: "-0.01em", color: C.lightInk }}>
                     {f.q}
                   </span>
-                  <span aria-hidden style={{ color: C.accent, fontSize: "1.375rem", lineHeight: 1, flexShrink: 0, transform: open ? "rotate(45deg)" : "rotate(0deg)", transition: "transform .25s ease" }}>+</span>
+                  <span aria-hidden style={{ color: C.accentDeep, fontSize: "1.375rem", lineHeight: 1, flexShrink: 0, transform: open ? "rotate(45deg)" : "rotate(0deg)", transition: "transform .25s ease" }}>+</span>
                 </button>
                 <div className={`l-faq-panel${open ? " open" : ""}`}>
                   <div>
-                    <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.darkMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify", hyphens: "auto" }}>
+                    <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify", hyphens: "auto" }}>
                       {f.a}
                     </p>
                   </div>
