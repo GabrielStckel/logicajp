@@ -1,20 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
+// Paleta espelhada da página "/" (tokens em src/styles.css)
+// background hsl(30 15% 98%) · foreground hsl(215 25% 12%) · muted hsl(215 15% 45%)
+// accent hsl(35 35% 55%) · surface hsl(30 10% 95%)
 const C = {
-  darkBg: "#0D1410",
-  darkBgSoft: "#131D18",
-  darkInk: "#F0F5F2",
-  darkMuted: "#7A9486",
-  lightBg: "#F5F7F5",
-  lightBgSoft: "#EAEEEA",
-  lightInk: "#0D1410",
-  lightMuted: "#3D5449",
-  accent: "#3ECF8E",
-  accentDeep: "#27A36D",
-  accentLight: "#5CDBA0",
-  lineDark: "#1F2E28",
-  lineLight: "#D0DAD2",
+  darkBg: "#171D26",       // foreground
+  darkBgSoft: "#1F2630",   // foreground (levemente clareado p/ camadas)
+  darkInk: "#FBFAF9",      // background sobre escuro
+  darkMuted: "#9AA0AB",    // muted sobre escuro
+  lightBg: "#FBFAF9",      // background
+  lightBgSoft: "#F4F2F1",  // surface
+  lightInk: "#171D26",     // foreground
+  lightMuted: "#627084",   // muted
+  accent: "#B49364",       // accent
+  accentDeep: "#8E7048",   // accent (escurecido p/ contraste em fundo claro)
+  accentLight: "#CCAE85",  // accent (clareado p/ hover)
+  lineDark: "#2A313B",     // border sobre escuro
+  lineLight: "#E5E3E0",    // border (foreground @ 8% sobre cream)
 } as const;
 
 const SERIF = "'Playfair Display', Georgia, serif";
