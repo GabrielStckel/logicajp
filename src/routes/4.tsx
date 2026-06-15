@@ -125,6 +125,7 @@ function Page4() {
     borderRadius: "2px", padding: "0.875rem 1rem",
     fontFamily: SANS, fontSize: "1rem", color: C.lightInk,
     outline: "none", caretColor: C.accent,
+    transition: "border-color .25s ease, box-shadow .25s ease, background-color .25s ease",
   });
 
   return (
