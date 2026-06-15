@@ -206,7 +206,7 @@ function Page4() {
           {/* Headline — massive editorial */}
           <h1 className="l-rise-2" style={{
             fontFamily: SERIF, fontWeight: 700,
-            fontSize: "clamp(2.75rem, 9.5vw, 7.5rem)", lineHeight: 0.96,
+            fontSize: "clamp(2.5rem, 7vw, 5rem)", lineHeight: 0.96,
             letterSpacing: "-0.035em", color: C.darkInk,
             margin: 0, maxWidth: "16ch",
           }}>
