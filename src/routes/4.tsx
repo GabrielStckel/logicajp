@@ -393,7 +393,7 @@ function Page4() {
             Um encontro presencial{" "}
             <span style={{ color: C.accent, fontWeight: 600 }}>exclusivo</span>
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2rem" }}>
+          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2rem", textAlign: "justify", hyphens: "auto" }}>
             Este é um encontro presencial exclusivo em Balneário Camboriú, desenhado para quem busca respostas profundas e definitivas.
           </p>
           {eventDetails.map((d, i) => (
