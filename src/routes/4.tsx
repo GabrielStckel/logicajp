@@ -229,7 +229,8 @@ function Page4() {
             fontSize: "clamp(1.0625rem, 1.6vw, 1.25rem)", lineHeight: 1.6,
             color: C.lightMuted, maxWidth: "44ch",
             margin: "clamp(1.75rem,3.5vw,2.75rem) 0 0",
-          }}>
+            textAlign: "justify",
+          }}
             A maioria dos seus problemas com dinheiro <span style={{ color: C.lightInk, fontWeight: 500 }}>não são sobre dinheiro</span>. Uma investigação presencial sobre as leis sistêmicas invisíveis que governam a sua prosperidade.
           </p>
 
