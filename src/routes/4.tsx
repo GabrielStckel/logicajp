@@ -38,10 +38,10 @@ const painPoints = [
 ];
 
 const benefits = [
-  "Por que você tem dificuldade real de cobrar pelo seu trabalho —\ne como destravar isso.",
+  "Por que você tem dificuldade real de cobrar pelo seu trabalho e como destravar isso.",
   "A origem da vergonha de falar sobre dinheiro e como se libertar desse peso.",
-  "O motivo sistêmico pelo qual o dinheiro não fica com você\n(ou nem chega a entrar).",
-  "Por que você se sente inferior e impotente frente às questões\nfinanceiras.",
+  "O motivo sistêmico pelo qual o dinheiro não fica com você (ou nem chega a entrar).",
+  "Por que você se sente inferior e impotente frente às questões financeiras.",
   "Qual é a lógica sistêmica que governa sua vida material hoje.",
   "Como realizar uma mudança de postura real — não superficial, mas na raiz da sua consciência.",
 ];
@@ -416,8 +416,9 @@ function Page4() {
 
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))",
-            gap: "1rem",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gridAutoRows: "1fr",
+            gap: "1.25rem",
           }}>
             {benefits.map((b, i) => (
               <div key={i} style={{
@@ -428,6 +429,9 @@ function Page4() {
                 position: "relative",
                 overflow: "hidden",
                 transition: "box-shadow .25s ease, transform .25s ease",
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
               }} className="l-benefit-card">
                 {/* Top accent bar */}
                 <div aria-hidden style={{
@@ -481,6 +485,7 @@ function Page4() {
                   position: "relative",
                   zIndex: 1,
                   whiteSpace: "pre-line",
+                  flex: "1 1 auto",
                 }}>{b}</p>
               </div>
             ))}
