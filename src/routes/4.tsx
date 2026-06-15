@@ -287,7 +287,7 @@ function Page4() {
       </section>
 
       {/* PAIN INTRO — LIGHT */}
-      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
           <p style={eyebrow(C.accentDeep)}>Falar sobre dinheiro te incomoda?</p>
           <h2 style={h2Style(C.lightInk)}>
@@ -305,7 +305,7 @@ function Page4() {
       </section>
 
       {/* PAIN MIRROR — LIGHT */}
-      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
           <p style={eyebrow(C.lightMuted)}>Você se reconhece</p>
           <h2 style={{ ...h2Style(C.lightInk), marginBottom: "0.75rem" }}>Isso não é uma fraqueza sua.</h2>
@@ -325,7 +325,7 @@ function Page4() {
       </section>
 
       {/* PULL QUOTE — LIGHT */}
-      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4.5rem,9vw,7rem) 1.5rem" }}>
+      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4.5rem,9vw,7rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
         <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" }}>
           <div aria-hidden style={{ width: 36, height: 2, backgroundColor: C.accent, margin: "0 auto 2.75rem" }} />
           <blockquote style={{ margin: 0 }}>
@@ -341,7 +341,7 @@ function Page4() {
       </section>
 
       {/* ABOUT JONAS — LIGHT */}
-      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <p style={eyebrow(C.lightMuted)}>Quem conduz</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "3rem", alignItems: "center" }}>
@@ -370,7 +370,7 @@ function Page4() {
       </section>
 
       {/* BENEFITS — LIGHT */}
-      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
           <p style={eyebrow(C.accentDeep)}>No Workshop</p>
           <h2 style={{ ...h2Style(C.lightInk), marginBottom: "0.75rem" }}>
@@ -392,7 +392,7 @@ function Page4() {
       </section>
 
       {/* EVENT INFO — LIGHT */}
-      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
           <p style={eyebrow(C.lightMuted)}>O Encontro</p>
           <h2 style={h2Style(C.lightInk)}>
@@ -415,7 +415,7 @@ function Page4() {
       </section>
 
       {/* REGISTRATION FORM — LIGHT */}
-      <section id="inscricao" style={{ backgroundColor: C.lightBg, padding: "clamp(5rem,10vw,8rem) 1.5rem" }}>
+      <section id="inscricao" style={{ backgroundColor: C.lightBgSoft, padding: "clamp(5rem,10vw,8rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
         <div style={{ maxWidth: "520px", margin: "0 auto" }}>
           {submitted ? (
             <div style={{ textAlign: "center" }}>
@@ -479,7 +479,7 @@ function Page4() {
       </section>
 
       {/* FAQ — LIGHT */}
-      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
           <p style={eyebrow(C.lightMuted)}>Dúvidas Frequentes</p>
           <h2 style={{ ...h2Style(C.lightInk), marginBottom: "2.5rem" }}>
@@ -519,7 +519,7 @@ function Page4() {
       </section>
 
       {/* CLOSING CTA — LIGHT */}
-      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4.5rem,9vw,7rem) 1.5rem", textAlign: "center" }}>
+      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4.5rem,9vw,7rem) 1.5rem", textAlign: "center", borderTop: `1px solid ${C.lineLight}` }}>
         <div style={{ maxWidth: "580px", margin: "0 auto" }}>
           <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.875rem,4.5vw,3rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: C.lightInk, marginBottom: "1.25rem" }}>
             Você merece entender por que funciona{" "}
