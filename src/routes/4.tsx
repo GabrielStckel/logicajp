@@ -132,16 +132,17 @@ function Page4() {
       <style>{`
         @keyframes l-spin { to { transform: rotate(360deg); } }
         @keyframes l-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes l-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.55; transform: scale(1.35); } }
         .l-rise { animation: l-rise .8s ease-out both; }
         .l-rise-2 { animation: l-rise .8s ease-out .15s both; }
         .l-rise-3 { animation: l-rise .8s ease-out .3s both; }
         .l-rise-4 { animation: l-rise .8s ease-out .45s both; }
-        .l-cta:hover { background-color: ${C.accentLight} !important; }
+        .l-cta:hover { background-color: ${C.accentLight} !important; transform: translateY(-1px); }
         .l-ghost:hover { background-color: ${C.accent}18 !important; border-color: ${C.accent}66 !important; }
         .l-faq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
         .l-faq-panel.open { grid-template-rows: 1fr; }
         .l-faq-panel > div { overflow: hidden; }
-        input:focus { border-color: ${C.accent} !important; }
+        input:focus { border-color: ${C.accent} !important; box-shadow: 0 0 0 3px ${C.accent}22; }
       `}</style>
 
       {/* NAVBAR — LIGHT */}
@@ -516,67 +517,194 @@ function Page4() {
         </div>
       </section>
 
-      {/* REGISTRATION FORM — LIGHT */}
-      <section id="inscricao" style={{ backgroundColor: C.lightBgSoft, padding: "clamp(5rem,10vw,8rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
-        <div style={{ maxWidth: "520px", margin: "0 auto" }}>
-          {submitted ? (
-            <div style={{ textAlign: "center" }}>
-              <div style={{ width: 52, height: 52, borderRadius: "50%", border: `1.5px solid ${C.accent}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem", fontSize: "1.25rem", color: C.accent }}>✓</div>
-              <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.5rem,3.5vw,2.25rem)", lineHeight: 1.2, color: C.lightInk, marginBottom: "1rem" }}>Inscrição confirmada.</h2>
-              <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "0.5rem" }}>
-                O grupo do WhatsApp foi aberto em uma nova aba. Você receberá todas as informações por lá.
-              </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.875rem", color: C.lightMuted }}>
-                Se a aba não abriu,{" "}
-                <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ color: C.accentDeep, textDecoration: "underline" }}>clique aqui para entrar no grupo</a>.
+      {/* REGISTRATION FORM — LIGHT · Editorial split */}
+      <section id="inscricao" style={{
+        position: "relative", overflow: "hidden",
+        backgroundColor: C.darkBg, color: C.darkInk,
+        padding: "clamp(4rem,8vw,7rem) clamp(1.25rem,4vw,3rem)",
+        borderTop: `1px solid ${C.lineDark}`,
+      }}>
+        {/* Backdrop glow */}
+        <div aria-hidden style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: `radial-gradient(ellipse 60% 50% at 85% 20%, ${C.accent}22, transparent 60%), radial-gradient(ellipse 50% 45% at 5% 90%, ${C.accent}14, transparent 60%)`,
+        }} />
+        <div aria-hidden style={{
+          position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.5,
+          backgroundImage: `linear-gradient(${C.lineDark} 1px, transparent 1px)`,
+          backgroundSize: "100% clamp(7rem, 12vh, 9rem)",
+          maskImage: "linear-gradient(to bottom, transparent, black 25%, black 75%, transparent)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 25%, black 75%, transparent)",
+        }} />
+
+        <div style={{
+          position: "relative", zIndex: 1, maxWidth: "1100px", margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
+          gap: "clamp(2.5rem, 5vw, 4.5rem)",
+          alignItems: "start",
+        }}>
+          {/* LEFT — Editorial pitch */}
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "1.75rem" }}>
+              <span aria-hidden style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: C.accent, boxShadow: `0 0 14px ${C.accent}88`, flexShrink: 0 }} />
+              <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accentLight }}>
+                Inscrição · Edição única
+              </span>
+            </div>
+
+            <h2 style={{
+              fontFamily: SERIF, fontWeight: 700,
+              fontSize: "clamp(2rem, 5vw, 3.25rem)", lineHeight: 1.02,
+              letterSpacing: "-0.025em", color: C.darkInk,
+              margin: "0 0 1.5rem", maxWidth: "14ch",
+            }}>
+              Você merece{" "}
+              <span style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>compreender</span>.
+            </h2>
+
+            <p style={{
+              fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7,
+              color: C.darkMuted, margin: "0 0 2rem", maxWidth: "38ch",
+            }}>
+              Uma noite presencial em Balneário Camboriú dedicada às leis sistêmicas invisíveis que governam sua relação com o dinheiro.
+            </p>
+
+            {/* Recap chips */}
+            <div style={{ display: "grid", gap: "0.875rem", maxWidth: "360px" }}>
+              {[
+                { k: "Quando", v: "08 jul · 2026 · 19h30" },
+                { k: "Onde", v: "Balneário Camboriú · SC" },
+                { k: "Investimento", v: "Gratuito" },
+              ].map((r) => (
+                <div key={r.k} style={{
+                  display: "flex", justifyContent: "space-between", alignItems: "baseline",
+                  gap: "1rem", padding: "0.75rem 0",
+                  borderBottom: `1px solid ${C.lineDark}`,
+                }}>
+                  <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.darkMuted }}>
+                    {r.k}
+                  </span>
+                  <span style={{ fontFamily: DISPLAY, fontSize: "0.9375rem", fontWeight: 600, color: C.darkInk, textAlign: "right" }}>
+                    {r.v}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Scarcity */}
+            <div style={{
+              marginTop: "2rem", padding: "1rem 1.125rem",
+              border: `1px solid ${C.accent}40`,
+              backgroundColor: `${C.accent}0F`,
+              borderRadius: "2px",
+              display: "flex", alignItems: "center", gap: "0.75rem",
+            }}>
+              <span aria-hidden style={{
+                width: 8, height: 8, borderRadius: "50%",
+                backgroundColor: C.accent,
+                boxShadow: `0 0 12px ${C.accent}AA`,
+                flexShrink: 0,
+                animation: "l-pulse 2s ease-in-out infinite",
+              }} />
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.5, color: C.darkInk, margin: 0 }}>
+                <strong style={{ fontWeight: 600 }}>60 vagas</strong>{" "}
+                <span style={{ color: C.darkMuted }}>· estritamente limitadas pelo espaço.</span>
               </p>
             </div>
-          ) : (
-            <form onSubmit={submit}>
-              <p style={{ ...eyebrow(C.accentDeep), textAlign: "center" }}>Garanta sua vaga</p>
-              <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.875rem,4.5vw,3rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: C.lightInk, marginBottom: "0.75rem", textAlign: "center" }}>
-                Você merece{" "}
-                <span style={{ color: C.accentDeep, fontWeight: 600 }}>compreender</span>
-              </h2>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.65, color: C.lightMuted, textAlign: "center", marginBottom: "2.5rem" }}>
-                Dia 08 de julho · Balneário Camboriú · Gratuito · 60 vagas
-              </p>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-                {([
-                  { k: "name" as const, label: "Nome completo", type: "text", placeholder: "Seu nome completo", autoComplete: "name" },
-                  { k: "email" as const, label: "E-mail", type: "email", placeholder: "seu@email.com", autoComplete: "email" },
-                  { k: "phone" as const, label: "WhatsApp", type: "tel", placeholder: "(47) 99999-0000", autoComplete: "tel" },
-                ]).map((f) => (
-                  <div key={f.k} style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                    <label htmlFor={`f-${f.k}`} style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.lightInk, letterSpacing: "0.02em" }}>
-                      {f.label} <span style={{ color: C.accentDeep }}>*</span>
-                    </label>
-                    <input
-                      id={`f-${f.k}`} type={f.type} autoComplete={f.autoComplete}
-                      placeholder={f.placeholder} value={fields[f.k]}
-                      onChange={(e) => set(f.k, e.target.value)}
-                      style={inputStyle(errors[f.k])}
-                    />
-                    {errors[f.k] && (
-                      <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: "#C0392B", margin: 0 }}>{errors[f.k]}</p>
-                    )}
-                  </div>
-                ))}
-                <button type="submit" className="l-cta" style={{
-                  width: "100%", padding: "1.0625rem", backgroundColor: C.accent,
-                  color: C.darkBg, border: "none", borderRadius: "2px",
-                  fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 500,
-                  letterSpacing: "0.04em", cursor: "pointer",
-                  transition: "background-color .2s ease",
-                }}>
-                  Inscrever-se Gratuitamente →
-                </button>
-                <p style={{ fontFamily: SANS, fontSize: "0.75rem", color: C.lightMuted, textAlign: "center", margin: 0 }}>
-                  Ao se inscrever, você será adicionado ao grupo do WhatsApp com todas as informações do evento. Vagas limitadas a 60 pessoas.
+          </div>
+
+          {/* RIGHT — Form card */}
+          <div style={{
+            backgroundColor: C.lightBg, color: C.lightInk,
+            padding: "clamp(1.75rem, 3.5vw, 2.75rem)",
+            border: `1px solid ${C.lineDark}`,
+            borderRadius: "4px",
+            boxShadow: `0 30px 80px -30px ${C.darkBg}AA, 0 0 0 1px ${C.accent}1F`,
+            position: "relative",
+          }}>
+            {/* accent ribbon */}
+            <div aria-hidden style={{
+              position: "absolute", top: 0, left: "1.5rem", right: "1.5rem",
+              height: "2px",
+              background: `linear-gradient(90deg, transparent, ${C.accent}, transparent)`,
+            }} />
+
+            {submitted ? (
+              <div style={{ textAlign: "center", padding: "1rem 0" }}>
+                <div style={{ width: 56, height: 56, borderRadius: "50%", border: `1.5px solid ${C.accent}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem", fontSize: "1.5rem", color: C.accentDeep }}>✓</div>
+                <h3 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.375rem,3vw,1.875rem)", lineHeight: 1.2, color: C.lightInk, margin: "0 0 0.875rem" }}>Inscrição confirmada.</h3>
+                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.65, color: C.lightMuted, margin: "0 0 0.5rem" }}>
+                  O grupo do WhatsApp foi aberto em uma nova aba. Você receberá todas as informações por lá.
+                </p>
+                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, margin: 0 }}>
+                  Se a aba não abriu,{" "}
+                  <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ color: C.accentDeep, textDecoration: "underline" }}>clique aqui para entrar no grupo</a>.
                 </p>
               </div>
-            </form>
-          )}
+            ) : (
+              <form onSubmit={submit}>
+                <div style={{ marginBottom: "1.5rem" }}>
+                  <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accentDeep, margin: "0 0 0.625rem" }}>
+                    Garanta sua vaga
+                  </p>
+                  <h3 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.25rem, 2.4vw, 1.625rem)", lineHeight: 1.2, letterSpacing: "-0.015em", color: C.lightInk, margin: 0 }}>
+                    Preencha para receber o acesso ao grupo.
+                  </h3>
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: "1.125rem" }}>
+                  {([
+                    { k: "name" as const, label: "Nome completo", type: "text", placeholder: "Seu nome completo", autoComplete: "name" },
+                    { k: "email" as const, label: "E-mail", type: "email", placeholder: "seu@email.com", autoComplete: "email" },
+                    { k: "phone" as const, label: "WhatsApp", type: "tel", placeholder: "(47) 99999-0000", autoComplete: "tel" },
+                  ]).map((f) => (
+                    <div key={f.k} style={{ display: "flex", flexDirection: "column", gap: "0.4375rem" }}>
+                      <label htmlFor={`f-${f.k}`} style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: C.lightMuted }}>
+                        {f.label}
+                      </label>
+                      <input
+                        id={`f-${f.k}`} type={f.type} autoComplete={f.autoComplete}
+                        placeholder={f.placeholder} value={fields[f.k]}
+                        onChange={(e) => set(f.k, e.target.value)}
+                        style={inputStyle(errors[f.k])}
+                      />
+                      {errors[f.k] && (
+                        <p style={{ fontFamily: SANS, fontSize: "0.75rem", color: "#C0392B", margin: 0 }}>{errors[f.k]}</p>
+                      )}
+                    </div>
+                  ))}
+
+                  <button type="submit" className="l-cta" style={{
+                    marginTop: "0.5rem",
+                    width: "100%", padding: "1.125rem", backgroundColor: C.accentDeep,
+                    color: C.lightBg, border: "none", borderRadius: "2px",
+                    fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600,
+                    letterSpacing: "0.02em", cursor: "pointer",
+                    transition: "background-color .2s ease, transform .2s ease",
+                    boxShadow: `0 14px 36px -14px ${C.accentDeep}AA`,
+                    display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.625rem",
+                  }}>
+                    Confirmar minha inscrição
+                    <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
+                  </button>
+
+                  {/* Trust row */}
+                  <div style={{
+                    display: "flex", alignItems: "center", gap: "0.625rem",
+                    marginTop: "0.25rem",
+                    paddingTop: "1rem",
+                    borderTop: `1px solid ${C.lineLight}`,
+                  }}>
+                    <span aria-hidden style={{ color: C.accentDeep, fontSize: "0.9rem", lineHeight: 1 }}>🔒</span>
+                    <p style={{ fontFamily: SANS, fontSize: "0.75rem", lineHeight: 1.5, color: C.lightMuted, margin: 0 }}>
+                      Seus dados são usados apenas para confirmar sua participação no evento.
+                    </p>
+                  </div>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </section>
 
