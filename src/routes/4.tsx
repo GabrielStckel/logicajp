@@ -128,7 +128,7 @@ function Page4() {
   });
 
   return (
-    <div style={{ backgroundColor: C.darkBg, fontFamily: SANS, WebkitFontSmoothing: "antialiased" }}>
+    <div style={{ backgroundColor: C.lightBg, fontFamily: SANS, WebkitFontSmoothing: "antialiased" }}>
       <style>{`
         @keyframes l-spin { to { transform: rotate(360deg); } }
         @keyframes l-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
@@ -144,21 +144,21 @@ function Page4() {
         input:focus { border-color: ${C.accent} !important; }
       `}</style>
 
-      {/* NAVBAR — DARK */}
+      {/* NAVBAR — LIGHT */}
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
         display: "flex", alignItems: "center", justifyContent: "space-between",
         padding: "1.125rem 1.5rem",
-        backgroundColor: `${C.darkBg}E8`,
+        backgroundColor: `${C.lightBg}E8`,
         backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)",
-        borderBottom: `1px solid ${C.lineDark}`,
+        borderBottom: `1px solid ${C.lineLight}`,
       }}>
-        <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", color: C.darkMuted }}>
+        <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", color: C.lightMuted }}>
           Ciência Sistêmica · Jonas Peress
         </span>
         <a href="#inscricao" className="l-ghost" style={{
           fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500,
-          color: C.accent, textDecoration: "none",
+          color: C.accentDeep, textDecoration: "none",
           padding: "0.5rem 1.125rem", border: `1px solid ${C.accent}33`,
           borderRadius: "2px", transition: "all .2s ease",
         }}>Garantir vaga</a>
