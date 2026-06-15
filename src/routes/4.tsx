@@ -293,7 +293,7 @@ function Page4() {
             <>E pior: você sente uma <strong style={{ fontWeight: 600 }}>impotência profunda</strong>. Uma inferioridade e insuficiência constante. Como se houvesse algo errado com você. Você tenta ganhar mais, economizar, investir. Nada soluciona. A <strong style={{ fontWeight: 600 }}>carga emocional</strong> é tão pesada que você acaba desistindo.</>,
             <>E então, você se culpa. Mas a verdade é diferente do que te contaram. A maioria dos seus problemas com dinheiro <strong style={{ fontWeight: 600 }}>não são sobre dinheiro</strong>. São sobre como sua consciência funciona — padrões inconscientes, crenças herdadas, lealdades sistêmicas. Mas quando você percebe… <strong style={{ fontWeight: 600 }}>tudo muda</strong>.</>,
           ].map((p, i) => (
-            <p key={i} style={{ fontFamily: SANS, fontSize: "clamp(1rem,1.5vw,1.0625rem)", lineHeight: 1.75, color: C.lightInk, marginBottom: "1.25rem" }}>{p}</p>
+            <p key={i} style={{ fontFamily: SANS, fontSize: "clamp(1rem,1.5vw,1.0625rem)", lineHeight: 1.75, color: C.lightInk, marginBottom: "1.25rem", textAlign: "justify", hyphens: "auto" }}>{p}</p>
           ))}
         </div>
       </section>
@@ -303,7 +303,7 @@ function Page4() {
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
           <p style={eyebrow(C.darkMuted)}>Você se reconhece</p>
           <h2 style={{ ...h2Style(C.darkInk), marginBottom: "0.75rem" }}>Isso não é uma fraqueza sua.</h2>
-          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2.5rem" }}>
+          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2.5rem", textAlign: "justify", hyphens: "auto" }}>
             Se você se identifica com um ou mais dos pontos abaixo, saiba que não está sozinho. É algo muito mais profundo do que falta de disciplina.
           </p>
           {painPoints.map((p, i) => (
@@ -352,10 +352,10 @@ function Page4() {
               <p style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.accent, marginBottom: "1.5rem" }}>
                 Facilitador · Ciência Sistêmica
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.darkMuted, marginBottom: "1rem" }}>
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.darkMuted, marginBottom: "1rem", textAlign: "justify", hyphens: "auto" }}>
                 Há mais de uma década investigando os sistemas invisíveis que governam nossas vidas, Jonas sistematizou os padrões que mantêm as pessoas presas em ciclos de escassez — mesmo quando ganham bem, trabalham muito ou já fizeram terapia.
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.darkMuted, margin: 0 }}>
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.darkMuted, margin: 0, textAlign: "justify", hyphens: "auto" }}>
                 Sua abordagem une <span style={{ color: C.accent, fontWeight: 600 }}>ciência sistêmica</span> à leitura de comportamento financeiro inconsciente. Não é terapia convencional — é um sistema de percepção que muda a relação com o dinheiro a partir da raiz.
               </p>
             </div>
@@ -371,7 +371,7 @@ function Page4() {
             O que você vai{" "}
             <span style={{ color: C.accentDeep, fontWeight: 600 }}>compreender</span>
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem" }}>
+          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem", textAlign: "justify", hyphens: "auto" }}>
             Você sairá deste encontro com uma percepção diferente. Vai acessar a si mesmo de um jeito que nunca foi possível antes.
           </p>
           {benefits.map((b, i) => (
@@ -393,7 +393,7 @@ function Page4() {
             Um encontro presencial{" "}
             <span style={{ color: C.accent, fontWeight: 600 }}>exclusivo</span>
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2rem" }}>
+          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2rem", textAlign: "justify", hyphens: "auto" }}>
             Este é um encontro presencial exclusivo em Balneário Camboriú, desenhado para quem busca respostas profundas e definitivas.
           </p>
           {eventDetails.map((d, i) => (
@@ -501,7 +501,7 @@ function Page4() {
                 </button>
                 <div className={`l-faq-panel${open ? " open" : ""}`}>
                   <div>
-                    <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.darkMuted, paddingBottom: "1.375rem", margin: 0 }}>
+                    <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.darkMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify", hyphens: "auto" }}>
                       {f.a}
                     </p>
                   </div>
@@ -536,14 +536,65 @@ function Page4() {
       </section>
 
       {/* FOOTER — DARK */}
-      <footer style={{ backgroundColor: C.darkBg, padding: "3rem 1.5rem", borderTop: `1px solid ${C.lineDark}` }}>
-        <div style={{ maxWidth: "640px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "0.625rem" }}>
-          <p style={{ fontFamily: SANS, fontSize: "0.75rem", color: C.darkMuted, margin: 0 }}>
-            Jonas Peress · Ciência Sistêmica
-          </p>
-          <p style={{ fontFamily: SANS, fontSize: "0.6875rem", color: C.darkMuted, opacity: 0.4, margin: 0 }}>
-            Documento elaborado em 09 de junho de 2026. As informações contidas são de responsabilidade do organizador.
-          </p>
+      <footer style={{ backgroundColor: C.darkBg, padding: "clamp(3.5rem,6vw,5rem) 1.5rem 2rem", borderTop: `1px solid ${C.lineDark}` }}>
+        <div style={{ maxWidth: "1080px", margin: "0 auto" }}>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gap: "2.5rem",
+            paddingBottom: "2.5rem",
+            borderBottom: `1px solid ${C.lineDark}`,
+          }}>
+            {/* Brand */}
+            <div>
+              <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.125rem", letterSpacing: "-0.01em", color: C.darkInk, margin: "0 0 0.5rem" }}>
+                Jonas Peress
+              </p>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.accent, margin: "0 0 0.875rem" }}>
+                Ciência Sistêmica
+              </p>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.65, color: C.darkMuted, margin: 0, maxWidth: "28ch" }}>
+                A lógica sistêmica por trás da sua relação com o dinheiro.
+              </p>
+            </div>
+
+            {/* Event */}
+            <div>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.darkMuted, margin: "0 0 1rem" }}>
+                Evento
+              </p>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.darkInk, margin: "0 0 0.25rem" }}>08 de julho · 2026</p>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.darkMuted, margin: "0 0 0.875rem" }}>Balneário Camboriú · SC</p>
+              <a href="#inscricao" style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.accent, textDecoration: "none", borderBottom: `1px solid ${C.accent}55`, paddingBottom: "2px" }}>
+                Garantir vaga →
+              </a>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.darkMuted, margin: "0 0 1rem" }}>
+                Contato
+              </p>
+              <a href="mailto:contato@jonasperess.com" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.darkInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
+                contato@jonasperess.com
+              </a>
+              <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, textDecoration: "none" }}>
+                Grupo no WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div style={{
+            display: "flex", justifyContent: "space-between", alignItems: "center",
+            flexWrap: "wrap", gap: "0.75rem", paddingTop: "1.5rem",
+          }}>
+            <p style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.darkMuted, margin: 0 }}>
+              © 2026 Jonas Peress
+            </p>
+            <a href="#top" style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.darkMuted, textDecoration: "none" }}>
+              Voltar ao topo ↑
+            </a>
+          </div>
         </div>
       </footer>
     </div>
