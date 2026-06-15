@@ -310,7 +310,7 @@ function Page4() {
             <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineDark}` }}>
               <span aria-hidden style={{ color: C.accent, fontSize: "0.875rem", marginTop: "0.25rem", flexShrink: 0, fontWeight: 500 }}>✓</span>
               <div>
-                <span style={{ fontFamily: SANS, fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.accent, display: "block", marginBottom: "0.25rem" }}>{p.label}</span>
+                <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.accent, display: "block", marginBottom: "0.25rem" }}>{p.label}</span>
                 <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.darkInk, margin: 0 }}>{p.text}</p>
               </div>
             </div>
@@ -398,9 +398,9 @@ function Page4() {
           </p>
           {eventDetails.map((d, i) => (
             <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineDark}`, gap: "1rem", flexWrap: "wrap" }}>
-              <span style={{ fontFamily: SANS, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.darkMuted, minWidth: "90px", paddingTop: "0.2rem" }}>{d.label}</span>
+              <span style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.darkMuted, minWidth: "90px", paddingTop: "0.2rem" }}>{d.label}</span>
               <div style={{ textAlign: "right" }}>
-                <p style={{ fontFamily: SERIF, fontSize: "1.0625rem", fontWeight: d.label === "Investimento" ? 700 : 400, color: d.label === "Investimento" ? C.accent : C.darkInk, margin: 0, lineHeight: 1.3 }}>{d.value}</p>
+                <p style={{ fontFamily: DISPLAY, fontSize: "1.0625rem", fontWeight: d.label === "Investimento" ? 700 : 400, color: d.label === "Investimento" ? C.accent : C.darkInk, margin: 0, lineHeight: 1.3 }}>{d.value}</p>
                 <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, margin: "0.2rem 0 0" }}>{d.sub}</p>
               </div>
             </div>
@@ -414,7 +414,7 @@ function Page4() {
           {submitted ? (
             <div style={{ textAlign: "center" }}>
               <div style={{ width: 52, height: 52, borderRadius: "50%", border: `1.5px solid ${C.accent}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem", fontSize: "1.25rem", color: C.accent }}>✓</div>
-              <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "clamp(1.5rem,3.5vw,2.25rem)", lineHeight: 1.2, color: C.lightInk, marginBottom: "1rem" }}>Inscrição confirmada.</h2>
+              <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.5rem,3.5vw,2.25rem)", lineHeight: 1.2, color: C.lightInk, marginBottom: "1rem" }}>Inscrição confirmada.</h2>
               <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "0.5rem" }}>
                 O grupo do WhatsApp foi aberto em uma nova aba. Você receberá todas as informações por lá.
               </p>
@@ -426,7 +426,7 @@ function Page4() {
           ) : (
             <form onSubmit={submit}>
               <p style={{ ...eyebrow(C.accent), textAlign: "center" }}>Garanta sua vaga</p>
-              <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "clamp(1.875rem,4.5vw,3rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: C.lightInk, marginBottom: "0.75rem", textAlign: "center" }}>
+              <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.875rem,4.5vw,3rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: C.lightInk, marginBottom: "0.75rem", textAlign: "center" }}>
                 Você merece{" "}
                 <em style={{ color: C.accent, fontWeight: 600 }}>compreender</em>
               </h2>
@@ -494,7 +494,7 @@ function Page4() {
                     textAlign: "left", gap: "1rem", color: "inherit",
                   }}
                 >
-                  <span style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.35, letterSpacing: "-0.01em", color: C.darkInk }}>
+                  <span style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.35, letterSpacing: "-0.01em", color: C.darkInk }}>
                     {f.q}
                   </span>
                   <span aria-hidden style={{ color: C.accent, fontSize: "1.375rem", lineHeight: 1, flexShrink: 0, transform: open ? "rotate(45deg)" : "rotate(0deg)", transition: "transform .25s ease" }}>+</span>
@@ -515,7 +515,7 @@ function Page4() {
       {/* CLOSING CTA — LIGHT */}
       <section style={{ backgroundColor: C.lightBg, padding: "clamp(4.5rem,9vw,7rem) 1.5rem", textAlign: "center" }}>
         <div style={{ maxWidth: "580px", margin: "0 auto" }}>
-          <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "clamp(1.875rem,4.5vw,3rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: C.lightInk, marginBottom: "1.25rem" }}>
+          <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.875rem,4.5vw,3rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: C.lightInk, marginBottom: "1.25rem" }}>
             Você merece entender por que funciona{" "}
             <em style={{ color: C.accent, fontWeight: 600 }}>do jeito que funciona.</em>
           </h2>
