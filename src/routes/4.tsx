@@ -125,6 +125,7 @@ function Page4() {
     borderRadius: "2px", padding: "0.875rem 1rem",
     fontFamily: SANS, fontSize: "1rem", color: C.lightInk,
     outline: "none", caretColor: C.accent,
+    transition: "border-color .25s ease, box-shadow .25s ease, background-color .25s ease",
   });
 
   return (
@@ -144,6 +145,8 @@ function Page4() {
         .l-faq-panel > div { overflow: hidden; }
         input:focus { border-color: ${C.accent} !important; box-shadow: 0 0 0 3px ${C.accent}22; }
         .pain-card:hover { border-color: ${C.accent}44 !important; box-shadow: 0 8px 28px -8px ${C.lightInk}10; }
+        .form-card { transition: box-shadow .4s ease, transform .4s ease; }
+        .form-card:hover { box-shadow: 0 40px 100px -30px ${C.darkBg}CC, 0 0 0 1px ${C.accent}40; transform: translateY(-2px); }
       `}</style>
 
       {/* NAVBAR — LIGHT */}
@@ -620,7 +623,7 @@ function Page4() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
           gap: "clamp(2.5rem, 5vw, 4.5rem)",
-          alignItems: "start",
+          alignItems: "center",
         }}>
           {/* LEFT — Editorial pitch */}
           <div>
@@ -693,7 +696,7 @@ function Page4() {
           </div>
 
           {/* RIGHT — Form card */}
-          <div style={{
+          <div className="form-card" style={{
             backgroundColor: C.lightBg, color: C.lightInk,
             padding: "clamp(1.75rem, 3.5vw, 2.75rem)",
             border: `1px solid ${C.lineDark}`,
