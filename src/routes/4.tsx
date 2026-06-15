@@ -385,7 +385,7 @@ function Page4() {
               <span style={{ fontFamily: SANS, fontWeight: 600, fontSize: "0.6875rem", letterSpacing: "0.05em", color: C.accentDeep, minWidth: "1.75rem", paddingTop: "0.3rem", flexShrink: 0 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightInk, margin: 0, textAlign: "justify", hyphens: "auto" }}>{b}</p>
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightInk, margin: 0, textAlign: "justify", hyphens: "auto", whiteSpace: "pre-line" }}>{b}</p>
             </div>
           ))}
         </div>
