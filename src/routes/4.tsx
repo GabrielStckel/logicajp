@@ -143,6 +143,7 @@ function Page4() {
         .l-faq-panel.open { grid-template-rows: 1fr; }
         .l-faq-panel > div { overflow: hidden; }
         input:focus { border-color: ${C.accent} !important; box-shadow: 0 0 0 3px ${C.accent}22; }
+        .pain-card:hover { border-color: ${C.accent}44 !important; box-shadow: 0 8px 28px -8px ${C.lightInk}10; }
       `}</style>
 
       {/* NAVBAR — LIGHT */}
