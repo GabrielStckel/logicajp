@@ -146,15 +146,18 @@ function Page4() {
 
       {/* NAVBAR — LIGHT */}
       <nav style={{
-        position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
+        position: "fixed", top: 0, left: "1rem", right: "1rem", zIndex: 50,
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "1.125rem 1.5rem",
-        backgroundColor: `${C.lightBg}E8`,
-        backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)",
-        borderBottom: `1px solid ${C.lineLight}`,
+        padding: "0.875rem 1.5rem",
+        backgroundColor: `${C.lightBg}90`,
+        backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)",
+        border: `1px solid ${C.lineLight}`,
+        borderTop: "none",
+        borderRadius: "0 0 24px 24px",
+        boxShadow: `0 8px 32px -8px ${C.lightInk}10`,
       }}>
-        <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", color: C.lightMuted }}>
-          Ciência Sistêmica · Jonas Peress
+        <span style={{ fontFamily: DISPLAY, fontSize: "0.875rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: C.lightInk }}>
+          A Lógica
         </span>
         <a href="#inscricao" className="l-ghost" style={{
           fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500,
