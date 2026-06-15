@@ -303,7 +303,7 @@ function Page4() {
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
           <p style={eyebrow(C.darkMuted)}>Você se reconhece</p>
           <h2 style={{ ...h2Style(C.darkInk), marginBottom: "0.75rem" }}>Isso não é uma fraqueza sua.</h2>
-          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2.5rem" }}>
+          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2.5rem", textAlign: "justify", hyphens: "auto" }}>
             Se você se identifica com um ou mais dos pontos abaixo, saiba que não está sozinho. É algo muito mais profundo do que falta de disciplina.
           </p>
           {painPoints.map((p, i) => (
