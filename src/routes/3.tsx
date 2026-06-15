@@ -99,12 +99,6 @@ function Page3() {
       }}
     >
       <style>{`
-        @keyframes a-logica-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @keyframes a-logica-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-        .al-rise { animation: a-logica-rise 0.9s ease-out both; }
-        .al-rise-2 { animation: a-logica-rise 0.9s ease-out 0.15s both; }
-        .al-rise-3 { animation: a-logica-rise 0.9s ease-out 0.3s both; }
-        .al-rise-4 { animation: a-logica-rise 0.9s ease-out 0.45s both; }
         .al-cta:hover { background-color: ${C.gold} !important; }
         .al-cta-ghost:hover { background-color: ${C.accent}18 !important; border-color: ${C.accent}66 !important; }
       `}</style>
@@ -151,7 +145,7 @@ function Page3() {
         <div aria-hidden style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none" }}>
           <svg
             width="640" height="640" viewBox="0 0 600 600" fill="none"
-            style={{ opacity: 0.14, animation: "a-logica-spin 180s linear infinite", maxWidth: "100%", maxHeight: "100%" }}
+            style={{ opacity: 0.14, maxWidth: "100%", maxHeight: "100%" }}
           >
             {[60, 110, 160, 210, 260].map((r, i) => (
               <circle key={r} cx="300" cy="300" r={r} stroke={C.accent} strokeWidth={i % 2 === 0 ? 0.8 : 0.4} />
@@ -170,19 +164,19 @@ function Page3() {
         </div>
 
         <div style={{ position: "relative", zIndex: 1, maxWidth: "720px" }}>
-          <p className="al-rise" style={{ fontFamily: SANS, fontSize: "0.7rem", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: C.muted, marginBottom: "1.75rem" }}>
+          <p style={{ fontFamily: SANS, fontSize: "0.7rem", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: C.muted, marginBottom: "1.75rem" }}>
             Workshop Presencial · 08 de julho de 2026
           </p>
-          <h1 className="al-rise-2" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "clamp(2.5rem, 7.5vw, 5rem)", lineHeight: 1.05, letterSpacing: "-0.02em", color: C.ink, margin: "0 0 1.75rem" }}>
+          <h1 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "clamp(2.5rem, 7.5vw, 5rem)", lineHeight: 1.05, letterSpacing: "-0.02em", color: C.ink, margin: "0 0 1.75rem" }}>
             A <em style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>lógica</em>
             <br />por trás do dinheiro
           </h1>
-          <p className="al-rise-3" style={{ fontFamily: SANS, fontWeight: 400, fontSize: "clamp(1rem, 1.8vw, 1.15rem)", lineHeight: 1.7, color: C.muted, maxWidth: "540px", margin: "0 auto 2.5rem" }}>
+          <p style={{ fontFamily: SANS, fontWeight: 400, fontSize: "clamp(1rem, 1.8vw, 1.15rem)", lineHeight: 1.7, color: C.muted, maxWidth: "540px", margin: "0 auto 2.5rem" }}>
             A maioria dos seus problemas com dinheiro <strong style={{ color: C.ink, fontWeight: 600 }}>não são sobre dinheiro</strong>. São sobre como sua <em style={{ color: C.accent, fontStyle: "italic", fontFamily: SERIF }}>consciência</em> funciona.
           </p>
           <a
             href="#inscricao"
-            className="al-rise-4 al-cta"
+            className="al-cta"
             style={{
               display: "inline-block", fontFamily: SANS, fontSize: "0.95rem", fontWeight: 500, letterSpacing: "0.04em",
               color: C.bg, backgroundColor: C.accent, textDecoration: "none",
@@ -191,7 +185,7 @@ function Page3() {
           >
             Garantir minha vaga — Gratuito
           </a>
-          <p className="al-rise-4" style={{ fontFamily: SANS, fontSize: "0.75rem", color: C.muted, marginTop: "1.25rem" }}>
+          <p style={{ fontFamily: SANS, fontSize: "0.75rem", color: C.muted, marginTop: "1.25rem" }}>
             <strong style={{ color: C.ink, fontWeight: 600 }}>60 pessoas</strong> · Balneário Camboriú
           </p>
         </div>
