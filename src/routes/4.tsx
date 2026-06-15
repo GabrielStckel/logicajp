@@ -18,7 +18,9 @@ const C = {
 } as const;
 
 const SERIF = "'Playfair Display', Georgia, serif";
+const DISPLAY = "'Inter Tight', sans-serif";
 const SANS = "'Inter', system-ui, sans-serif";
+const MONO = "'JetBrains Mono', monospace";
 
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/SEU-LINK-AQUI";
 
