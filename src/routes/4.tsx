@@ -76,7 +76,7 @@ export const Route = createFileRoute("/4")({
 });
 
 const eyebrow = (color: string): React.CSSProperties => ({
-  fontFamily: SANS, fontSize: "0.6875rem", fontWeight: 500,
+  fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500,
   letterSpacing: "0.18em", textTransform: "uppercase", color, marginBottom: "1.25rem",
 });
 
