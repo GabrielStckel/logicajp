@@ -306,7 +306,7 @@ function Page4() {
 
       {/* PAIN MIRROR — LIGHT */}
       <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
-        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+        <div style={{ maxWidth: "520px", margin: "0 auto" }}>
           <p style={eyebrow(C.lightMuted)}>Você se reconhece</p>
           <h2 style={{ ...h2Style(C.lightInk), marginBottom: "0.75rem" }}>Isso não é uma fraqueza sua.</h2>
           <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem", textAlign: "justify", hyphens: "auto" }}>
@@ -317,7 +317,7 @@ function Page4() {
               <span aria-hidden style={{ color: C.accentDeep, fontSize: "0.875rem", marginTop: "0.25rem", flexShrink: 0, fontWeight: 500 }}>✓</span>
               <div>
                 <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.accentDeep, display: "block", marginBottom: "0.25rem" }}>{p.label}</span>
-                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightInk, margin: 0 }}>{p.text}</p>
+                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightInk, margin: 0, textAlign: "justify", hyphens: "auto" }}>{p.text}</p>
               </div>
             </div>
           ))}
