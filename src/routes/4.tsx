@@ -143,6 +143,7 @@ function Page4() {
         .l-faq-panel.open { grid-template-rows: 1fr; }
         .l-faq-panel > div { overflow: hidden; }
         input:focus { border-color: ${C.accent} !important; box-shadow: 0 0 0 3px ${C.accent}22; }
+        .pain-card:hover { border-color: ${C.accent}44 !important; box-shadow: 0 8px 28px -8px ${C.lightInk}10; }
       `}</style>
 
       {/* NAVBAR — LIGHT */}
@@ -306,22 +307,99 @@ function Page4() {
       </section>
 
       {/* PAIN MIRROR — LIGHT */}
-      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
-        <div style={{ maxWidth: "520px", margin: "0 auto" }}>
-          <p style={eyebrow(C.lightMuted)}>Você se reconhece</p>
-          <h2 style={{ ...h2Style(C.lightInk), marginBottom: "0.75rem" }}>Isso não é uma fraqueza sua.</h2>
-          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem", textAlign: "justify" }}>
+      <section style={{
+        background: `linear-gradient(180deg, ${C.lightBgSoft} 0%, ${C.lightBg} 30%, ${C.lightBg} 70%, ${C.lightBgSoft} 100%)`,
+        padding: "clamp(4rem,8vw,6rem) 1.5rem",
+        borderTop: `1px solid ${C.lineLight}`,
+        borderBottom: `1px solid ${C.lineLight}`,
+        position: "relative",
+        overflow: "hidden",
+      }}>
+        {/* Decorative faint grid */}
+        <div aria-hidden style={{
+          position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.35,
+          backgroundImage: `linear-gradient(${C.lineLight} 1px, transparent 1px), linear-gradient(90deg, ${C.lineLight} 1px, transparent 1px)`,
+          backgroundSize: "80px 80px",
+          maskImage: "radial-gradient(ellipse 60% 50% at 50% 50%, black, transparent)",
+          WebkitMaskImage: "radial-gradient(ellipse 60% 50% at 50% 50%, black, transparent)",
+        }} />
+
+        <div style={{ position: "relative", zIndex: 1, maxWidth: "1000px", margin: "0 auto" }}>
+          <p style={{ ...eyebrow(C.accentDeep), textAlign: "center", marginBottom: "1.25rem" }}>Você se reconhece</p>
+          <h2 style={{
+            ...h2Style(C.lightInk),
+            textAlign: "center",
+            maxWidth: "18ch",
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginBottom: "0.75rem",
+          }}>
+            Isso não é uma fraqueza sua.
+          </h2>
+          <p style={{
+            fontFamily: SANS,
+            fontSize: "clamp(1rem, 1.4vw, 1.0625rem)",
+            lineHeight: 1.7,
+            color: C.lightMuted,
+            textAlign: "center",
+            maxWidth: "52ch",
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginBottom: "clamp(2.5rem, 5vw, 3.5rem)",
+          }}>
             Se você se identifica com um ou mais dos pontos abaixo, saiba que não está sozinho. É algo muito mais profundo do que falta de disciplina.
           </p>
-          {painPoints.map((p, i) => (
-            <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineLight}` }}>
-              <span aria-hidden style={{ color: C.accentDeep, fontSize: "0.875rem", marginTop: "0.25rem", flexShrink: 0, fontWeight: 500 }}>✓</span>
-              <div>
-                <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.accentDeep, display: "block", marginBottom: "0.25rem" }}>{p.label}</span>
-                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightInk, margin: 0, textAlign: "justify" }}>{p.text}</p>
+
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
+            gap: "1.25rem",
+          }}>
+            {painPoints.map((p, i) => (
+              <div key={i} style={{
+                backgroundColor: C.lightBg,
+                border: `1px solid ${C.lineLight}`,
+                borderRadius: "3px",
+                padding: "clamp(1.25rem, 2.5vw, 1.75rem)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.75rem",
+                transition: "border-color .25s ease, box-shadow .25s ease",
+              }} className="pain-card">
+                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "0.75rem" }}>
+                  <span style={{
+                    fontFamily: MONO,
+                    fontSize: "0.6875rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: C.accentDeep,
+                  }}>
+                    {p.label}
+                  </span>
+                  <span aria-hidden style={{
+                    fontFamily: SERIF,
+                    fontSize: "0.8125rem",
+                    lineHeight: 1,
+                    color: C.accent,
+                    opacity: 0.55,
+                  }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <p style={{
+                  fontFamily: SANS,
+                  fontSize: "0.9375rem",
+                  lineHeight: 1.7,
+                  color: C.lightInk,
+                  margin: 0,
+                  textAlign: "justify",
+                }}>
+                  {p.text}
+                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
