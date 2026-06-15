@@ -159,45 +159,123 @@ function Page4() {
         }}>Garantir vaga</a>
       </nav>
 
-      {/* HERO — DARK */}
+      {/* HERO — DARK · Editorial */}
       <section style={{
-        minHeight: "100svh", display: "flex", flexDirection: "column",
-        alignItems: "center", justifyContent: "center",
-        paddingTop: "clamp(6rem,14vw,10rem)", paddingBottom: "clamp(4rem,8vw,6rem)",
-        paddingLeft: "1.5rem", paddingRight: "1.5rem",
-        textAlign: "center", position: "relative", overflow: "hidden",
-        backgroundColor: C.darkBg,
+        minHeight: "100svh", display: "flex", flexDirection: "column", justifyContent: "center",
+        paddingTop: "clamp(7rem,14vw,11rem)", paddingBottom: "clamp(3rem,6vw,5rem)",
+        paddingLeft: "clamp(1.5rem,5vw,4rem)", paddingRight: "clamp(1.5rem,5vw,4rem)",
+        position: "relative", overflow: "hidden", backgroundColor: C.darkBg,
       }}>
-        <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", background: `radial-gradient(ellipse 65% 50% at 50% 35%, ${C.accent}12, transparent 65%)` }} />
-        <svg aria-hidden width="500" height="500" viewBox="0 0 500 500" fill="none"
-          style={{ position: "absolute", opacity: 0.08, pointerEvents: "none", animation: "l-spin 150s linear infinite", willChange: "transform", maxWidth: "100%" }}>
-          <circle cx="250" cy="250" r="80" stroke={C.accent} strokeWidth="0.6" />
-          <circle cx="250" cy="250" r="150" stroke={C.accent} strokeWidth="0.4" />
-          <circle cx="250" cy="250" r="230" stroke={C.accent} strokeWidth="0.3" />
-          <line x1="20" y1="250" x2="480" y2="250" stroke={C.accent} strokeWidth="0.25" />
-          <line x1="250" y1="20" x2="250" y2="480" stroke={C.accent} strokeWidth="0.25" />
-          <line x1="80" y1="80" x2="420" y2="420" stroke={C.accent} strokeWidth="0.2" />
-          <line x1="420" y1="80" x2="80" y2="420" stroke={C.accent} strokeWidth="0.2" />
+        {/* Backdrop: glow + hairline grid */}
+        <div aria-hidden style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: `radial-gradient(ellipse 70% 55% at 78% 30%, ${C.accent}1A, transparent 65%), radial-gradient(ellipse 55% 50% at 10% 80%, ${C.accent}10, transparent 60%)`,
+        }} />
+        <div aria-hidden style={{
+          position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.4,
+          backgroundImage: `linear-gradient(${C.lineDark} 1px, transparent 1px)`,
+          backgroundSize: "100% clamp(7rem, 12vh, 9rem)",
+          maskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
+        }} />
+        <svg aria-hidden viewBox="0 0 600 600" fill="none"
+          style={{
+            position: "absolute", right: "-12vw", top: "50%", transform: "translateY(-50%)",
+            width: "min(95vw, 780px)", height: "min(95vw, 780px)",
+            opacity: 0.09, pointerEvents: "none", animation: "l-spin 220s linear infinite", willChange: "transform",
+          }}>
+          <circle cx="300" cy="300" r="80" stroke={C.accent} strokeWidth="0.5" />
+          <circle cx="300" cy="300" r="160" stroke={C.accent} strokeWidth="0.4" />
+          <circle cx="300" cy="300" r="240" stroke={C.accent} strokeWidth="0.3" />
+          <circle cx="300" cy="300" r="290" stroke={C.accent} strokeWidth="0.2" />
+          <line x1="10" y1="300" x2="590" y2="300" stroke={C.accent} strokeWidth="0.25" />
+          <line x1="300" y1="10" x2="300" y2="590" stroke={C.accent} strokeWidth="0.25" />
+          <line x1="80" y1="80" x2="520" y2="520" stroke={C.accent} strokeWidth="0.18" />
+          <line x1="520" y1="80" x2="80" y2="520" stroke={C.accent} strokeWidth="0.18" />
         </svg>
-        <div style={{ position: "relative", zIndex: 1, maxWidth: "700px" }}>
-          <p className="l-rise" style={{ ...eyebrow(C.darkMuted), marginBottom: "1.375rem" }}>
-            Workshop Presencial · 08 de julho de 2026 · Balneário Camboriú
-          </p>
-          <h1 className="l-rise-2" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "clamp(2.5rem,7.5vw,5rem)", lineHeight: 1.05, letterSpacing: "-0.02em", color: C.darkInk, margin: "0 0 1.75rem" }}>
-            A lógica{" "}
-            <em style={{ color: C.accent, fontWeight: 600 }}>por trás do dinheiro</em>
+
+        <div style={{ position: "relative", zIndex: 1, maxWidth: "1180px", width: "100%", margin: "0 auto" }}>
+          {/* Eyebrow with dot */}
+          <div className="l-rise" style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "clamp(2rem,4vw,3rem)" }}>
+            <span aria-hidden style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: C.accent, boxShadow: `0 0 14px ${C.accent}`, flexShrink: 0 }} />
+            <span style={{ ...eyebrow(C.darkMuted), marginBottom: 0 }}>
+              Workshop Presencial · Edição única
+            </span>
+          </div>
+
+          {/* Headline — massive editorial */}
+          <h1 className="l-rise-2" style={{
+            fontFamily: SERIF, fontWeight: 700,
+            fontSize: "clamp(2.75rem, 9.5vw, 7.5rem)", lineHeight: 0.96,
+            letterSpacing: "-0.035em", color: C.darkInk,
+            margin: 0, maxWidth: "16ch",
+          }}>
+            A lógica<br />
+            <span style={{ color: C.darkMuted, fontWeight: 400 }}>por trás do </span>
+            <span style={{ color: C.accent, fontWeight: 700 }}>dinheiro</span>
+            <span style={{ color: C.accent }}>.</span>
           </h1>
-          <p className="l-rise-3" style={{ fontFamily: SANS, fontSize: "clamp(1rem,1.8vw,1.125rem)", lineHeight: 1.75, color: C.darkMuted, maxWidth: "520px", margin: "0 auto 2.5rem" }}>
-            A maioria dos seus problemas com dinheiro não são sobre dinheiro. Descubra como sua consciência funciona — e por que tudo muda quando você percebe isso.
+
+          {/* Subtitle */}
+          <p className="l-rise-3" style={{
+            fontFamily: SANS, fontWeight: 400,
+            fontSize: "clamp(1.0625rem, 1.6vw, 1.25rem)", lineHeight: 1.6,
+            color: C.darkMuted, maxWidth: "44ch",
+            margin: "clamp(1.75rem,3.5vw,2.75rem) 0 0",
+          }}>
+            A maioria dos seus problemas com dinheiro <span style={{ color: C.darkInk, fontWeight: 500 }}>não são sobre dinheiro</span>. Uma investigação presencial sobre as leis sistêmicas invisíveis que governam a sua prosperidade.
           </p>
-          <a href="#inscricao" className="l-rise-4 l-cta" style={{
-            display: "inline-block", fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 500, letterSpacing: "0.04em",
-            color: C.darkBg, backgroundColor: C.accent, textDecoration: "none",
-            padding: "1.0625rem 2.5rem", borderRadius: "2px", transition: "background-color .2s ease",
-          }}>Garantir minha vaga — Gratuito</a>
-          <p className="l-rise-4" style={{ fontFamily: SANS, fontSize: "0.75rem", color: C.darkMuted, marginTop: "1rem" }}>
-            Limitado a 60 pessoas · Entrada gratuita · Inscrição obrigatória
-          </p>
+
+          {/* CTA row */}
+          <div className="l-rise-4" style={{
+            display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1.25rem 1.75rem",
+            marginTop: "clamp(2.25rem,4vw,3rem)",
+          }}>
+            <a href="#inscricao" className="l-cta" style={{
+              display: "inline-flex", alignItems: "center", gap: "0.6rem",
+              fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600, letterSpacing: "0.02em",
+              color: C.darkBg, backgroundColor: C.accent, textDecoration: "none",
+              padding: "1.1rem 2.25rem", borderRadius: "2px",
+              transition: "background-color .2s ease, transform .2s ease",
+              boxShadow: `0 14px 40px -12px ${C.accent}66`,
+            }}>
+              Garantir minha vaga
+              <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
+            </a>
+            <span style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, letterSpacing: "0.02em" }}>
+              <span style={{ color: C.accent, fontWeight: 600 }}>Gratuito</span>
+              {" · "}Inscrição obrigatória
+            </span>
+          </div>
+
+          {/* Meta strip — editorial colophon */}
+          <div className="l-rise-4" style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+            gap: "1.5rem 2rem",
+            marginTop: "clamp(3.5rem,7vw,5.5rem)",
+            paddingTop: "1.75rem",
+            borderTop: `1px solid ${C.lineDark}`,
+            maxWidth: "780px",
+          }}>
+            {[
+              { k: "Data", v: "08 jul · 2026", s: "Quarta · 19h30" },
+              { k: "Local", v: "Balneário Camboriú", s: "Centro · 25º andar" },
+              { k: "Vagas", v: "60 lugares", s: "Estritamente limitadas" },
+            ].map((m) => (
+              <div key={m.k}>
+                <p style={{ fontFamily: SANS, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accent, margin: "0 0 0.5rem" }}>
+                  {m.k}
+                </p>
+                <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.2, color: C.darkInk, margin: 0 }}>
+                  {m.v}
+                </p>
+                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, margin: "0.2rem 0 0" }}>
+                  {m.s}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
