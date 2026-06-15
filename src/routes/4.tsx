@@ -371,7 +371,7 @@ function Page4() {
             O que você vai{" "}
             <span style={{ color: C.accentDeep, fontWeight: 600 }}>compreender</span>
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem" }}>
+          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem", textAlign: "justify", hyphens: "auto" }}>
             Você sairá deste encontro com uma percepção diferente. Vai acessar a si mesmo de um jeito que nunca foi possível antes.
           </p>
           {benefits.map((b, i) => (
