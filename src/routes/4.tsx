@@ -371,7 +371,7 @@ function Page4() {
 
       {/* BENEFITS — LIGHT */}
       <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
-        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+        <div style={{ maxWidth: "520px", margin: "0 auto" }}>
           <p style={eyebrow(C.accentDeep)}>No Workshop</p>
           <h2 style={{ ...h2Style(C.lightInk), marginBottom: "0.75rem" }}>
             O que você vai{" "}
@@ -385,7 +385,7 @@ function Page4() {
               <span style={{ fontFamily: SANS, fontWeight: 600, fontSize: "0.6875rem", letterSpacing: "0.05em", color: C.accentDeep, minWidth: "1.75rem", paddingTop: "0.3rem", flexShrink: 0 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightInk, margin: 0 }}>{b}</p>
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightInk, margin: 0, textAlign: "justify", hyphens: "auto" }}>{b}</p>
             </div>
           ))}
         </div>
