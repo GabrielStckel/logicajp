@@ -620,7 +620,7 @@ function Page4() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
           gap: "clamp(2.5rem, 5vw, 4.5rem)",
-          alignItems: "start",
+          alignItems: "center",
         }}>
           {/* LEFT — Editorial pitch */}
           <div>
