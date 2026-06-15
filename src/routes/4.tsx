@@ -299,7 +299,7 @@ function Page4() {
             <>E pior: você sente uma <strong style={{ fontWeight: 600 }}>impotência profunda</strong>. Uma inferioridade e insuficiência constante. Como se houvesse algo errado com você. Você tenta ganhar mais, economizar, investir. Nada soluciona. A <strong style={{ fontWeight: 600 }}>carga emocional</strong> é tão pesada que você acaba desistindo.</>,
             <>E então, você se culpa. Mas a verdade é diferente do que te contaram. A maioria dos seus problemas com dinheiro <strong style={{ fontWeight: 600 }}>não são sobre dinheiro</strong>. São sobre como sua consciência funciona — padrões inconscientes, crenças herdadas, lealdades sistêmicas. Mas quando você percebe… <strong style={{ fontWeight: 600 }}>tudo muda</strong>.</>,
           ].map((p, i) => (
-            <p key={i} style={{ fontFamily: SANS, fontSize: "clamp(1rem,1.5vw,1.0625rem)", lineHeight: 1.75, color: C.lightInk, marginBottom: "1.25rem", textAlign: "justify", hyphens: "auto" }}>{p}</p>
+            <p key={i} style={{ fontFamily: SANS, fontSize: "clamp(1rem,1.5vw,1.0625rem)", lineHeight: 1.75, color: C.lightInk, marginBottom: "1.25rem", textAlign: "justify" }}>{p}</p>
           ))}
         </div>
       </section>
@@ -309,7 +309,7 @@ function Page4() {
         <div style={{ maxWidth: "520px", margin: "0 auto" }}>
           <p style={eyebrow(C.lightMuted)}>Você se reconhece</p>
           <h2 style={{ ...h2Style(C.lightInk), marginBottom: "0.75rem" }}>Isso não é uma fraqueza sua.</h2>
-          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem", textAlign: "justify", hyphens: "auto" }}>
+          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem", textAlign: "justify" }}>
             Se você se identifica com um ou mais dos pontos abaixo, saiba que não está sozinho. É algo muito mais profundo do que falta de disciplina.
           </p>
           {painPoints.map((p, i) => (
@@ -317,7 +317,7 @@ function Page4() {
               <span aria-hidden style={{ color: C.accentDeep, fontSize: "0.875rem", marginTop: "0.25rem", flexShrink: 0, fontWeight: 500 }}>✓</span>
               <div>
                 <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.accentDeep, display: "block", marginBottom: "0.25rem" }}>{p.label}</span>
-                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightInk, margin: 0, textAlign: "justify", hyphens: "auto" }}>{p.text}</p>
+                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightInk, margin: 0, textAlign: "justify" }}>{p.text}</p>
               </div>
             </div>
           ))}
@@ -358,10 +358,10 @@ function Page4() {
               <p style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.accentDeep, marginBottom: "1.5rem" }}>
                 Facilitador · Ciência Sistêmica
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, marginBottom: "1rem", textAlign: "justify", hyphens: "auto" }}>
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, marginBottom: "1rem", textAlign: "justify" }}>
                 Há mais de uma década investigando os sistemas invisíveis que governam nossas vidas, Jonas sistematizou os padrões que mantêm as pessoas presas em ciclos de escassez — mesmo quando ganham bem, trabalham muito ou já fizeram terapia.
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, margin: 0, textAlign: "justify", hyphens: "auto" }}>
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, margin: 0, textAlign: "justify" }}>
                 Sua abordagem une <span style={{ color: C.accentDeep, fontWeight: 600 }}>ciência sistêmica</span> à leitura de comportamento financeiro inconsciente. Não é terapia convencional — é um sistema de percepção que muda a relação com o dinheiro a partir da raiz.
               </p>
             </div>
@@ -377,7 +377,7 @@ function Page4() {
             O que você vai{" "}
             <span style={{ color: C.accentDeep, fontWeight: 600 }}>compreender</span>
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem", textAlign: "justify", hyphens: "auto" }}>
+          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem", textAlign: "justify" }}>
             Você sairá deste encontro com uma percepção diferente. Vai acessar a si mesmo de um jeito que nunca foi possível antes.
           </p>
           {benefits.map((b, i) => (
@@ -385,7 +385,7 @@ function Page4() {
               <span style={{ fontFamily: SANS, fontWeight: 600, fontSize: "0.6875rem", letterSpacing: "0.05em", color: C.accentDeep, minWidth: "1.75rem", paddingTop: "0.3rem", flexShrink: 0 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightInk, margin: 0, textAlign: "justify", hyphens: "auto", whiteSpace: "pre-line" }}>{b}</p>
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightInk, margin: 0, textAlign: "justify", whiteSpace: "pre-line" }}>{b}</p>
             </div>
           ))}
         </div>
@@ -399,7 +399,7 @@ function Page4() {
             Um encontro presencial{" "}
             <span style={{ color: C.accentDeep, fontWeight: 600 }}>exclusivo</span>
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2rem", textAlign: "justify", hyphens: "auto" }}>
+          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2rem", textAlign: "justify" }}>
             Este é um encontro presencial exclusivo em Balneário Camboriú, desenhado para quem busca respostas profundas e definitivas.
           </p>
           {eventDetails.map((d, i) => (
@@ -507,7 +507,7 @@ function Page4() {
                 </button>
                 <div className={`l-faq-panel${open ? " open" : ""}`}>
                   <div>
-                    <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify", hyphens: "auto" }}>
+                    <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify" }}>
                       {f.a}
                     </p>
                   </div>
