@@ -38,10 +38,10 @@ const painPoints = [
 ];
 
 const benefits = [
-  "Por que você tem dificuldade real de cobrar pelo seu trabalho — e como destravar isso.",
+  "Por que você tem dificuldade real de cobrar pelo seu trabalho —\ne como destravar isso.",
   "A origem da vergonha de falar sobre dinheiro e como se libertar desse peso.",
-  "O motivo sistêmico pelo qual o dinheiro não fica com você (ou nem chega a entrar).",
-  "Por que você se sente inferior e impotente frente às questões financeiras.",
+  "O motivo sistêmico pelo qual o dinheiro não fica com você\n(ou nem chega a entrar).",
+  "Por que você se sente inferior e impotente frente às questões\nfinanceiras.",
   "Qual é a lógica sistêmica que governa sua vida material hoje.",
   "Como realizar uma mudança de postura real — não superficial, mas na raiz da sua consciência.",
 ];
@@ -385,7 +385,7 @@ function Page4() {
               <span style={{ fontFamily: SANS, fontWeight: 600, fontSize: "0.6875rem", letterSpacing: "0.05em", color: C.accentDeep, minWidth: "1.75rem", paddingTop: "0.3rem", flexShrink: 0 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightInk, margin: 0, textAlign: "justify", hyphens: "auto" }}>{b}</p>
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightInk, margin: 0, textAlign: "justify", hyphens: "auto", whiteSpace: "pre-line" }}>{b}</p>
             </div>
           ))}
         </div>
