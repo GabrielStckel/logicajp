@@ -325,15 +325,17 @@ function Page4() {
       </section>
 
       {/* PULL QUOTE — LIGHT */}
-      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4.5rem,9vw,7rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
-        <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" }}>
-          <div aria-hidden style={{ width: 36, height: 2, backgroundColor: C.accent, margin: "0 auto 2.75rem" }} />
-          <blockquote style={{ margin: 0 }}>
-            <p style={{ fontFamily: DISPLAY, fontWeight: 500, fontSize: "clamp(1.25rem,2.8vw,1.625rem)", lineHeight: 1.58, letterSpacing: "-0.01em", color: C.lightInk, marginBottom: 0 }}>
-              "A verdade é diferente do que te contaram. Enquanto você não compreender essa <span style={{ color: C.accentDeep }}>lógica sistêmica</span>, continuará tentando resolver sintomas. Mas quando você percebe… <span style={{ color: C.accentDeep }}>tudo muda</span>."
-            </p>
-          </blockquote>
-          <div aria-hidden style={{ width: 36, height: 2, backgroundColor: C.accent, margin: "2.75rem auto 0" }} />
+      <section style={{ background: `linear-gradient(180deg, ${C.lightBg} 0%, ${C.lightBgSoft} 40%, ${C.lightBgSoft} 60%, ${C.lightBg} 100%)`, padding: "clamp(5.5rem,12vw,9rem) 1.5rem", borderTop: `1px solid ${C.lineLight}`, borderBottom: `1px solid ${C.lineLight}` }}>
+        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+          <div style={{ position: "relative", padding: "clamp(2rem,4vw,3.5rem) 0" }}>
+            <span aria-hidden style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", fontFamily: SERIF, fontSize: "clamp(4rem,8vw,6.5rem)", lineHeight: 1, color: C.accent, opacity: 0.18, userSelect: "none", pointerEvents: "none" }}>"</span>
+            <blockquote style={{ margin: 0, position: "relative", zIndex: 1 }}>
+              <p style={{ fontFamily: SERIF, fontWeight: 400, fontSize: "clamp(1.375rem,3vw,1.875rem)", lineHeight: 1.55, letterSpacing: "-0.01em", color: C.lightInk, marginBottom: 0, textAlign: "justify", fontStyle: "italic" }}>
+                A verdade é diferente do que te contaram. Enquanto você não compreender essa <span style={{ color: C.accentDeep, fontStyle: "normal", fontWeight: 700 }}>lógica sistêmica</span>, continuará tentando resolver sintomas. Mas quando você percebe… <span style={{ color: C.accentDeep, fontStyle: "normal", fontWeight: 700 }}>tudo muda</span>.
+              </p>
+            </blockquote>
+            <span aria-hidden style={{ position: "absolute", bottom: "-1.5rem", right: 0, fontFamily: SERIF, fontSize: "clamp(3rem,6vw,5rem)", lineHeight: 1, color: C.accent, opacity: 0.12, userSelect: "none", pointerEvents: "none", transform: "rotate(180deg)" }}>"</span>
+          </div>
         </div>
       </section>
 
