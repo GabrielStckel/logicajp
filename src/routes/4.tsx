@@ -301,20 +301,20 @@ function Page4() {
         </div>
       </section>
 
-      {/* PAIN MIRROR — DARK */}
-      <section style={{ backgroundColor: C.darkBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      {/* PAIN MIRROR — LIGHT */}
+      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <p style={eyebrow(C.darkMuted)}>Você se reconhece</p>
-          <h2 style={{ ...h2Style(C.darkInk), marginBottom: "0.75rem" }}>Isso não é uma fraqueza sua.</h2>
-          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2.5rem", textAlign: "justify", hyphens: "auto" }}>
+          <p style={eyebrow(C.lightMuted)}>Você se reconhece</p>
+          <h2 style={{ ...h2Style(C.lightInk), marginBottom: "0.75rem" }}>Isso não é uma fraqueza sua.</h2>
+          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem", textAlign: "justify", hyphens: "auto" }}>
             Se você se identifica com um ou mais dos pontos abaixo, saiba que não está sozinho. É algo muito mais profundo do que falta de disciplina.
           </p>
           {painPoints.map((p, i) => (
-            <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineDark}` }}>
-              <span aria-hidden style={{ color: C.accent, fontSize: "0.875rem", marginTop: "0.25rem", flexShrink: 0, fontWeight: 500 }}>✓</span>
+            <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineLight}` }}>
+              <span aria-hidden style={{ color: C.accentDeep, fontSize: "0.875rem", marginTop: "0.25rem", flexShrink: 0, fontWeight: 500 }}>✓</span>
               <div>
-                <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.accent, display: "block", marginBottom: "0.25rem" }}>{p.label}</span>
-                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.darkInk, margin: 0 }}>{p.text}</p>
+                <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.accentDeep, display: "block", marginBottom: "0.25rem" }}>{p.label}</span>
+                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightInk, margin: 0 }}>{p.text}</p>
               </div>
             </div>
           ))}
