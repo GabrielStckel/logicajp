@@ -145,6 +145,8 @@ function Page4() {
         .l-faq-panel > div { overflow: hidden; }
         input:focus { border-color: ${C.accent} !important; box-shadow: 0 0 0 3px ${C.accent}22; }
         .pain-card:hover { border-color: ${C.accent}44 !important; box-shadow: 0 8px 28px -8px ${C.lightInk}10; }
+        .form-card { transition: box-shadow .4s ease, transform .4s ease; }
+        .form-card:hover { box-shadow: 0 40px 100px -30px ${C.darkBg}CC, 0 0 0 1px ${C.accent}40; transform: translateY(-2px); }
       `}</style>
 
       {/* NAVBAR — LIGHT */}
