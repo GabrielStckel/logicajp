@@ -167,21 +167,21 @@ function Page4() {
         }}>Garantir vaga</a>
       </nav>
 
-      {/* HERO — DARK · Editorial */}
+      {/* HERO — LIGHT · Editorial */}
       <section style={{
         minHeight: "100svh", display: "flex", flexDirection: "column", justifyContent: "center",
         paddingTop: "clamp(7rem,14vw,11rem)", paddingBottom: "clamp(3rem,6vw,5rem)",
         paddingLeft: "clamp(1.5rem,5vw,4rem)", paddingRight: "clamp(1.5rem,5vw,4rem)",
-        position: "relative", overflow: "hidden", backgroundColor: C.darkBg,
+        position: "relative", overflow: "hidden", backgroundColor: C.lightBg,
       }}>
-        {/* Backdrop: glow + hairline grid */}
+        {/* Backdrop: soft glow + hairline grid */}
         <div aria-hidden style={{
           position: "absolute", inset: 0, pointerEvents: "none",
-          background: `radial-gradient(ellipse 70% 55% at 78% 30%, ${C.accent}1A, transparent 65%), radial-gradient(ellipse 55% 50% at 10% 80%, ${C.accent}10, transparent 60%)`,
+          background: `radial-gradient(ellipse 70% 55% at 78% 30%, ${C.accent}12, transparent 65%), radial-gradient(ellipse 55% 50% at 10% 80%, ${C.accent}0A, transparent 60%)`,
         }} />
         <div aria-hidden style={{
-          position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.4,
-          backgroundImage: `linear-gradient(${C.lineDark} 1px, transparent 1px)`,
+          position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.25,
+          backgroundImage: `linear-gradient(${C.lineLight} 1px, transparent 1px)`,
           backgroundSize: "100% clamp(7rem, 12vh, 9rem)",
           maskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
           WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
@@ -190,7 +190,7 @@ function Page4() {
           style={{
             position: "absolute", right: "-12vw", top: "50%", transform: "translateY(-50%)",
             width: "min(95vw, 780px)", height: "min(95vw, 780px)",
-            opacity: 0.09, pointerEvents: "none", animation: "l-spin 220s linear infinite", willChange: "transform",
+            opacity: 0.07, pointerEvents: "none", animation: "l-spin 220s linear infinite", willChange: "transform",
           }}>
           <circle cx="300" cy="300" r="80" stroke={C.accent} strokeWidth="0.5" />
           <circle cx="300" cy="300" r="160" stroke={C.accent} strokeWidth="0.4" />
@@ -205,8 +205,8 @@ function Page4() {
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1180px", width: "100%", margin: "0 auto" }}>
           {/* Eyebrow with dot */}
           <div className="l-rise" style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "clamp(2rem,4vw,3rem)" }}>
-            <span aria-hidden style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: C.accent, boxShadow: `0 0 14px ${C.accent}`, flexShrink: 0 }} />
-            <span style={{ ...eyebrow(C.darkMuted), marginBottom: 0 }}>
+            <span aria-hidden style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: C.accent, boxShadow: `0 0 14px ${C.accent}66`, flexShrink: 0 }} />
+            <span style={{ ...eyebrow(C.lightMuted), marginBottom: 0 }}>
               Workshop Presencial · Edição única
             </span>
           </div>
@@ -215,22 +215,22 @@ function Page4() {
           <h1 className="l-rise-2" style={{
             fontFamily: SERIF, fontWeight: 700,
             fontSize: "clamp(2.5rem, 7vw, 5rem)", lineHeight: 0.96,
-            letterSpacing: "-0.035em", color: C.darkInk,
+            letterSpacing: "-0.035em", color: C.lightInk,
             margin: 0, maxWidth: "16ch",
           }}>
             A lógica por trás do{" "}
-            <span style={{ color: C.accent }}>dinheiro</span>
-            <span style={{ color: C.accent }}>.</span>
+            <span style={{ color: C.accentDeep }}>dinheiro</span>
+            <span style={{ color: C.accentDeep }}>.</span>
           </h1>
 
           {/* Subtitle */}
           <p className="l-rise-3" style={{
             fontFamily: SANS, fontWeight: 400,
             fontSize: "clamp(1.0625rem, 1.6vw, 1.25rem)", lineHeight: 1.6,
-            color: C.darkMuted, maxWidth: "44ch",
+            color: C.lightMuted, maxWidth: "44ch",
             margin: "clamp(1.75rem,3.5vw,2.75rem) 0 0",
           }}>
-            A maioria dos seus problemas com dinheiro <span style={{ color: C.darkInk, fontWeight: 500 }}>não são sobre dinheiro</span>. Uma investigação presencial sobre as leis sistêmicas invisíveis que governam a sua prosperidade.
+            A maioria dos seus problemas com dinheiro <span style={{ color: C.lightInk, fontWeight: 500 }}>não são sobre dinheiro</span>. Uma investigação presencial sobre as leis sistêmicas invisíveis que governam a sua prosperidade.
           </p>
 
           {/* CTA row */}
@@ -241,16 +241,16 @@ function Page4() {
             <a href="#inscricao" className="l-cta" style={{
               display: "inline-flex", alignItems: "center", gap: "0.6rem",
               fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600, letterSpacing: "0.02em",
-              color: C.darkBg, backgroundColor: C.accent, textDecoration: "none",
+              color: C.lightBg, backgroundColor: C.accentDeep, textDecoration: "none",
               padding: "1.1rem 2.25rem", borderRadius: "2px",
               transition: "background-color .2s ease, transform .2s ease",
-              boxShadow: `0 14px 40px -12px ${C.accent}66`,
+              boxShadow: `0 14px 40px -12px ${C.accentDeep}55`,
             }}>
               Garantir minha vaga
               <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
             </a>
-            <span style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, letterSpacing: "0.02em" }}>
-              <span style={{ color: C.accent, fontWeight: 600 }}>Gratuito</span>
+            <span style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, letterSpacing: "0.02em" }}>
+              <span style={{ color: C.accentDeep, fontWeight: 600 }}>Gratuito</span>
               {" · "}Inscrição obrigatória
             </span>
           </div>
@@ -262,7 +262,7 @@ function Page4() {
             gap: "1.5rem 2rem",
             marginTop: "clamp(3.5rem,7vw,5.5rem)",
             paddingTop: "1.75rem",
-            borderTop: `1px solid ${C.lineDark}`,
+            borderTop: `1px solid ${C.lineLight}`,
             maxWidth: "780px",
           }}>
             {[
@@ -271,13 +271,13 @@ function Page4() {
               { k: "Vagas", v: "60 lugares", s: "Estritamente limitadas" },
             ].map((m) => (
               <div key={m.k}>
-                <p style={{ fontFamily: SANS, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accent, margin: "0 0 0.5rem" }}>
+                <p style={{ fontFamily: SANS, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accentDeep, margin: "0 0 0.5rem" }}>
                   {m.k}
                 </p>
-                <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.2, color: C.darkInk, margin: 0 }}>
+                <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.2, color: C.lightInk, margin: 0 }}>
                   {m.v}
                 </p>
-                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, margin: "0.2rem 0 0" }}>
+                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, margin: "0.2rem 0 0" }}>
                   {m.s}
                 </p>
               </div>
