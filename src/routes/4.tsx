@@ -38,10 +38,10 @@ const painPoints = [
 ];
 
 const benefits = [
-  "Por que você tem dificuldade real de cobrar pelo seu trabalho —\ne como destravar isso.",
+  "Por que você tem dificuldade real de cobrar pelo seu trabalho e como destravar isso.",
   "A origem da vergonha de falar sobre dinheiro e como se libertar desse peso.",
-  "O motivo sistêmico pelo qual o dinheiro não fica com você\n(ou nem chega a entrar).",
-  "Por que você se sente inferior e impotente frente às questões\nfinanceiras.",
+  "O motivo sistêmico pelo qual o dinheiro não fica com você (ou nem chega a entrar).",
+  "Por que você se sente inferior e impotente frente às questões financeiras.",
   "Qual é a lógica sistêmica que governa sua vida material hoje.",
   "Como realizar uma mudança de postura real — não superficial, mas na raiz da sua consciência.",
 ];
