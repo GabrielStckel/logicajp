@@ -536,14 +536,65 @@ function Page4() {
       </section>
 
       {/* FOOTER — DARK */}
-      <footer style={{ backgroundColor: C.darkBg, padding: "3rem 1.5rem", borderTop: `1px solid ${C.lineDark}` }}>
-        <div style={{ maxWidth: "640px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "0.625rem" }}>
-          <p style={{ fontFamily: SANS, fontSize: "0.75rem", color: C.darkMuted, margin: 0 }}>
-            Jonas Peress · Ciência Sistêmica
-          </p>
-          <p style={{ fontFamily: SANS, fontSize: "0.6875rem", color: C.darkMuted, opacity: 0.4, margin: 0 }}>
-            Documento elaborado em 09 de junho de 2026. As informações contidas são de responsabilidade do organizador.
-          </p>
+      <footer style={{ backgroundColor: C.darkBg, padding: "clamp(3.5rem,6vw,5rem) 1.5rem 2rem", borderTop: `1px solid ${C.lineDark}` }}>
+        <div style={{ maxWidth: "1080px", margin: "0 auto" }}>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gap: "2.5rem",
+            paddingBottom: "2.5rem",
+            borderBottom: `1px solid ${C.lineDark}`,
+          }}>
+            {/* Brand */}
+            <div>
+              <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.125rem", letterSpacing: "-0.01em", color: C.darkInk, margin: "0 0 0.5rem" }}>
+                Jonas Peress
+              </p>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.accent, margin: "0 0 0.875rem" }}>
+                Ciência Sistêmica
+              </p>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.65, color: C.darkMuted, margin: 0, maxWidth: "28ch" }}>
+                A lógica sistêmica por trás da sua relação com o dinheiro.
+              </p>
+            </div>
+
+            {/* Event */}
+            <div>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.darkMuted, margin: "0 0 1rem" }}>
+                Evento
+              </p>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.darkInk, margin: "0 0 0.25rem" }}>08 de julho · 2026</p>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.darkMuted, margin: "0 0 0.875rem" }}>Balneário Camboriú · SC</p>
+              <a href="#inscricao" style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.accent, textDecoration: "none", borderBottom: `1px solid ${C.accent}55`, paddingBottom: "2px" }}>
+                Garantir vaga →
+              </a>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.darkMuted, margin: "0 0 1rem" }}>
+                Contato
+              </p>
+              <a href="mailto:contato@jonasperess.com" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.darkInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
+                contato@jonasperess.com
+              </a>
+              <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, textDecoration: "none" }}>
+                Grupo no WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div style={{
+            display: "flex", justifyContent: "space-between", alignItems: "center",
+            flexWrap: "wrap", gap: "0.75rem", paddingTop: "1.5rem",
+          }}>
+            <p style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.darkMuted, margin: 0 }}>
+              © 2026 Jonas Peress
+            </p>
+            <a href="#top" style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.darkMuted, textDecoration: "none" }}>
+              Voltar ao topo ↑
+            </a>
+          </div>
         </div>
       </footer>
     </div>
