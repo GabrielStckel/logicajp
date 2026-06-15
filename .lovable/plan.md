@@ -1,27 +1,30 @@
-# Aprimoramento da página /4
+## Objetivo
 
-## 1. Texto justificado
-- Aplicar `textAlign: "justify"` + `hyphens: "auto"` em todos os parágrafos de corpo (`<p>` longos) das seções: Abertura, Por que este encontro, Sobre o método, Para quem é, e textos de apoio.
-- Manter alinhamento original (centro/esquerda) em: H1 do hero, eyebrows, títulos de seção, listas curtas, labels de formulário, citações em destaque e rodapé.
+Resolver a sensação de "tudo misturado" entre as seções da página, mantendo o design claro.
 
-## 2. Organização e aprimoramentos de design
-- Padronizar espaçamento vertical entre seções (usar escala consistente: 6rem desktop / 4rem mobile).
-- Padronizar `max-width` dos blocos de texto (~640px) para melhorar leitura junto ao justificado.
-- Refinar hierarquia: aumentar respiro acima de eyebrows, padronizar tamanho dos H2 e line-height dos parágrafos (1.7).
-- Garantir consistência de cor verde já corrigida (`C.accentDeep` em fundos claros, `C.accent` em fundos escuros).
-- Pequenos ajustes de divisores entre seções para ritmo visual mais claro.
+## Mudanças em `src/routes/4.tsx`
 
-## 3. Rodapé — remover e melhorar
-- **Remover** a linha: "Documento elaborado em 09 de junho de 2026. As informações contidas são de responsabilidade do organizador."
-- **Novo rodapé** (fundo escuro, mesma paleta), com 3 blocos em grid responsivo:
-  1. **Marca**: "Jonas Peress" + tagline curta "Ciência Sistêmica do Dinheiro" + breve descrição (1 linha).
-  2. **Evento**: data, local e link "Garantir vaga" (âncora para o formulário).
-  3. **Contato/Links**: e-mail de contato + links sociais (placeholders editáveis).
-- Linha inferior fina com: `© 2026 Jonas Peress` à esquerda e um link discreto "Voltar ao topo" à direita.
-- Tipografia: `MONO` para labels/eyebrows do rodapé, `SANS` para textos, mantendo coerência com o resto da página.
-- Em mobile: colunas empilham, mantendo alinhamento à esquerda (não justificado no rodapé).
+1. **Alternar fundos** entre `C.lightBg` (branco) e `C.lightBgSoft` (off-white) em todas as seções, seguindo a ordem real da página:
 
-## Detalhes técnicos
-- Arquivo único: `src/routes/4.tsx`.
-- Sem mudanças em lógica/dados — apenas estilos inline e markup do `<footer>`.
-- Preservar fontes atuais (DISPLAY/SANS/MONO/SERIF) e o H1 do hero intactos.
+   - Hero → `lightBg`
+   - Seção 290 (depois do hero) → `lightBgSoft`
+   - Seção 308 → `lightBg`
+   - Seção 328 → `lightBgSoft`
+   - Seção 344 (imagem) → `lightBg`
+   - Seção 373 → `lightBgSoft`
+   - Seção 395 → `lightBg`
+   - Seção 418 (inscrição) → `lightBgSoft` (destaque)
+   - Seção 482 → `lightBg`
+   - Seção 522 (CTA final) → `lightBgSoft`
+   - Footer → mantém `lightBgSoft` com borda superior
+
+2. **Divisor sutil** (`borderTop: 1px solid ${C.lineLight}`) em cada seção a partir da segunda, reforçando o limite visual sem poluir.
+
+3. **Ajustes menores de contraste** onde o fundo mudou:
+   - Cartão de imagem (linha 348/352): trocar `lightBgSoft` por `lightBg` se a seção agora for `lightBgSoft`, para a moldura continuar destacando.
+   - Botão da seção 418 (CTA "Garantir vaga"): garantir contraste contra o novo `lightBgSoft`.
+
+## Fora do escopo
+
+- Sem mudanças em tipografia, hero, navbar ou conteúdo textual.
+- Sem mexer em tokens de cor em `styles.css`.
