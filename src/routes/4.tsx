@@ -368,25 +368,123 @@ function Page4() {
         </div>
       </section>
 
-      {/* BENEFITS — LIGHT */}
-      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
-        <div style={{ maxWidth: "520px", margin: "0 auto" }}>
-          <p style={eyebrow(C.accentDeep)}>No Workshop</p>
-          <h2 style={{ ...h2Style(C.lightInk), marginBottom: "0.75rem" }}>
+      {/* BENEFITS — EDITORIAL CARDS */}
+      <section style={{
+        background: `linear-gradient(180deg, ${C.lightBg} 0%, ${C.lightBgSoft} 100%)`,
+        padding: "clamp(4rem,8vw,6rem) 1.5rem",
+        borderTop: `1px solid ${C.lineLight}`,
+        position: "relative",
+        overflow: "hidden",
+      }}>
+        {/* Decorative accent line */}
+        <div aria-hidden style={{
+          position: "absolute",
+          top: 0,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "1px",
+          height: "clamp(3rem,6vw,5rem)",
+          background: `linear-gradient(to bottom, ${C.accent}, transparent)`,
+        }} />
+
+        <div style={{ maxWidth: "920px", margin: "0 auto" }}>
+          <p style={{ ...eyebrow(C.accentDeep), textAlign: "center", marginBottom: "1.25rem" }}>No Workshop</p>
+          <h2 style={{
+            ...h2Style(C.lightInk),
+            textAlign: "center",
+            marginBottom: "0.75rem",
+            maxWidth: "20ch",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}>
             O que você vai{" "}
             <span style={{ color: C.accentDeep, fontWeight: 600 }}>compreender</span>
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem", textAlign: "justify" }}>
+          <p style={{
+            fontFamily: SANS,
+            fontSize: "clamp(1rem, 1.4vw, 1.0625rem)",
+            lineHeight: 1.7,
+            color: C.lightMuted,
+            marginBottom: "clamp(2.5rem, 5vw, 3.5rem)",
+            textAlign: "center",
+            maxWidth: "52ch",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}>
             Você sairá deste encontro com uma percepção diferente. Vai acessar a si mesmo de um jeito que nunca foi possível antes.
           </p>
-          {benefits.map((b, i) => (
-            <div key={i} style={{ display: "flex", gap: "1.25rem", alignItems: "flex-start", padding: "1.25rem 0", borderBottom: `1px solid ${C.lineLight}` }}>
-              <span style={{ fontFamily: SANS, fontWeight: 600, fontSize: "0.6875rem", letterSpacing: "0.05em", color: C.accentDeep, minWidth: "1.75rem", paddingTop: "0.3rem", flexShrink: 0 }}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightInk, margin: 0, textAlign: "justify", whiteSpace: "pre-line" }}>{b}</p>
-            </div>
-          ))}
+
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))",
+            gap: "1rem",
+          }}>
+            {benefits.map((b, i) => (
+              <div key={i} style={{
+                backgroundColor: C.lightBg,
+                border: `1px solid ${C.lineLight}`,
+                borderRadius: "2px",
+                padding: "clamp(1.5rem, 3vw, 2.25rem)",
+                position: "relative",
+                overflow: "hidden",
+                transition: "box-shadow .25s ease, transform .25s ease",
+              }} className="l-benefit-card">
+                {/* Top accent bar */}
+                <div aria-hidden style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: "2px",
+                  background: `linear-gradient(90deg, ${C.accent}66, ${C.accent}18, transparent)`,
+                }} />
+                {/* Large number background */}
+                <span aria-hidden style={{
+                  position: "absolute",
+                  top: "0.5rem",
+                  right: "1rem",
+                  fontFamily: DISPLAY,
+                  fontWeight: 700,
+                  fontSize: "clamp(3.5rem, 7vw, 5rem)",
+                  lineHeight: 1,
+                  color: C.accent,
+                  opacity: 0.06,
+                  userSelect: "none",
+                  pointerEvents: "none",
+                }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {/* Number pill */}
+                <span style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontFamily: MONO,
+                  fontWeight: 600,
+                  fontSize: "0.6875rem",
+                  letterSpacing: "0.08em",
+                  color: C.lightBg,
+                  backgroundColor: C.accentDeep,
+                  borderRadius: "2px",
+                  padding: "0.35rem 0.625rem",
+                  marginBottom: "1rem",
+                }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p style={{
+                  fontFamily: SANS,
+                  fontSize: "clamp(0.9375rem, 1.3vw, 1.0625rem)",
+                  lineHeight: 1.72,
+                  color: C.lightInk,
+                  margin: 0,
+                  textAlign: "justify",
+                  position: "relative",
+                  zIndex: 1,
+                  whiteSpace: "pre-line",
+                }}>{b}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
