@@ -283,10 +283,10 @@ function Page4() {
       {/* PAIN INTRO — LIGHT */}
       <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <p style={eyebrow(C.accent)}>Falar sobre dinheiro te incomoda?</p>
+          <p style={eyebrow(C.accentDeep)}>Falar sobre dinheiro te incomoda?</p>
           <h2 style={h2Style(C.lightInk)}>
             O sofrimento não vem dos problemas.{" "}
-            <em style={{ color: C.accent, fontWeight: 600 }}>Vem de como você os carrega.</em>
+            <span style={{ color: C.accentDeep, fontWeight: 600 }}>Vem de como você os carrega.</span>
           </h2>
           {[
             <>Você não consegue cobrar bem pelo seu trabalho. Você sente vergonha de falar sobre dinheiro com seu parceiro. Você ganha, mas o dinheiro não fica. Ou simplesmente não consegue ganhar o suficiente para viver com dignidade.</>,
@@ -324,7 +324,7 @@ function Page4() {
           <div aria-hidden style={{ width: 36, height: 2, backgroundColor: C.accent, margin: "0 auto 2.75rem" }} />
           <blockquote style={{ margin: 0 }}>
             <p style={{ fontFamily: DISPLAY, fontWeight: 500, fontSize: "clamp(1.25rem,2.8vw,1.625rem)", lineHeight: 1.58, letterSpacing: "-0.01em", color: C.lightInk, marginBottom: "2rem" }}>
-              "A verdade é diferente do que te contaram. Enquanto você não compreender essa <em style={{ color: C.accent }}>lógica sistêmica</em>, continuará tentando resolver sintomas. Mas quando você percebe… <em style={{ color: C.accent }}>tudo muda</em>."
+              "A verdade é diferente do que te contaram. Enquanto você não compreender essa <span style={{ color: C.accentDeep }}>lógica sistêmica</span>, continuará tentando resolver sintomas. Mas quando você percebe… <span style={{ color: C.accentDeep }}>tudo muda</span>."
             </p>
             <p style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, margin: 0 }}>
               — Jonas Peress · Ciência Sistêmica
@@ -356,7 +356,7 @@ function Page4() {
                 Há mais de uma década investigando os sistemas invisíveis que governam nossas vidas, Jonas sistematizou os padrões que mantêm as pessoas presas em ciclos de escassez — mesmo quando ganham bem, trabalham muito ou já fizeram terapia.
               </p>
               <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.darkMuted, margin: 0 }}>
-                Sua abordagem une <em style={{ color: C.accent, fontWeight: 600 }}>ciência sistêmica</em> à leitura de comportamento financeiro inconsciente. Não é terapia convencional — é um sistema de percepção que muda a relação com o dinheiro a partir da raiz.
+                Sua abordagem une <span style={{ color: C.accent, fontWeight: 600 }}>ciência sistêmica</span> à leitura de comportamento financeiro inconsciente. Não é terapia convencional — é um sistema de percepção que muda a relação com o dinheiro a partir da raiz.
               </p>
             </div>
           </div>
@@ -366,17 +366,17 @@ function Page4() {
       {/* BENEFITS — LIGHT */}
       <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <p style={eyebrow(C.accent)}>No Workshop</p>
+          <p style={eyebrow(C.accentDeep)}>No Workshop</p>
           <h2 style={{ ...h2Style(C.lightInk), marginBottom: "0.75rem" }}>
             O que você vai{" "}
-            <em style={{ color: C.accent, fontWeight: 600 }}>compreender</em>
+            <span style={{ color: C.accentDeep, fontWeight: 600 }}>compreender</span>
           </h2>
           <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2.5rem" }}>
             Você sairá deste encontro com uma percepção diferente. Vai acessar a si mesmo de um jeito que nunca foi possível antes.
           </p>
           {benefits.map((b, i) => (
             <div key={i} style={{ display: "flex", gap: "1.25rem", alignItems: "flex-start", padding: "1.25rem 0", borderBottom: `1px solid ${C.lineLight}` }}>
-              <span style={{ fontFamily: SANS, fontWeight: 600, fontSize: "0.6875rem", letterSpacing: "0.05em", color: C.accent, minWidth: "1.75rem", paddingTop: "0.3rem", flexShrink: 0 }}>
+              <span style={{ fontFamily: SANS, fontWeight: 600, fontSize: "0.6875rem", letterSpacing: "0.05em", color: C.accentDeep, minWidth: "1.75rem", paddingTop: "0.3rem", flexShrink: 0 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightInk, margin: 0 }}>{b}</p>
@@ -391,7 +391,7 @@ function Page4() {
           <p style={eyebrow(C.darkMuted)}>O Encontro</p>
           <h2 style={h2Style(C.darkInk)}>
             Um encontro presencial{" "}
-            <em style={{ color: C.accent, fontWeight: 600 }}>exclusivo</em>
+            <span style={{ color: C.accent, fontWeight: 600 }}>exclusivo</span>
           </h2>
           <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2rem" }}>
             Este é um encontro presencial exclusivo em Balneário Camboriú, desenhado para quem busca respostas profundas e definitivas.
@@ -420,15 +420,15 @@ function Page4() {
               </p>
               <p style={{ fontFamily: SANS, fontSize: "0.875rem", color: C.lightMuted }}>
                 Se a aba não abriu,{" "}
-                <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ color: C.accent, textDecoration: "underline" }}>clique aqui para entrar no grupo</a>.
+                <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ color: C.accentDeep, textDecoration: "underline" }}>clique aqui para entrar no grupo</a>.
               </p>
             </div>
           ) : (
             <form onSubmit={submit}>
-              <p style={{ ...eyebrow(C.accent), textAlign: "center" }}>Garanta sua vaga</p>
+              <p style={{ ...eyebrow(C.accentDeep), textAlign: "center" }}>Garanta sua vaga</p>
               <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.875rem,4.5vw,3rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: C.lightInk, marginBottom: "0.75rem", textAlign: "center" }}>
                 Você merece{" "}
-                <em style={{ color: C.accent, fontWeight: 600 }}>compreender</em>
+                <span style={{ color: C.accentDeep, fontWeight: 600 }}>compreender</span>
               </h2>
               <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.65, color: C.lightMuted, textAlign: "center", marginBottom: "2.5rem" }}>
                 Dia 08 de julho · Balneário Camboriú · Gratuito · 60 vagas
@@ -441,7 +441,7 @@ function Page4() {
                 ]).map((f) => (
                   <div key={f.k} style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                     <label htmlFor={`f-${f.k}`} style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.lightInk, letterSpacing: "0.02em" }}>
-                      {f.label} <span style={{ color: C.accent }}>*</span>
+                      {f.label} <span style={{ color: C.accentDeep }}>*</span>
                     </label>
                     <input
                       id={`f-${f.k}`} type={f.type} autoComplete={f.autoComplete}
@@ -478,7 +478,7 @@ function Page4() {
           <p style={eyebrow(C.darkMuted)}>Dúvidas Frequentes</p>
           <h2 style={{ ...h2Style(C.darkInk), marginBottom: "2.5rem" }}>
             Respostas{" "}
-            <em style={{ color: C.accent, fontWeight: 600 }}>diretas</em>
+            <span style={{ color: C.accent, fontWeight: 600 }}>diretas</span>
           </h2>
           {faqs.map((f, i) => {
             const open = openFaq === i;
@@ -517,7 +517,7 @@ function Page4() {
         <div style={{ maxWidth: "580px", margin: "0 auto" }}>
           <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.875rem,4.5vw,3rem)", lineHeight: 1.1, letterSpacing: "-0.02em", color: C.lightInk, marginBottom: "1.25rem" }}>
             Você merece entender por que funciona{" "}
-            <em style={{ color: C.accent, fontWeight: 600 }}>do jeito que funciona.</em>
+            <span style={{ color: C.accentDeep, fontWeight: 600 }}>do jeito que funciona.</span>
           </h2>
           <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.72, color: C.lightMuted, marginBottom: "2.25rem" }}>
             Você merece sair do ciclo de inferioridade e da sensação de impotência que a escassez provoca. Você merece, finalmente, compreender a lógica sistêmica do dinheiro e assumir o seu lugar de abundância.
