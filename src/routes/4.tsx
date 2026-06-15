@@ -210,7 +210,9 @@ function Page4() {
             letterSpacing: "-0.035em", color: C.darkInk,
             margin: 0, maxWidth: "16ch",
           }}>
-            A lógica por trás do dinheiro.
+            A lógica por trás do{" "}
+            <span style={{ color: C.accent }}>dinheiro</span>
+            <span style={{ color: C.accent }}>.</span>
           </h1>
 
           {/* Subtitle */}
