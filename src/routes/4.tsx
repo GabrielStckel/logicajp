@@ -696,7 +696,7 @@ function Page4() {
           </div>
 
           {/* RIGHT — Form card */}
-          <div style={{
+          <div className="form-card" style={{
             backgroundColor: C.lightBg, color: C.lightInk,
             padding: "clamp(1.75rem, 3.5vw, 2.75rem)",
             border: `1px solid ${C.lineDark}`,
