@@ -416,8 +416,9 @@ function Page4() {
 
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))",
-            gap: "1rem",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gridAutoRows: "1fr",
+            gap: "1.25rem",
           }}>
             {benefits.map((b, i) => (
               <div key={i} style={{
@@ -428,6 +429,9 @@ function Page4() {
                 position: "relative",
                 overflow: "hidden",
                 transition: "box-shadow .25s ease, transform .25s ease",
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
               }} className="l-benefit-card">
                 {/* Top accent bar */}
                 <div aria-hidden style={{
@@ -481,6 +485,7 @@ function Page4() {
                   position: "relative",
                   zIndex: 1,
                   whiteSpace: "pre-line",
+                  flex: "1 1 auto",
                 }}>{b}</p>
               </div>
             ))}
