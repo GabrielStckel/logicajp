@@ -216,10 +216,9 @@ function Page4() {
             fontFamily: SERIF, fontWeight: 700,
             fontSize: "clamp(2.5rem, 7vw, 5rem)", lineHeight: 0.96,
             letterSpacing: "-0.035em", color: C.lightInk,
-            margin: 0, maxWidth: "16ch",
+            margin: 0, maxWidth: "16ch", whiteSpace: "pre-line",
           }}>
-            A lógica por trás do{" "}
-            <span style={{ color: C.accentDeep }}>dinheiro</span>
+            A lógica por trás{"\n"}do <span style={{ color: C.accentDeep }}>dinheiro</span>
             <span style={{ color: C.accentDeep }}>.</span>
           </h1>
 
