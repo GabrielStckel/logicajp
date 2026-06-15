@@ -501,7 +501,7 @@ function Page4() {
                 </button>
                 <div className={`l-faq-panel${open ? " open" : ""}`}>
                   <div>
-                    <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.darkMuted, paddingBottom: "1.375rem", margin: 0 }}>
+                    <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.darkMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify", hyphens: "auto" }}>
                       {f.a}
                     </p>
                   </div>
