@@ -9,15 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as OrganicoRouteImport } from './routes/organico'
 import { Route as R3RouteImport } from './routes/3'
 import { Route as IndexRouteImport } from './routes/index'
 
-const OrganicoRoute = OrganicoRouteImport.update({
-  id: '/organico',
-  path: '/organico',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const R3Route = R3RouteImport.update({
   id: '/3',
   path: '/3',
@@ -32,42 +26,31 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/3': typeof R3Route
-  '/organico': typeof OrganicoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/3': typeof R3Route
-  '/organico': typeof OrganicoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/3': typeof R3Route
-  '/organico': typeof OrganicoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/3' | '/organico'
+  fullPaths: '/' | '/3'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/3' | '/organico'
-  id: '__root__' | '/' | '/3' | '/organico'
+  to: '/' | '/3'
+  id: '__root__' | '/' | '/3'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   R3Route: typeof R3Route
-  OrganicoRoute: typeof OrganicoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/organico': {
-      id: '/organico'
-      path: '/organico'
-      fullPath: '/organico'
-      preLoaderRoute: typeof OrganicoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/3': {
       id: '/3'
       path: '/3'
@@ -88,8 +71,17 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   R3Route: R3Route,
-  OrganicoRoute: OrganicoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
