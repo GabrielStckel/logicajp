@@ -337,29 +337,29 @@ function Page4() {
         </div>
       </section>
 
-      {/* ABOUT JONAS — DARK */}
-      <section style={{ backgroundColor: C.darkBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      {/* ABOUT JONAS — LIGHT */}
+      <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-          <p style={eyebrow(C.darkMuted)}>Quem conduz</p>
+          <p style={eyebrow(C.lightMuted)}>Quem conduz</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "3rem", alignItems: "center" }}>
-            <div style={{ position: "relative", borderRadius: "2px", overflow: "hidden", aspectRatio: "4/5", backgroundColor: C.darkBgSoft }}>
-              <div aria-hidden style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: C.darkMuted, fontFamily: SANS, fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+            <div style={{ position: "relative", borderRadius: "2px", overflow: "hidden", aspectRatio: "4/5", backgroundColor: C.lightBgSoft }}>
+              <div aria-hidden style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: C.lightMuted, fontFamily: SANS, fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                 Foto de Jonas
               </div>
-              <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(to top, ${C.darkBg}BB 0%, transparent 55%, ${C.accent}0A 100%)` }} />
+              <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(to top, ${C.lightBgSoft}BB 0%, transparent 55%, ${C.accent}0A 100%)` }} />
             </div>
             <div>
-              <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.75rem,4vw,2.5rem)", lineHeight: 1.12, letterSpacing: "-0.015em", color: C.darkInk, marginBottom: "0.375rem" }}>
+              <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.75rem,4vw,2.5rem)", lineHeight: 1.12, letterSpacing: "-0.015em", color: C.lightInk, marginBottom: "0.375rem" }}>
                 Jonas Peress
               </h2>
-              <p style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.accent, marginBottom: "1.5rem" }}>
+              <p style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.accentDeep, marginBottom: "1.5rem" }}>
                 Facilitador · Ciência Sistêmica
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.darkMuted, marginBottom: "1rem", textAlign: "justify", hyphens: "auto" }}>
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, marginBottom: "1rem", textAlign: "justify", hyphens: "auto" }}>
                 Há mais de uma década investigando os sistemas invisíveis que governam nossas vidas, Jonas sistematizou os padrões que mantêm as pessoas presas em ciclos de escassez — mesmo quando ganham bem, trabalham muito ou já fizeram terapia.
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.darkMuted, margin: 0, textAlign: "justify", hyphens: "auto" }}>
-                Sua abordagem une <span style={{ color: C.accent, fontWeight: 600 }}>ciência sistêmica</span> à leitura de comportamento financeiro inconsciente. Não é terapia convencional — é um sistema de percepção que muda a relação com o dinheiro a partir da raiz.
+              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, margin: 0, textAlign: "justify", hyphens: "auto" }}>
+                Sua abordagem une <span style={{ color: C.accentDeep, fontWeight: 600 }}>ciência sistêmica</span> à leitura de comportamento financeiro inconsciente. Não é terapia convencional — é um sistema de percepção que muda a relação com o dinheiro a partir da raiz.
               </p>
             </div>
           </div>
@@ -388,23 +388,23 @@ function Page4() {
         </div>
       </section>
 
-      {/* EVENT INFO — DARK */}
-      <section style={{ backgroundColor: C.darkBg, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
+      {/* EVENT INFO — LIGHT */}
+      <section style={{ backgroundColor: C.lightBgSoft, padding: "clamp(4rem,8vw,6rem) 1.5rem" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <p style={eyebrow(C.darkMuted)}>O Encontro</p>
-          <h2 style={h2Style(C.darkInk)}>
+          <p style={eyebrow(C.lightMuted)}>O Encontro</p>
+          <h2 style={h2Style(C.lightInk)}>
             Um encontro presencial{" "}
-            <span style={{ color: C.accent, fontWeight: 600 }}>exclusivo</span>
+            <span style={{ color: C.accentDeep, fontWeight: 600 }}>exclusivo</span>
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.darkMuted, marginBottom: "2rem", textAlign: "justify", hyphens: "auto" }}>
+          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2rem", textAlign: "justify", hyphens: "auto" }}>
             Este é um encontro presencial exclusivo em Balneário Camboriú, desenhado para quem busca respostas profundas e definitivas.
           </p>
           {eventDetails.map((d, i) => (
-            <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineDark}`, gap: "1rem", flexWrap: "wrap" }}>
-              <span style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.darkMuted, minWidth: "90px", paddingTop: "0.2rem" }}>{d.label}</span>
+            <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineLight}`, gap: "1rem", flexWrap: "wrap" }}>
+              <span style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.lightMuted, minWidth: "90px", paddingTop: "0.2rem" }}>{d.label}</span>
               <div style={{ textAlign: "right" }}>
-                <p style={{ fontFamily: DISPLAY, fontSize: "1.0625rem", fontWeight: d.label === "Investimento" ? 700 : 400, color: d.label === "Investimento" ? C.accent : C.darkInk, margin: 0, lineHeight: 1.3 }}>{d.value}</p>
-                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, margin: "0.2rem 0 0" }}>{d.sub}</p>
+                <p style={{ fontFamily: DISPLAY, fontSize: "1.0625rem", fontWeight: d.label === "Investimento" ? 700 : 400, color: d.label === "Investimento" ? C.accentDeep : C.lightInk, margin: 0, lineHeight: 1.3 }}>{d.value}</p>
+                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, margin: "0.2rem 0 0" }}>{d.sub}</p>
               </div>
             </div>
           ))}
