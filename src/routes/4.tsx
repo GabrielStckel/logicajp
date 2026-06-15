@@ -538,50 +538,50 @@ function Page4() {
         </div>
       </section>
 
-      {/* FOOTER — DARK */}
-      <footer style={{ backgroundColor: C.darkBg, padding: "clamp(3.5rem,6vw,5rem) 1.5rem 2rem", borderTop: `1px solid ${C.lineDark}` }}>
+      {/* FOOTER — LIGHT */}
+      <footer style={{ backgroundColor: C.lightBgSoft, padding: "clamp(3.5rem,6vw,5rem) 1.5rem 2rem", borderTop: `1px solid ${C.lineLight}` }}>
         <div style={{ maxWidth: "1080px", margin: "0 auto" }}>
           <div style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
             gap: "2.5rem",
             paddingBottom: "2.5rem",
-            borderBottom: `1px solid ${C.lineDark}`,
+            borderBottom: `1px solid ${C.lineLight}`,
           }}>
             {/* Brand */}
             <div>
-              <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.125rem", letterSpacing: "-0.01em", color: C.darkInk, margin: "0 0 0.5rem" }}>
+              <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.125rem", letterSpacing: "-0.01em", color: C.lightInk, margin: "0 0 0.5rem" }}>
                 Jonas Peress
               </p>
-              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.accent, margin: "0 0 0.875rem" }}>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.accentDeep, margin: "0 0 0.875rem" }}>
                 Ciência Sistêmica
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.65, color: C.darkMuted, margin: 0, maxWidth: "28ch" }}>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.65, color: C.lightMuted, margin: 0, maxWidth: "28ch" }}>
                 A lógica sistêmica por trás da sua relação com o dinheiro.
               </p>
             </div>
 
             {/* Event */}
             <div>
-              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.darkMuted, margin: "0 0 1rem" }}>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.lightMuted, margin: "0 0 1rem" }}>
                 Evento
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.darkInk, margin: "0 0 0.25rem" }}>08 de julho · 2026</p>
-              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.darkMuted, margin: "0 0 0.875rem" }}>Balneário Camboriú · SC</p>
-              <a href="#inscricao" style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.accent, textDecoration: "none", borderBottom: `1px solid ${C.accent}55`, paddingBottom: "2px" }}>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightInk, margin: "0 0 0.25rem" }}>08 de julho · 2026</p>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightMuted, margin: "0 0 0.875rem" }}>Balneário Camboriú · SC</p>
+              <a href="#inscricao" style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.accentDeep, textDecoration: "none", borderBottom: `1px solid ${C.accent}55`, paddingBottom: "2px" }}>
                 Garantir vaga →
               </a>
             </div>
 
             {/* Contact */}
             <div>
-              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.darkMuted, margin: "0 0 1rem" }}>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.lightMuted, margin: "0 0 1rem" }}>
                 Contato
               </p>
-              <a href="mailto:contato@jonasperess.com" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.darkInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
+              <a href="mailto:contato@jonasperess.com" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
                 contato@jonasperess.com
               </a>
-              <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, textDecoration: "none" }}>
+              <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, textDecoration: "none" }}>
                 Grupo no WhatsApp
               </a>
             </div>
@@ -591,10 +591,10 @@ function Page4() {
             display: "flex", justifyContent: "space-between", alignItems: "center",
             flexWrap: "wrap", gap: "0.75rem", paddingTop: "1.5rem",
           }}>
-            <p style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.darkMuted, margin: 0 }}>
+            <p style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, margin: 0 }}>
               © 2026 Jonas Peress
             </p>
-            <a href="#top" style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.darkMuted, textDecoration: "none" }}>
+            <a href="#top" style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, textDecoration: "none" }}>
               Voltar ao topo ↑
             </a>
           </div>
