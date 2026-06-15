@@ -329,11 +329,8 @@ function Page4() {
         <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" }}>
           <div aria-hidden style={{ width: 36, height: 2, backgroundColor: C.accent, margin: "0 auto 2.75rem" }} />
           <blockquote style={{ margin: 0 }}>
-            <p style={{ fontFamily: DISPLAY, fontWeight: 500, fontSize: "clamp(1.25rem,2.8vw,1.625rem)", lineHeight: 1.58, letterSpacing: "-0.01em", color: C.lightInk, marginBottom: "2rem" }}>
+            <p style={{ fontFamily: DISPLAY, fontWeight: 500, fontSize: "clamp(1.25rem,2.8vw,1.625rem)", lineHeight: 1.58, letterSpacing: "-0.01em", color: C.lightInk, marginBottom: 0 }}>
               "A verdade é diferente do que te contaram. Enquanto você não compreender essa <span style={{ color: C.accentDeep }}>lógica sistêmica</span>, continuará tentando resolver sintomas. Mas quando você percebe… <span style={{ color: C.accentDeep }}>tudo muda</span>."
-            </p>
-            <p style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, margin: 0 }}>
-              — Jonas Peress · Ciência Sistêmica
             </p>
           </blockquote>
           <div aria-hidden style={{ width: 36, height: 2, backgroundColor: C.accent, margin: "2.75rem auto 0" }} />
