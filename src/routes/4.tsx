@@ -81,7 +81,7 @@ const eyebrow = (color: string): React.CSSProperties => ({
 });
 
 const h2Style = (color: string): React.CSSProperties => ({
-  fontFamily: SERIF, fontWeight: 700,
+  fontFamily: DISPLAY, fontWeight: 700,
   fontSize: "clamp(1.75rem, 4vw, 2.75rem)", lineHeight: 1.15,
   letterSpacing: "-0.015em", color, margin: "0 0 1.75rem",
 });
@@ -150,7 +150,7 @@ function Page4() {
         backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)",
         borderBottom: `1px solid ${C.lineDark}`,
       }}>
-        <span style={{ fontFamily: SANS, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", color: C.darkMuted }}>
+        <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.15em", textTransform: "uppercase", color: C.darkMuted }}>
           Ciência Sistêmica · Jonas Peress
         </span>
         <a href="#inscricao" className="l-ghost" style={{
@@ -268,7 +268,7 @@ function Page4() {
                 <p style={{ fontFamily: SANS, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accent, margin: "0 0 0.5rem" }}>
                   {m.k}
                 </p>
-                <p style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.2, color: C.darkInk, margin: 0 }}>
+                <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.2, color: C.darkInk, margin: 0 }}>
                   {m.v}
                 </p>
                 <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.darkMuted, margin: "0.2rem 0 0" }}>
@@ -323,10 +323,10 @@ function Page4() {
         <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" }}>
           <div aria-hidden style={{ width: 36, height: 2, backgroundColor: C.accent, margin: "0 auto 2.75rem" }} />
           <blockquote style={{ margin: 0 }}>
-            <p style={{ fontFamily: SERIF, fontWeight: 500, fontSize: "clamp(1.25rem,2.8vw,1.625rem)", lineHeight: 1.58, letterSpacing: "-0.01em", color: C.lightInk, marginBottom: "2rem" }}>
+            <p style={{ fontFamily: DISPLAY, fontWeight: 500, fontSize: "clamp(1.25rem,2.8vw,1.625rem)", lineHeight: 1.58, letterSpacing: "-0.01em", color: C.lightInk, marginBottom: "2rem" }}>
               "A verdade é diferente do que te contaram. Enquanto você não compreender essa <em style={{ color: C.accent }}>lógica sistêmica</em>, continuará tentando resolver sintomas. Mas quando você percebe… <em style={{ color: C.accent }}>tudo muda</em>."
             </p>
-            <p style={{ fontFamily: SANS, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, margin: 0 }}>
+            <p style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, margin: 0 }}>
               — Jonas Peress · Ciência Sistêmica
             </p>
           </blockquote>
@@ -346,10 +346,10 @@ function Page4() {
               <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(to top, ${C.darkBg}BB 0%, transparent 55%, ${C.accent}0A 100%)` }} />
             </div>
             <div>
-              <h2 style={{ fontFamily: SERIF, fontWeight: 700, fontSize: "clamp(1.75rem,4vw,2.5rem)", lineHeight: 1.12, letterSpacing: "-0.015em", color: C.darkInk, marginBottom: "0.375rem" }}>
+              <h2 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.75rem,4vw,2.5rem)", lineHeight: 1.12, letterSpacing: "-0.015em", color: C.darkInk, marginBottom: "0.375rem" }}>
                 Jonas Peress
               </h2>
-              <p style={{ fontFamily: SANS, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.accent, marginBottom: "1.5rem" }}>
+              <p style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.accent, marginBottom: "1.5rem" }}>
                 Facilitador · Ciência Sistêmica
               </p>
               <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.darkMuted, marginBottom: "1rem" }}>
