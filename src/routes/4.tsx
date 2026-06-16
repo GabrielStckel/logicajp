@@ -13,9 +13,9 @@ const C = {
   lightBgSoft: "#F4F2F1",  // surface
   lightInk: "#171D26",     // foreground
   lightMuted: "#627084",   // muted
-  accent: "#B49364",       // accent
-  accentDeep: "#8E7048",   // accent (escurecido p/ contraste em fundo claro)
-  accentLight: "#CCAE85",  // accent (clareado p/ hover)
+  accent: "#C9A84C",       // gold accent
+  accentDeep: "#9E7E30",   // dark gold for contrast on light backgrounds
+  accentLight: "#E0C878",  // light gold for hover
   lineDark: "#2A313B",     // border sobre escuro
   lineLight: "#E5E3E0",    // border (foreground @ 8% sobre cream)
 } as const;
