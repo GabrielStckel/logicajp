@@ -498,76 +498,35 @@ function Page4() {
 
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gridAutoRows: "1fr",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
             gap: "1.25rem",
           }}>
             {benefits.map((b, i) => (
               <div key={i} style={{
                 backgroundColor: C.lightBg,
-                border: `1px solid ${C.lineLight}`,
-                borderRadius: "2px",
-                padding: "clamp(1.5rem, 3vw, 2.25rem)",
-                position: "relative",
-                overflow: "hidden",
-                transition: "box-shadow .25s ease, transform .25s ease",
+                borderTop: `2px solid ${C.accentDeep}`,
+                padding: "1.5rem 1.5rem 1.75rem",
                 display: "flex",
                 flexDirection: "column",
-                height: "100%",
+                gap: "0.875rem",
+                boxShadow: `0 4px 20px ${C.lightInk}08`,
+                transition: "box-shadow .25s ease",
               }} className="l-benefit-card">
-                {/* Top accent bar */}
-                <div aria-hidden style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: "2px",
-                  background: `linear-gradient(90deg, ${C.accent}66, ${C.accent}18, transparent)`,
-                }} />
-                {/* Large number background */}
-                <span aria-hidden style={{
-                  position: "absolute",
-                  top: "0.5rem",
-                  right: "1rem",
-                  fontFamily: DISPLAY,
-                  fontWeight: 700,
-                  fontSize: "clamp(3.5rem, 7vw, 5rem)",
-                  lineHeight: 1,
-                  color: C.accent,
-                  opacity: 0.06,
-                  userSelect: "none",
-                  pointerEvents: "none",
-                }}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                {/* Number pill */}
                 <span style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontFamily: MONO,
-                  fontWeight: 600,
-                  fontSize: "0.6875rem",
-                  letterSpacing: "0.08em",
-                  color: C.lightBg,
-                  backgroundColor: C.accentDeep,
-                  borderRadius: "2px",
-                  padding: "0.35rem 0.625rem",
-                  marginBottom: "1rem",
+                  fontFamily: SERIF,
+                  fontStyle: "italic",
+                  fontSize: "1.5rem",
+                  lineHeight: 1,
+                  color: C.accentDeep,
                 }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p style={{
                   fontFamily: SANS,
-                  fontSize: "clamp(0.9375rem, 1.3vw, 1.0625rem)",
-                  lineHeight: 1.72,
+                  fontSize: "0.9375rem",
+                  lineHeight: 1.65,
                   color: C.lightInk,
                   margin: 0,
-                  textAlign: "justify",
-                  position: "relative",
-                  zIndex: 1,
-                  whiteSpace: "pre-line",
-                  flex: "1 1 auto",
                 }}>{b}</p>
               </div>
             ))}
