@@ -185,28 +185,6 @@ function Page4() {
           position: "absolute", inset: 0, pointerEvents: "none",
           background: `radial-gradient(ellipse 70% 55% at 78% 30%, ${C.accent}12, transparent 65%), radial-gradient(ellipse 55% 50% at 10% 80%, ${C.accent}0A, transparent 60%)`,
         }} />
-        <div aria-hidden style={{
-          position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.25,
-          backgroundImage: `linear-gradient(${C.lineLight} 1px, transparent 1px)`,
-          backgroundSize: "100% clamp(7rem, 12vh, 9rem)",
-          maskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
-        }} />
-        <svg aria-hidden viewBox="0 0 600 600" fill="none"
-          style={{
-            position: "absolute", right: "-12vw", top: "50%", transform: "translateY(-50%)",
-            width: "min(95vw, 780px)", height: "min(95vw, 780px)",
-            opacity: 0.07, pointerEvents: "none", animation: "l-spin 220s linear infinite", willChange: "transform",
-          }}>
-          <circle cx="300" cy="300" r="80" stroke={C.accent} strokeWidth="0.5" />
-          <circle cx="300" cy="300" r="160" stroke={C.accent} strokeWidth="0.4" />
-          <circle cx="300" cy="300" r="240" stroke={C.accent} strokeWidth="0.3" />
-          <circle cx="300" cy="300" r="290" stroke={C.accent} strokeWidth="0.2" />
-          <line x1="10" y1="300" x2="590" y2="300" stroke={C.accent} strokeWidth="0.25" />
-          <line x1="300" y1="10" x2="300" y2="590" stroke={C.accent} strokeWidth="0.25" />
-          <line x1="80" y1="80" x2="520" y2="520" stroke={C.accent} strokeWidth="0.18" />
-          <line x1="520" y1="80" x2="80" y2="520" stroke={C.accent} strokeWidth="0.18" />
-        </svg>
 
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1180px", width: "100%", margin: "0 auto" }}>
           {/* Eyebrow with dot */}
@@ -459,16 +437,6 @@ function Page4() {
         position: "relative",
         overflow: "hidden",
       }}>
-        {/* Decorative accent line */}
-        <div aria-hidden style={{
-          position: "absolute",
-          top: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "1px",
-          height: "clamp(3rem,6vw,5rem)",
-          background: `linear-gradient(to bottom, ${C.accent}, transparent)`,
-        }} />
 
         <div style={{ maxWidth: "920px", margin: "0 auto" }}>
           <p style={{ ...eyebrow(C.accentDeep), textAlign: "center", marginBottom: "1.25rem" }}>No Workshop</p>

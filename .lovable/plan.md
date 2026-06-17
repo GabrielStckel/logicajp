@@ -1,16 +1,20 @@
-## Redesign da seção "O que você vai compreender"
+## Objetivo
+Remover as linhas decorativas de fundo de duas seções da página.
 
-Substituir a seção de benefícios atual (cards em grid 2 colunas com badges numéricos) pelo design **Elegant three-column grid** escolhido.
+## Alterações
 
-### Mudanças
-- **Layout**: grid de 3 colunas no desktop, 2 no tablet, 1 no mobile — mais compacto verticalmente
-- **Cards**: fundo claro, borda sutil, borda superior dourada (2px) como único acento
-- **Numeração**: número em itálico serif (Playfair Display) na cor dourada — sem badge, sem número grande no fundo
-- **Hover**: sombra sutil aumenta levemente (sem elevação, sem transform)
-- **Densidade**: padding reduzido, gap menor entre cards
+### 1. Hero (seção inicial)
+Remover:
+- A **hairline grid** (div com `backgroundImage: linear-gradient(...)` e `backgroundSize` que cria linhas horizontais)
+- O **SVG decorativo** com círculos concêntricos e linhas cruzadas (crosshair + círculos dourados)
 
-### Referência visual
-Design v1 — "Elegant three-column grid" com estética minimalista, limpo e editorial.
+Mantém o radial glow de fundo e todo o conteúdo textual/CTA.
 
-### Arquivo alterado
-- `src/routes/4.tsx` — substituição da seção BENEFITS (linhas 453–576)
+### 2. Seção "O que você vai compreender" (BENEFITS)
+Remover:
+- A **linha vertical decorativa dourada** no topo central da seção (`position: absolute`, gradiente dourado de cima para baixo)
+
+Mantém os cards com borda superior dourada, grid, tipografia e conteúdo.
+
+## Escopo
+Edição única no arquivo `src/routes/4.tsx`. Sem alterações de lógica, apenas remoção de elementos decorativos.
