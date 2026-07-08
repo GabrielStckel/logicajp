@@ -10,17 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as R4RouteImport } from './routes/4'
-import { Route as R3RouteImport } from './routes/3'
 import { Route as IndexRouteImport } from './routes/index'
 
 const R4Route = R4RouteImport.update({
   id: '/4',
   path: '/4',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const R3Route = R3RouteImport.update({
-  id: '/3',
-  path: '/3',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,31 +25,27 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/3': typeof R3Route
   '/4': typeof R4Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/3': typeof R3Route
   '/4': typeof R4Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/3': typeof R3Route
   '/4': typeof R4Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/3' | '/4'
+  fullPaths: '/' | '/4'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/3' | '/4'
-  id: '__root__' | '/' | '/3' | '/4'
+  to: '/' | '/4'
+  id: '__root__' | '/' | '/4'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  R3Route: typeof R3Route
   R4Route: typeof R4Route
 }
 
@@ -66,13 +56,6 @@ declare module '@tanstack/react-router' {
       path: '/4'
       fullPath: '/4'
       preLoaderRoute: typeof R4RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/3': {
-      id: '/3'
-      path: '/3'
-      fullPath: '/3'
-      preLoaderRoute: typeof R3RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,7 +70,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  R3Route: R3Route,
   R4Route: R4Route,
 }
 export const routeTree = rootRouteImport
