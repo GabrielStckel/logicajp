@@ -47,7 +47,7 @@ const benefits = [
 ];
 
 const eventDetails = [
-  { label: "Data", value: "08 de julho de 2026", sub: "Segunda-feira" },
+  { label: "Data", value: "29 de julho de 2026", sub: "Quarta-feira" },
   { label: "Horário", value: "19h30 – 22h30", sub: "3 horas de imersão" },
   { label: "Local", value: "Rua 1500, 820 – 25º andar", sub: "Centro · Balneário Camboriú" },
   { label: "Capacidade", value: "60 pessoas", sub: "Vagas estritamente limitadas" },
@@ -65,7 +65,7 @@ export const Route = createFileRoute("/4")({
   head: () => ({
     meta: [
       { title: "A Lógica — Dinheiro e Abundância Sistêmica · Workshop com Jonas Peress" },
-      { name: "description", content: "Workshop presencial gratuito em Balneário Camboriú. 08 de julho de 2026. A lógica sistêmica por trás dos seus padrões com dinheiro." },
+      { name: "description", content: "Workshop presencial gratuito em Balneário Camboriú. 29 de julho de 2026. A lógica sistêmica por trás dos seus padrões com dinheiro." },
       { property: "og:title", content: "A Lógica — Workshop Presencial · Jonas Peress" },
       { property: "og:description", content: "A maioria dos seus problemas com dinheiro não são sobre dinheiro. 60 vagas. Balneário Camboriú." },
     ],
@@ -145,6 +145,9 @@ function Page4() {
         .l-faq-panel > div { overflow: hidden; }
         input:focus { border-color: ${C.accent} !important; box-shadow: 0 0 0 3px ${C.accent}22; }
         .pain-card:hover { border-color: ${C.accent}44 !important; box-shadow: 0 8px 28px -8px ${C.lightInk}10; }
+        .pain-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+        @media (min-width: 640px) { .pain-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 960px) { .pain-grid { grid-template-columns: repeat(3, 1fr); } .pain-grid > :last-child:nth-child(3n-2) { grid-column: 2 / 3; } }
         .l-benefit-card:hover { box-shadow: 0 8px 28px -8px ${C.lightInk}18 !important; }
         .form-card { transition: box-shadow .4s ease, transform .4s ease; }
         .form-card:hover { box-shadow: 0 40px 100px -30px ${C.darkBg}CC, 0 0 0 1px ${C.accent}40; transform: translateY(-2px); }
@@ -250,7 +253,7 @@ function Page4() {
             maxWidth: "780px",
           }}>
             {[
-              { k: "Data", v: "08 jul · 2026", s: "Quarta · 19h30" },
+              { k: "Data", v: "29 jul · 2026", s: "Quarta · 19h30" },
               { k: "Local", v: "Balneário Camboriú", s: "Centro · 25º andar" },
               { k: "Vagas", v: "60 lugares", s: "Estritamente limitadas" },
             ].map((m) => (
@@ -311,7 +314,7 @@ function Page4() {
           <h2 style={{
             ...h2Style(C.lightInk),
             textAlign: "center",
-            maxWidth: "18ch",
+            maxWidth: "none",
             marginLeft: "auto",
             marginRight: "auto",
             marginBottom: "0.75rem",
@@ -324,7 +327,7 @@ function Page4() {
             lineHeight: 1.7,
             color: C.lightMuted,
             textAlign: "center",
-            maxWidth: "52ch",
+            maxWidth: "72ch",
             marginLeft: "auto",
             marginRight: "auto",
             marginBottom: "clamp(2.5rem, 5vw, 3.5rem)",
@@ -332,11 +335,8 @@ function Page4() {
             Se você se identifica com um ou mais dos pontos abaixo, saiba que não está sozinho. É algo muito mais profundo do que falta de disciplina.
           </p>
 
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
-            gap: "1.25rem",
-          }}>
+          <div className="pain-grid">
+
             {painPoints.map((p, i) => (
               <div key={i} style={{
                 backgroundColor: C.lightBg,
@@ -386,19 +386,25 @@ function Page4() {
       </section>
 
       {/* PULL QUOTE — LIGHT */}
-      <section style={{ background: `linear-gradient(180deg, ${C.lightBg} 0%, ${C.lightBgSoft} 40%, ${C.lightBgSoft} 60%, ${C.lightBg} 100%)`, padding: "clamp(2.5rem,5vw,4rem) 1.5rem", borderTop: `1px solid ${C.lineLight}`, borderBottom: `1px solid ${C.lineLight}` }}>
-        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-          <div style={{ position: "relative", padding: "clamp(1.25rem,2.5vw,2rem) 0" }}>
-            <span aria-hidden style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", fontFamily: SANS, fontSize: "clamp(3rem,6vw,4.5rem)", lineHeight: 1, color: C.accent, opacity: 0.14, userSelect: "none", pointerEvents: "none" }}>"</span>
-            <blockquote style={{ margin: 0, position: "relative", zIndex: 1 }}>
-              <p style={{ fontFamily: SANS, fontWeight: 400, fontSize: "clamp(1.125rem,2.4vw,1.5rem)", lineHeight: 1.6, letterSpacing: "-0.01em", color: C.lightInk, marginBottom: 0, textAlign: "justify", fontStyle: "italic" }}>
-                A verdade é diferente do que te contaram. Enquanto você não compreender essa <span style={{ color: C.accentDeep, fontStyle: "normal", fontWeight: 700 }}>lógica sistêmica</span>, continuará tentando resolver sintomas. Mas quando você percebe… <span style={{ color: C.accentDeep, fontStyle: "normal", fontWeight: 700 }}>tudo muda</span>.
-              </p>
-            </blockquote>
-            <span aria-hidden style={{ position: "absolute", bottom: "-1rem", right: 0, fontFamily: SANS, fontSize: "clamp(2rem,4vw,3.5rem)", lineHeight: 1, color: C.accent, opacity: 0.1, userSelect: "none", pointerEvents: "none", transform: "rotate(180deg)" }}>"</span>
-          </div>
+      <section style={{ background: `linear-gradient(180deg, ${C.lightBg} 0%, ${C.lightBgSoft} 40%, ${C.lightBgSoft} 60%, ${C.lightBg} 100%)`, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}`, borderBottom: `1px solid ${C.lineLight}` }}>
+        <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
+          <span aria-hidden style={{ display: "inline-block", width: "1px", height: "40px", backgroundColor: C.accent, marginBottom: "clamp(1.5rem,3vw,2rem)" }} />
+          <blockquote style={{ margin: 0 }}>
+            <p style={{
+              fontFamily: SERIF, fontWeight: 400,
+              fontSize: "clamp(1.375rem, 2.6vw, 1.875rem)",
+              lineHeight: 1.4, letterSpacing: "-0.01em",
+              color: C.lightInk, margin: 0, textAlign: "center",
+            }}>
+              A verdade é diferente do que te contaram. Enquanto você não compreender essa <span style={{ color: C.accentDeep, fontWeight: 700 }}>lógica sistêmica</span>, continuará tentando resolver sintomas. Mas quando você percebe… <span style={{ color: C.accentDeep, fontWeight: 700 }}>tudo muda</span>.
+            </p>
+          </blockquote>
+          <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.lightMuted, margin: "clamp(1.75rem,3vw,2.25rem) 0 0" }}>
+            — Jonas Peress
+          </p>
         </div>
       </section>
+
 
       {/* ABOUT JONAS — LIGHT */}
       <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
@@ -538,13 +544,6 @@ function Page4() {
           position: "absolute", inset: 0, pointerEvents: "none",
           background: `radial-gradient(ellipse 60% 50% at 85% 20%, ${C.accent}22, transparent 60%), radial-gradient(ellipse 50% 45% at 5% 90%, ${C.accent}14, transparent 60%)`,
         }} />
-        <div aria-hidden style={{
-          position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.5,
-          backgroundImage: `linear-gradient(${C.lineDark} 1px, transparent 1px)`,
-          backgroundSize: "100% clamp(7rem, 12vh, 9rem)",
-          maskImage: "linear-gradient(to bottom, transparent, black 25%, black 75%, transparent)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 25%, black 75%, transparent)",
-        }} />
 
         <div style={{
           position: "relative", zIndex: 1, maxWidth: "1100px", margin: "0 auto",
@@ -569,7 +568,7 @@ function Page4() {
               margin: "0 0 1.5rem", maxWidth: "14ch",
             }}>
               Você merece{" "}
-              <span style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>compreender</span>.
+              <span style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>compreender</span>
             </h2>
 
             <p style={{
@@ -582,7 +581,7 @@ function Page4() {
             {/* Recap chips */}
             <div style={{ display: "grid", gap: "0.875rem", maxWidth: "360px" }}>
               {[
-                { k: "Quando", v: "08 jul · 2026 · 19h30" },
+                { k: "Quando", v: "29 jul · 2026 · 19h30" },
                 { k: "Onde", v: "Balneário Camboriú · SC" },
                 { k: "Investimento", v: "Gratuito" },
               ].map((r) => (
@@ -768,7 +767,7 @@ function Page4() {
             Você merece sair do ciclo de inferioridade e da sensação de impotência que a escassez provoca. Você merece, finalmente, compreender a lógica sistêmica do dinheiro e assumir o seu lugar de abundância.
           </p>
           <p style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.lightMuted, marginBottom: "2rem" }}>
-            Dia 08 de julho · Vagas limitadas · Estou esperando por você.
+            Dia 29 de julho · Vagas limitadas · Estou esperando por você.
           </p>
           <a href="#inscricao" className="l-cta" style={{
             display: "inline-block", fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 500, letterSpacing: "0.04em",
@@ -808,7 +807,7 @@ function Page4() {
               <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.lightMuted, margin: "0 0 1rem" }}>
                 Evento
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightInk, margin: "0 0 0.25rem" }}>08 de julho · 2026</p>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightInk, margin: "0 0 0.25rem" }}>29 de julho · 2026</p>
               <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightMuted, margin: "0 0 0.875rem" }}>Balneário Camboriú · SC</p>
               <a href="#inscricao" style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.accentDeep, textDecoration: "none", borderBottom: `1px solid ${C.accent}55`, paddingBottom: "2px" }}>
                 Garantir vaga →
