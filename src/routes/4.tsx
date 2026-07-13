@@ -768,7 +768,7 @@ function Page4() {
             Você merece sair do ciclo de inferioridade e da sensação de impotência que a escassez provoca. Você merece, finalmente, compreender a lógica sistêmica do dinheiro e assumir o seu lugar de abundância.
           </p>
           <p style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.lightMuted, marginBottom: "2rem" }}>
-            Dia 08 de julho · Vagas limitadas · Estou esperando por você.
+            Dia 29 de julho · Vagas limitadas · Estou esperando por você.
           </p>
           <a href="#inscricao" className="l-cta" style={{
             display: "inline-block", fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 500, letterSpacing: "0.04em",
@@ -808,7 +808,7 @@ function Page4() {
               <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.lightMuted, margin: "0 0 1rem" }}>
                 Evento
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightInk, margin: "0 0 0.25rem" }}>08 de julho · 2026</p>
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightInk, margin: "0 0 0.25rem" }}>29 de julho · 2026</p>
               <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightMuted, margin: "0 0 0.875rem" }}>Balneário Camboriú · SC</p>
               <a href="#inscricao" style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.accentDeep, textDecoration: "none", borderBottom: `1px solid ${C.accent}55`, paddingBottom: "2px" }}>
                 Garantir vaga →
