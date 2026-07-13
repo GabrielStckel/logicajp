@@ -544,13 +544,6 @@ function Page4() {
           position: "absolute", inset: 0, pointerEvents: "none",
           background: `radial-gradient(ellipse 60% 50% at 85% 20%, ${C.accent}22, transparent 60%), radial-gradient(ellipse 50% 45% at 5% 90%, ${C.accent}14, transparent 60%)`,
         }} />
-        <div aria-hidden style={{
-          position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.5,
-          backgroundImage: `linear-gradient(${C.lineDark} 1px, transparent 1px)`,
-          backgroundSize: "100% clamp(7rem, 12vh, 9rem)",
-          maskImage: "linear-gradient(to bottom, transparent, black 25%, black 75%, transparent)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 25%, black 75%, transparent)",
-        }} />
 
         <div style={{
           position: "relative", zIndex: 1, maxWidth: "1100px", margin: "0 auto",
@@ -575,7 +568,7 @@ function Page4() {
               margin: "0 0 1.5rem", maxWidth: "14ch",
             }}>
               Você merece{" "}
-              <span style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>compreender</span>.
+              <span style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>compreender</span>
             </h2>
 
             <p style={{
