@@ -145,6 +145,9 @@ function Page4() {
         .l-faq-panel > div { overflow: hidden; }
         input:focus { border-color: ${C.accent} !important; box-shadow: 0 0 0 3px ${C.accent}22; }
         .pain-card:hover { border-color: ${C.accent}44 !important; box-shadow: 0 8px 28px -8px ${C.lightInk}10; }
+        .pain-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+        @media (min-width: 640px) { .pain-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 960px) { .pain-grid { grid-template-columns: repeat(3, 1fr); } .pain-grid > :last-child:nth-child(3n-2) { grid-column: 2 / 3; } }
         .l-benefit-card:hover { box-shadow: 0 8px 28px -8px ${C.lightInk}18 !important; }
         .form-card { transition: box-shadow .4s ease, transform .4s ease; }
         .form-card:hover { box-shadow: 0 40px 100px -30px ${C.darkBg}CC, 0 0 0 1px ${C.accent}40; transform: translateY(-2px); }
@@ -311,7 +314,7 @@ function Page4() {
           <h2 style={{
             ...h2Style(C.lightInk),
             textAlign: "center",
-            maxWidth: "18ch",
+            maxWidth: "none",
             marginLeft: "auto",
             marginRight: "auto",
             marginBottom: "0.75rem",
@@ -324,7 +327,7 @@ function Page4() {
             lineHeight: 1.7,
             color: C.lightMuted,
             textAlign: "center",
-            maxWidth: "52ch",
+            maxWidth: "72ch",
             marginLeft: "auto",
             marginRight: "auto",
             marginBottom: "clamp(2.5rem, 5vw, 3.5rem)",
@@ -332,11 +335,8 @@ function Page4() {
             Se você se identifica com um ou mais dos pontos abaixo, saiba que não está sozinho. É algo muito mais profundo do que falta de disciplina.
           </p>
 
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
-            gap: "1.25rem",
-          }}>
+          <div className="pain-grid">
+
             {painPoints.map((p, i) => (
               <div key={i} style={{
                 backgroundColor: C.lightBg,
