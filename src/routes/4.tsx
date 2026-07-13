@@ -386,19 +386,25 @@ function Page4() {
       </section>
 
       {/* PULL QUOTE — LIGHT */}
-      <section style={{ background: `linear-gradient(180deg, ${C.lightBg} 0%, ${C.lightBgSoft} 40%, ${C.lightBgSoft} 60%, ${C.lightBg} 100%)`, padding: "clamp(2.5rem,5vw,4rem) 1.5rem", borderTop: `1px solid ${C.lineLight}`, borderBottom: `1px solid ${C.lineLight}` }}>
-        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-          <div style={{ position: "relative", padding: "clamp(1.25rem,2.5vw,2rem) 0" }}>
-            <span aria-hidden style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", fontFamily: SANS, fontSize: "clamp(3rem,6vw,4.5rem)", lineHeight: 1, color: C.accent, opacity: 0.14, userSelect: "none", pointerEvents: "none" }}>"</span>
-            <blockquote style={{ margin: 0, position: "relative", zIndex: 1 }}>
-              <p style={{ fontFamily: SANS, fontWeight: 400, fontSize: "clamp(1.125rem,2.4vw,1.5rem)", lineHeight: 1.6, letterSpacing: "-0.01em", color: C.lightInk, marginBottom: 0, textAlign: "justify", fontStyle: "italic" }}>
-                A verdade é diferente do que te contaram. Enquanto você não compreender essa <span style={{ color: C.accentDeep, fontStyle: "normal", fontWeight: 700 }}>lógica sistêmica</span>, continuará tentando resolver sintomas. Mas quando você percebe… <span style={{ color: C.accentDeep, fontStyle: "normal", fontWeight: 700 }}>tudo muda</span>.
-              </p>
-            </blockquote>
-            <span aria-hidden style={{ position: "absolute", bottom: "-1rem", right: 0, fontFamily: SANS, fontSize: "clamp(2rem,4vw,3.5rem)", lineHeight: 1, color: C.accent, opacity: 0.1, userSelect: "none", pointerEvents: "none", transform: "rotate(180deg)" }}>"</span>
-          </div>
+      <section style={{ background: `linear-gradient(180deg, ${C.lightBg} 0%, ${C.lightBgSoft} 40%, ${C.lightBgSoft} 60%, ${C.lightBg} 100%)`, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}`, borderBottom: `1px solid ${C.lineLight}` }}>
+        <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
+          <span aria-hidden style={{ display: "inline-block", width: "1px", height: "40px", backgroundColor: C.accent, marginBottom: "clamp(1.5rem,3vw,2rem)" }} />
+          <blockquote style={{ margin: 0 }}>
+            <p style={{
+              fontFamily: SERIF, fontWeight: 400,
+              fontSize: "clamp(1.375rem, 2.6vw, 1.875rem)",
+              lineHeight: 1.4, letterSpacing: "-0.01em",
+              color: C.lightInk, margin: 0, textAlign: "center",
+            }}>
+              A verdade é diferente do que te contaram. Enquanto você não compreender essa <span style={{ color: C.accentDeep, fontWeight: 700 }}>lógica sistêmica</span>, continuará tentando resolver sintomas. Mas quando você percebe… <span style={{ color: C.accentDeep, fontWeight: 700 }}>tudo muda</span>.
+            </p>
+          </blockquote>
+          <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.lightMuted, margin: "clamp(1.75rem,3vw,2.25rem) 0 0" }}>
+            — Jonas Peress
+          </p>
         </div>
       </section>
+
 
       {/* ABOUT JONAS — LIGHT */}
       <section style={{ backgroundColor: C.lightBg, padding: "clamp(4rem,8vw,6rem) 1.5rem", borderTop: `1px solid ${C.lineLight}` }}>
