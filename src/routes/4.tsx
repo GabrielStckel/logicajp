@@ -47,7 +47,7 @@ const benefits = [
 ];
 
 const eventDetails = [
-  { label: "Data", value: "08 de julho de 2026", sub: "Segunda-feira" },
+  { label: "Data", value: "29 de julho de 2026", sub: "Quarta-feira" },
   { label: "Horário", value: "19h30 – 22h30", sub: "3 horas de imersão" },
   { label: "Local", value: "Rua 1500, 820 – 25º andar", sub: "Centro · Balneário Camboriú" },
   { label: "Capacidade", value: "60 pessoas", sub: "Vagas estritamente limitadas" },
@@ -65,7 +65,7 @@ export const Route = createFileRoute("/4")({
   head: () => ({
     meta: [
       { title: "A Lógica — Dinheiro e Abundância Sistêmica · Workshop com Jonas Peress" },
-      { name: "description", content: "Workshop presencial gratuito em Balneário Camboriú. 08 de julho de 2026. A lógica sistêmica por trás dos seus padrões com dinheiro." },
+      { name: "description", content: "Workshop presencial gratuito em Balneário Camboriú. 29 de julho de 2026. A lógica sistêmica por trás dos seus padrões com dinheiro." },
       { property: "og:title", content: "A Lógica — Workshop Presencial · Jonas Peress" },
       { property: "og:description", content: "A maioria dos seus problemas com dinheiro não são sobre dinheiro. 60 vagas. Balneário Camboriú." },
     ],
@@ -250,7 +250,7 @@ function Page4() {
             maxWidth: "780px",
           }}>
             {[
-              { k: "Data", v: "08 jul · 2026", s: "Quarta · 19h30" },
+              { k: "Data", v: "29 jul · 2026", s: "Quarta · 19h30" },
               { k: "Local", v: "Balneário Camboriú", s: "Centro · 25º andar" },
               { k: "Vagas", v: "60 lugares", s: "Estritamente limitadas" },
             ].map((m) => (
@@ -582,7 +582,7 @@ function Page4() {
             {/* Recap chips */}
             <div style={{ display: "grid", gap: "0.875rem", maxWidth: "360px" }}>
               {[
-                { k: "Quando", v: "08 jul · 2026 · 19h30" },
+                { k: "Quando", v: "29 jul · 2026 · 19h30" },
                 { k: "Onde", v: "Balneário Camboriú · SC" },
                 { k: "Investimento", v: "Gratuito" },
               ].map((r) => (
