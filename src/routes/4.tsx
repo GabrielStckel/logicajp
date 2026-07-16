@@ -26,7 +26,7 @@ const DISPLAY = "'Inter Tight', sans-serif";
 const SANS = "'Inter', system-ui, sans-serif";
 const MONO = "'JetBrains Mono', monospace";
 
-const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/SEU-LINK-AQUI";
+
 
 const painPoints = [
   { label: "Cobrança", text: "Você não consegue cobrar pelo seu trabalho — sente vergonha e acha que não merece receber." },
