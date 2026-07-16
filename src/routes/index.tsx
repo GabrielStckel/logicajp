@@ -481,18 +481,27 @@ function Index() {
           <div>
             {faqs.map((item, i) => {
               const isOpen = openFaq === i;
+              const triggerId = `faq-trigger-${i}`;
+              const panelId = `faq-panel-${i}`;
               return (
                 <div key={i} className="border-b border-border">
                   <button
+                    id={triggerId}
                     onClick={() => setOpenFaq(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between py-7 text-left transition-colors hover:text-accent"
+                    className="flex w-full items-center justify-between py-7 text-left transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                     aria-expanded={isOpen}
+                    aria-controls={panelId}
                   >
-                    <h4 className="pr-6 font-bold">{item.q}</h4>
+                    <h3 className="pr-6 font-bold">{item.q}</h3>
                     <span className="font-mono text-xl text-accent">{isOpen ? "−" : "+"}</span>
                   </button>
                   {isOpen && (
-                    <div className="animate-reveal pb-7 pr-10 text-sm leading-relaxed text-muted">
+                    <div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={triggerId}
+                      className="animate-reveal pb-7 pr-10 text-sm leading-relaxed text-muted"
+                    >
                       {item.a}
                     </div>
                   )}
