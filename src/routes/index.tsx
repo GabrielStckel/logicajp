@@ -4,6 +4,8 @@ import truthImage from "@/assets/truth.jpg";
 import venueImage from "@/assets/venue.jpg";
 import { submitLead } from "@/lib/api/leads.functions";
 
+const SITE_URL = "https://logicajp.lovable.app";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -19,11 +21,11 @@ export const Route = createFileRoute("/")({
         content:
           "Workshop presencial gratuito em Balneário Camboriú. 29 de julho de 2026. Vagas limitadas.",
       },
-      { property: "og:url", content: "/" },
-      { property: "og:image", content: truthImage },
-      { name: "twitter:image", content: truthImage },
+      { property: "og:url", content: `${SITE_URL}/` },
+      { property: "og:image", content: `${SITE_URL}${truthImage}` },
+      { name: "twitter:image", content: `${SITE_URL}${truthImage}` },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
     scripts: [
       {
         type: "application/ld+json",
@@ -193,7 +195,7 @@ function Index() {
           </span>
           <a
             href="#inscricao"
-            className="bg-foreground px-5 py-2 text-xs font-medium uppercase tracking-widest text-background transition-colors hover:bg-accent"
+            className="inline-flex min-h-[44px] items-center bg-foreground px-5 py-2 text-xs font-medium uppercase tracking-widest text-background transition-colors hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             Inscrever-se
           </a>
@@ -203,18 +205,18 @@ function Index() {
       {/* Hero */}
       <header className="relative overflow-hidden px-6 pb-24 pt-40">
         <div className="mx-auto max-w-6xl">
-          <div className="animate-reveal mb-8 inline-block">
+          <div className="mb-8 inline-block">
             <span className="rounded-full border border-accent/30 px-3 py-1 font-mono text-xs text-accent">
               Workshop Presencial Gratuito
             </span>
           </div>
-          <h1 className="animate-reveal mb-12 text-balance font-display text-6xl font-extrabold leading-[0.9] tracking-tighter [animation-delay:100ms] md:text-8xl">
+          <h1 className="mb-12 text-balance font-display text-6xl font-extrabold leading-[0.9] tracking-tighter md:text-8xl">
             Dinheiro &amp;
             <br />
             <span className="font-normal italic text-accent">Abundância Sistêmica</span>
           </h1>
 
-          <div className="animate-reveal grid grid-cols-1 items-end gap-12 [animation-delay:200ms] md:grid-cols-12">
+          <div className="grid grid-cols-1 items-end gap-12 md:grid-cols-12">
             <div className="md:col-span-7">
               <p className="max-w-[36ch] text-pretty text-xl leading-relaxed text-muted md:text-2xl">
                 Uma investigação profunda sobre as leis invisíveis que governam sua prosperidade
@@ -286,11 +288,12 @@ function Index() {
             width={1600}
             height={768}
             loading="lazy"
+            decoding="async"
             className="mb-16 aspect-[21/9] w-full rounded-sm object-cover opacity-90"
           />
-          <h3 className="mb-6 font-mono text-xs uppercase tracking-widest text-accent">
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-accent">
             A Verdade Que Ninguém Te Contou
-          </h3>
+          </h2>
           <blockquote className="mb-10 font-display text-3xl font-bold leading-tight tracking-tight md:text-5xl">
             "A maioria dos seus problemas com dinheiro não são sobre dinheiro. São sobre como sua
             consciência funciona."
@@ -323,7 +326,7 @@ function Index() {
             {discoveries.map((d) => (
               <div key={d.n} className="space-y-5 bg-surface p-10 md:p-12">
                 <span className="font-display text-3xl font-bold text-accent/40">{d.n}</span>
-                <h4 className="text-xl font-bold">{d.title}</h4>
+                <h3 className="text-xl font-bold">{d.title}</h3>
                 <p className="text-sm leading-relaxed text-muted">{d.body}</p>
               </div>
             ))}
@@ -355,6 +358,10 @@ function Index() {
                   <Row label="Vagas" value="60 (limitadas)" />
                   <Row label="Investimento" value="Gratuito" accent />
                 </dl>
+
+                <p className="mb-6 font-mono text-[11px] uppercase tracking-widest text-accent">
+                  Presencial e gratuito · Sem venda dura durante o evento — a Formação Completa é apresentada apenas ao final, para quem quiser.
+                </p>
 
                 <form onSubmit={submit} noValidate className="space-y-6">
                   <div>
@@ -394,6 +401,7 @@ function Index() {
                       id="lead-phone"
                       type="tel"
                       inputMode="numeric"
+                      enterKeyHint="send"
                       autoComplete="tel"
                       placeholder="(00) 00000-0000"
                       value={fields.phone}
@@ -437,7 +445,7 @@ function Index() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="block w-full bg-accent py-5 text-center text-base font-bold uppercase tracking-widest text-foreground transition-all duration-300 hover:bg-background disabled:opacity-60 min-h-[44px]"
+                    className="block w-full bg-accent py-5 text-center text-base font-bold uppercase tracking-widest text-foreground transition-all duration-300 hover:bg-background disabled:opacity-60 min-h-[44px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                   >
                     {submitting ? "Enviando..." : "Quero me inscrever agora"}
                   </button>
@@ -450,6 +458,7 @@ function Index() {
                   width={800}
                   height={1024}
                   loading="lazy"
+                  decoding="async"
                   className="aspect-[4/5] w-full rounded-sm object-cover"
                 />
               </div>
@@ -472,18 +481,27 @@ function Index() {
           <div>
             {faqs.map((item, i) => {
               const isOpen = openFaq === i;
+              const triggerId = `faq-trigger-${i}`;
+              const panelId = `faq-panel-${i}`;
               return (
                 <div key={i} className="border-b border-border">
                   <button
+                    id={triggerId}
                     onClick={() => setOpenFaq(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between py-7 text-left transition-colors hover:text-accent"
+                    className="flex w-full items-center justify-between py-7 text-left transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                     aria-expanded={isOpen}
+                    aria-controls={panelId}
                   >
-                    <h4 className="pr-6 font-bold">{item.q}</h4>
+                    <h3 className="pr-6 font-bold">{item.q}</h3>
                     <span className="font-mono text-xl text-accent">{isOpen ? "−" : "+"}</span>
                   </button>
                   {isOpen && (
-                    <div className="animate-reveal pb-7 pr-10 text-sm leading-relaxed text-muted">
+                    <div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={triggerId}
+                      className="animate-reveal pb-7 pr-10 text-sm leading-relaxed text-muted"
+                    >
                       {item.a}
                     </div>
                   )}
@@ -505,7 +523,7 @@ function Index() {
           </p>
           <a
             href="#inscricao"
-            className="inline-block bg-foreground px-10 py-5 text-sm font-bold uppercase tracking-widest text-background transition-colors hover:bg-accent"
+            className="inline-block bg-foreground px-10 py-5 text-sm font-bold uppercase tracking-widest text-background transition-colors hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             Garantir meu lugar
           </a>
@@ -521,6 +539,16 @@ function Index() {
           </p>
         </div>
       </footer>
+
+      {/* Sticky CTA mobile */}
+      <a
+        href="#inscricao"
+        aria-label="Garantir minha vaga no workshop"
+        className="fixed inset-x-4 bottom-4 z-50 flex min-h-[52px] items-center justify-center rounded-full border border-accent bg-foreground px-5 py-3 text-center text-xs font-semibold uppercase tracking-widest text-background shadow-lg shadow-black/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:hidden"
+      >
+        Garantir vaga · 29 jul
+      </a>
+      <div aria-hidden className="h-20 md:hidden" />
     </div>
   );
 }
