@@ -557,13 +557,13 @@ function Page1() {
             Um encontro presencial{" "}
             <span style={{ color: C.accentDeep, fontWeight: 600 }}>exclusivo</span>
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2rem", textAlign: "justify" }}>
+          <p className="l-justify" style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2rem", textAlign: "justify" }}>
             Este é um encontro presencial exclusivo em Balneário Camboriú, desenhado para quem busca respostas profundas e definitivas.
           </p>
           {eventDetails.map((d, i) => (
-            <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineLight}`, gap: "1rem", flexWrap: "wrap" }}>
+            <div key={i} className="event-row">
               <span style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.lightMuted, minWidth: "90px", paddingTop: "0.2rem" }}>{d.label}</span>
-              <div style={{ textAlign: "right" }}>
+              <div className="event-value">
                 <p style={{ fontFamily: DISPLAY, fontSize: "1.0625rem", fontWeight: d.label === "Investimento" ? 700 : 400, color: d.label === "Investimento" ? C.accentDeep : C.lightInk, margin: 0, lineHeight: 1.3 }}>{d.value}</p>
                 <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, margin: "0.2rem 0 0" }}>{d.sub}</p>
               </div>
