@@ -83,6 +83,33 @@ function looksDuplicate(payload: any): boolean {
   );
 }
 
+function extractManychatErrorMessage(json: any, httpStatus: number): string {
+  const stringify = (v: any): string | null => {
+    if (v == null) return null;
+    if (typeof v === "string") return v;
+    if (typeof v === "object") {
+      if (typeof v.message === "string") return v.message;
+      try {
+        return JSON.stringify(v);
+      } catch {
+        return null;
+      }
+    }
+    return String(v);
+  };
+  const firstMsg = Array.isArray(json?.details?.messages)
+    ? stringify(json.details.messages[0])
+    : null;
+  const candidate =
+    firstMsg ||
+    stringify(json?.details?.message) ||
+    stringify(json?.details) ||
+    stringify(json?.message) ||
+    `HTTP ${httpStatus}`;
+  return candidate.slice(0, 500);
+}
+
+
 async function syncManychat(params: {
   apiKey: string;
   firstName: string;
