@@ -445,7 +445,7 @@ function Index() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="block w-full bg-accent py-5 text-center text-base font-bold uppercase tracking-widest text-foreground transition-all duration-300 hover:bg-background disabled:opacity-60 min-h-[44px]"
+                    className="block w-full bg-accent py-5 text-center text-base font-bold uppercase tracking-widest text-foreground transition-all duration-300 hover:bg-background disabled:opacity-60 min-h-[44px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                   >
                     {submitting ? "Enviando..." : "Quero me inscrever agora"}
                   </button>
