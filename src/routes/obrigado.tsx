@@ -278,28 +278,6 @@ function ObrigadoPage() {
           Entrar no grupo do WhatsApp
         </a>
 
-        {/* Link secundário — mapa */}
-        <a
-          href={MAPS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="l-link"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: 44,
-            padding: "0.5rem 0.75rem",
-            fontFamily: SANS,
-            fontSize: "0.875rem",
-            color: C.lightMuted,
-            textDecoration: "underline",
-            textDecorationColor: `${C.accent}66`,
-            textUnderlineOffset: "4px",
-          }}
-        >
-          Guarde este endereço no seu mapa →
-        </a>
       </main>
     </div>
   );
