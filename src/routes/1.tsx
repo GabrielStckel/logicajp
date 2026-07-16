@@ -863,15 +863,19 @@ function Page1() {
           <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.72, color: C.lightMuted, marginBottom: "2.25rem" }}>
             Você merece sair do ciclo de inferioridade e da sensação de impotência que a escassez provoca. Você merece, finalmente, compreender a lógica sistêmica do dinheiro e assumir o seu lugar de abundância.
           </p>
-          <p style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.lightMuted, marginBottom: "2rem" }}>
-            Dia 29 de julho · Vagas limitadas · Estou esperando por você.
+          <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.lightMuted, marginBottom: "1.25rem" }}>
+            Gratuito · Presencial em Balneário Camboriú · 60 vagas
           </p>
           <a href="#inscricao" className="l-cta" style={{
-            display: "inline-block", fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 500, letterSpacing: "0.04em",
+            display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.6rem",
+            fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600, letterSpacing: "0.02em",
             color: C.darkBg, backgroundColor: C.accent, textDecoration: "none",
-            padding: "1.0625rem 2.5rem", borderRadius: "2px", transition: "background-color .2s ease",
+            padding: "1.1rem 2.5rem", borderRadius: "2px", transition: "background-color .2s ease, transform .2s ease",
+            boxShadow: `0 14px 40px -12px ${C.darkBg}33`,
+            minHeight: "52px",
           }}>
-            Garantir meu lugar em "A Lógica"
+            Garantir minha vaga presencial
+            <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
           </a>
         </div>
       </section>
