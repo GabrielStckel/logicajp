@@ -664,20 +664,8 @@ function Page4() {
               background: `linear-gradient(90deg, transparent, ${C.accent}, transparent)`,
             }} />
 
-            {submitted ? (
-              <div style={{ textAlign: "center", padding: "1rem 0" }}>
-                <div style={{ width: 56, height: 56, borderRadius: "50%", border: `1.5px solid ${C.accent}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem", fontSize: "1.5rem", color: C.accentDeep }}>✓</div>
-                <h3 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.375rem,3vw,1.875rem)", lineHeight: 1.2, color: C.lightInk, margin: "0 0 0.875rem" }}>Inscrição confirmada.</h3>
-                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.65, color: C.lightMuted, margin: "0 0 0.5rem" }}>
-                  O grupo do WhatsApp foi aberto em uma nova aba. Você receberá todas as informações por lá.
-                </p>
-                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, margin: 0 }}>
-                  Se a aba não abriu,{" "}
-                  <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ color: C.accentDeep, textDecoration: "underline" }}>clique aqui para entrar no grupo</a>.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={submit}>
+            <form onSubmit={submit}>
+
                 <div style={{ marginBottom: "1.5rem" }}>
                   <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accentDeep, margin: "0 0 0.625rem" }}>
                     Garanta sua vaga
