@@ -216,62 +216,94 @@ function Index() {
   return (
     <div className="bg-background text-foreground">
       {/* Nav */}
-      <nav className="flex items-center justify-between border-b border-border bg-background/80 px-6 py-4 backdrop-blur-md">
-        <span className="font-display text-xl font-bold tracking-tighter">A LÓGICA</span>
+      <nav className="flex items-center justify-between border-b border-border bg-background/80 px-5 py-3.5 backdrop-blur-md md:px-6 md:py-4">
+        <span className="font-display text-lg font-bold tracking-tighter md:text-xl">A LÓGICA</span>
         <div className="flex items-center gap-6">
           <span className="hidden font-mono text-[10px] uppercase tracking-widest text-muted md:block">
             29 Julho 2026 — Balneário Camboriú
           </span>
           <a
             href="#inscricao"
-            className="inline-flex min-h-[44px] items-center bg-foreground px-5 py-2 text-xs font-medium uppercase tracking-widest text-background transition-colors hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="inline-flex min-h-[44px] items-center border border-accent/40 px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent transition-colors hover:bg-accent hover:text-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
-            Inscrever-se
+            Quero minha vaga
           </a>
         </div>
       </nav>
 
       {/* Hero */}
-      <header className="relative overflow-hidden px-6 pb-24 pt-16">
+      <header className="relative overflow-hidden px-5 pb-16 pt-10 md:px-6 md:pb-24 md:pt-16">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-8 inline-block">
-            <span className="rounded-full border border-accent/30 px-3 py-1 font-mono text-xs text-accent">
+          <div className="mb-6 inline-flex items-center gap-2 md:mb-8">
+            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_var(--color-accent)]" />
+            <span className="rounded-full border border-accent/30 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-accent md:text-xs md:normal-case md:tracking-normal">
               Workshop Presencial Gratuito
             </span>
           </div>
-          <h1 className="mb-12 text-balance font-display text-6xl font-extrabold leading-[0.9] tracking-tighter md:text-8xl">
+          <h1 className="mb-8 text-balance font-display text-[2.75rem] font-extrabold leading-[0.95] tracking-tighter md:mb-12 md:text-7xl lg:text-8xl">
             Dinheiro &amp;
             <br />
             <span className="font-normal italic text-accent">Abundância Sistêmica</span>
           </h1>
 
-          <div className="grid grid-cols-1 items-end gap-12 md:grid-cols-12">
+          <div className="grid grid-cols-1 items-end gap-8 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-7">
-              <p className="max-w-[36ch] text-pretty text-xl leading-relaxed text-muted md:text-2xl">
+              <p className="max-w-[38ch] text-pretty text-base leading-relaxed text-muted md:text-2xl">
                 Uma investigação profunda sobre as leis invisíveis que governam sua prosperidade
                 financeira e os emaranhados geracionais que a sustentam.
               </p>
             </div>
-            <div className="flex flex-col gap-5 border-l border-border pl-8 md:col-span-5">
-              <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
-                  Data e Local
-                </span>
-                <p className="font-medium">Quarta-feira, 29 de Julho · 19h30</p>
-                <p className="text-sm text-muted">Balneário Camboriú, SC</p>
+
+            {/* Data/Local — mobile: 2 colunas compactas com hairline; md: layout editorial original */}
+            <div className="md:col-span-5">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-1 border-t border-border pt-5 md:hidden">
+                <div className="space-y-0.5">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted">Quando</span>
+                  <p className="text-sm font-medium leading-tight">29 Jul · Qua · 19h30</p>
+                </div>
+                <div className="space-y-0.5">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted">Onde</span>
+                  <p className="text-sm font-medium leading-tight">Balneário Camboriú · SC</p>
+                </div>
+                <p className="col-span-2 mt-2 font-mono text-[11px] uppercase tracking-widest text-accent">
+                  60 vagas presenciais
+                </p>
               </div>
-              <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
-                  Disponibilidade
-                </span>
-                <p className="font-medium">Apenas 60 vagas presenciais</p>
+              <div className="hidden flex-col gap-5 border-l border-border pl-8 md:flex">
+                <div className="space-y-1">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                    Data e Local
+                  </span>
+                  <p className="font-medium">Quarta-feira, 29 de Julho · 19h30</p>
+                  <p className="text-sm text-muted">Balneário Camboriú, SC</p>
+                </div>
+                <div className="space-y-1">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                    Disponibilidade
+                  </span>
+                  <p className="font-medium">Apenas 60 vagas presenciais</p>
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* CTA primário do hero */}
+          <div className="mt-10 flex flex-col items-start md:mt-14">
+            <a
+              href="#inscricao"
+              className="inline-flex w-full items-center justify-center bg-accent px-8 text-sm font-bold uppercase tracking-widest text-background transition-colors hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:w-auto"
+              style={{ minHeight: 52 }}
+            >
+              Garantir minha vaga presencial
+            </a>
+            <p className="mt-3 w-full text-center font-mono text-[11px] uppercase tracking-widest text-muted md:w-auto md:text-left">
+              Gratuito · Presencial em Balneário Camboriú · 60 vagas
+            </p>
           </div>
         </div>
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-accent/10 blur-[120px]"
+          className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-accent/10 blur-[120px] md:h-96 md:w-96"
         />
       </header>
 
