@@ -63,7 +63,7 @@ function ObrigadoPage() {
         backgroundColor: C.lightBg,
         color: C.lightInk,
         fontFamily: SANS,
-        padding: "clamp(1.75rem, 6vw, 3rem) 1.25rem",
+        padding: "clamp(1.75rem, 6vw, 3rem) 1.25rem clamp(4rem, 14vw, 7rem)",
         display: "flex",
         justifyContent: "center",
       }}
