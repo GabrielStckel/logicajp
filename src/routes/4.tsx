@@ -689,6 +689,41 @@ function Page4() {
                     </div>
                   ))}
 
+                  <div style={{ display: "flex", flexDirection: "column", gap: "0.4375rem" }}>
+                    <label
+                      htmlFor="confirmedPresencial"
+                      style={{
+                        display: "flex", alignItems: "flex-start", gap: "0.625rem",
+                        padding: "0.625rem 0", minHeight: "44px",
+                        cursor: "pointer",
+                        fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.5,
+                        color: C.lightMuted,
+                      }}
+                    >
+                      <input
+                        id="confirmedPresencial"
+                        type="checkbox"
+                        checked={fields.confirmedPresencial}
+                        onChange={(e) => setConfirmedPresencial(e.target.checked)}
+                        aria-invalid={!!errors.confirmedPresencial}
+                        aria-describedby={errors.confirmedPresencial ? "confirmedPresencial-error" : undefined}
+                        style={{
+                          accentColor: C.accentDeep,
+                          width: "1.125rem", height: "1.125rem",
+                          marginTop: "0.15rem", flexShrink: 0, cursor: "pointer",
+                          outlineOffset: "2px",
+                          border: `1px solid ${errors.confirmedPresencial ? "#C0392B" : C.lineLight}`,
+                        }}
+                      />
+                      <span>Estou ciente de que o evento é PRESENCIAL em Balneário Camboriú/SC e pretendo comparecer.</span>
+                    </label>
+                    {errors.confirmedPresencial && (
+                      <p id="confirmedPresencial-error" style={{ fontFamily: SANS, fontSize: "0.75rem", color: "#C0392B", margin: 0 }}>
+                        {errors.confirmedPresencial}
+                      </p>
+                    )}
+                  </div>
+
                   <button type="submit" className="l-cta" style={{
                     marginTop: "0.5rem",
                     width: "100%", padding: "1.125rem", backgroundColor: C.accentDeep,
