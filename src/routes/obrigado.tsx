@@ -21,8 +21,6 @@ const MONO = "'JetBrains Mono', monospace";
 
 const WHATSAPP_GROUP =
   "https://chat.whatsapp.com/C2fkN1xmpaE6H5agOyKBjx?mode=gi_t";
-const MAPS_URL =
-  "https://maps.google.com/?q=Rua+1500,+820+-+Centro,+Balneário+Camboriú+-+SC";
 
 export const Route = createFileRoute("/obrigado")({
   head: () => ({
