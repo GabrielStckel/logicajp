@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 
-// Paleta espelhada de /4 (mesmo sistema visual)
+// Paleta espelhada de /1 (mesmo sistema visual)
 const C = {
   darkBg: "#171D26",
   darkInk: "#FBFAF9",
