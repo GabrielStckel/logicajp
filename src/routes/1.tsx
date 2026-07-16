@@ -206,7 +206,7 @@ function Page1() {
       {/* HERO — LIGHT · Editorial */}
       <section style={{
         minHeight: "100svh", display: "flex", flexDirection: "column", justifyContent: "center",
-        paddingTop: "clamp(7rem,14vw,11rem)", paddingBottom: "clamp(3rem,6vw,5rem)",
+        paddingTop: "clamp(2rem,4vw,3rem)", paddingBottom: "clamp(3rem,6vw,5rem)",
         paddingLeft: "clamp(1.5rem,5vw,4rem)", paddingRight: "clamp(1.5rem,5vw,4rem)",
         position: "relative", overflow: "hidden", backgroundColor: C.lightBg,
       }}>
