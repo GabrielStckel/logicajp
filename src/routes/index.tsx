@@ -326,7 +326,7 @@ function Index() {
             {discoveries.map((d) => (
               <div key={d.n} className="space-y-5 bg-surface p-10 md:p-12">
                 <span className="font-display text-3xl font-bold text-accent/40">{d.n}</span>
-                <h4 className="text-xl font-bold">{d.title}</h4>
+                <h3 className="text-xl font-bold">{d.title}</h3>
                 <p className="text-sm leading-relaxed text-muted">{d.body}</p>
               </div>
             ))}
