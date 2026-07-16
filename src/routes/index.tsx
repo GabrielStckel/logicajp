@@ -1,8 +1,40 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import truthImage from "@/assets/truth.jpg";
-import venueImage from "@/assets/venue.jpg";
+import truthImage800 from "@/assets/truth-800.webp";
+import truthImage1600 from "@/assets/truth-1600.webp";
 import { submitLead } from "@/lib/api/leads.functions";
+
+// Paleta espelhada da /1 (Paleta C — dourado)
+const C = {
+  darkBg: "#171D26",
+  darkInk: "#FBFAF9",
+  darkMuted: "#9AA0AB",
+  lightBg: "#FBFAF9",
+  lightBgSoft: "#F4F2F1",
+  lightInk: "#171D26",
+  lightMuted: "#627084",
+  accent: "#C9A84C",
+  accentDeep: "#9E7E30",
+  accentLight: "#E0C878",
+  lineDark: "#2A313B",
+  lineLight: "#E5E3E0",
+} as const;
+
+const SERIF = "'Playfair Display', Georgia, serif";
+const DISPLAY = "'Inter Tight', sans-serif";
+const SANS = "'Inter', system-ui, sans-serif";
+const MONO = "'JetBrains Mono', monospace";
+
+const inputStyle = (err?: string): React.CSSProperties => ({
+  width: "100%", boxSizing: "border-box",
+  backgroundColor: C.lightBgSoft,
+  border: `1px solid ${err ? "#C0392B" : C.lineLight}`,
+  borderRadius: "2px", padding: "0.875rem 1rem",
+  fontFamily: SANS, fontSize: "1rem", color: C.lightInk,
+  outline: "none", caretColor: C.accent,
+  transition: "border-color .25s ease, box-shadow .25s ease, background-color .25s ease",
+});
 
 const SITE_URL = "https://logicajp.lovable.app";
 
