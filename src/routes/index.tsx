@@ -680,15 +680,6 @@ function Index() {
         </div>
       </footer>
 
-      {/* Sticky CTA mobile */}
-      <a
-        href="#inscricao"
-        aria-label="Garantir minha vaga no workshop"
-        className="fixed inset-x-4 bottom-4 z-50 flex min-h-[52px] items-center justify-center rounded-full border border-accent bg-foreground px-5 py-3 text-center text-xs font-semibold uppercase tracking-widest text-background shadow-lg shadow-black/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:hidden"
-      >
-        Garantir vaga · 29 jul
-      </a>
-      <div aria-hidden className="h-20 md:hidden" />
     </div>
   );
 }
