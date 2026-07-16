@@ -214,7 +214,7 @@ function Page1() {
 
       {/* HERO — LIGHT · Editorial */}
       <section style={{
-        minHeight: "100svh", display: "flex", flexDirection: "column", justifyContent: "center",
+        display: "flex", flexDirection: "column", justifyContent: "center",
         paddingTop: "clamp(2rem,4vw,3rem)", paddingBottom: "clamp(3rem,6vw,5rem)",
         paddingLeft: "clamp(1.5rem,5vw,4rem)", paddingRight: "clamp(1.5rem,5vw,4rem)",
         position: "relative", overflow: "hidden", backgroundColor: C.lightBg,
@@ -227,7 +227,7 @@ function Page1() {
 
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1180px", width: "100%", margin: "0 auto" }}>
           {/* Eyebrow with dot */}
-          <div className="l-rise" style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "clamp(2rem,4vw,3rem)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "clamp(2rem,4vw,3rem)" }}>
             <span aria-hidden style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: C.accent, boxShadow: `0 0 14px ${C.accent}66`, flexShrink: 0 }} />
             <span style={{ ...eyebrow(C.lightMuted), marginBottom: 0 }}>
               Workshop Presencial · Edição única
@@ -235,55 +235,59 @@ function Page1() {
           </div>
 
           {/* Headline — massive editorial */}
-          <h1 className="l-rise-2" style={{
+          <h1 style={{
             fontFamily: SERIF, fontWeight: 700,
-            fontSize: "clamp(2.5rem, 7vw, 5rem)", lineHeight: 0.96,
+            fontSize: "clamp(2.25rem, 8vw, 5rem)", lineHeight: 0.96,
             letterSpacing: "-0.035em", color: C.lightInk,
-            margin: 0, maxWidth: "16ch", whiteSpace: "pre-line",
+            margin: 0, maxWidth: "14ch", whiteSpace: "pre-line",
           }}>
             A lógica por trás{"\n"}do <span style={{ color: C.accentDeep }}>dinheiro</span>
             <span style={{ color: C.accentDeep }}>.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="l-rise-3" style={{
+          <p style={{
             fontFamily: SANS, fontWeight: 400,
             fontSize: "clamp(1.0625rem, 1.6vw, 1.25rem)", lineHeight: 1.6,
-            color: C.lightMuted, maxWidth: "44ch",
+            color: C.lightMuted, maxWidth: "40ch",
             margin: "clamp(1.75rem,3.5vw,2.75rem) 0 0",
-            textAlign: "justify",
+            textAlign: "left",
           }}>
             A maioria dos seus problemas com dinheiro <span style={{ color: C.lightInk, fontWeight: 500 }}>não são sobre dinheiro</span>. Uma investigação presencial sobre as leis sistêmicas invisíveis que governam a sua prosperidade.
           </p>
 
           {/* CTA row */}
-          <div className="l-rise-4" style={{
-            display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1.25rem 1.75rem",
+          <div style={{
+            display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "0.75rem",
             marginTop: "clamp(2.25rem,4vw,3rem)",
           }}>
             <a href="#inscricao" className="l-cta" style={{
-              display: "inline-flex", alignItems: "center", gap: "0.6rem",
+              display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.6rem",
               fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600, letterSpacing: "0.02em",
-              color: C.lightBg, backgroundColor: C.accentDeep, textDecoration: "none",
+              color: C.darkBg, backgroundColor: C.accent, textDecoration: "none",
               padding: "1.1rem 2.25rem", borderRadius: "2px",
               transition: "background-color .2s ease, transform .2s ease",
-              boxShadow: `0 14px 40px -12px ${C.accentDeep}55`,
+              boxShadow: `0 14px 40px -12px ${C.darkBg}33`,
+              width: "100%", maxWidth: "440px", minHeight: "52px", boxSizing: "border-box",
             }}>
-              Garantir minha vaga
+              Garantir minha vaga presencial
               <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
             </a>
-            <span style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, letterSpacing: "0.02em" }}>
-              <span style={{ color: C.accentDeep, fontWeight: 600 }}>Gratuito</span>
-              {" · "}Inscrição obrigatória
+            <span style={{
+              fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500,
+              letterSpacing: "0.16em", textTransform: "uppercase",
+              color: C.lightMuted,
+            }}>
+              Gratuito · Presencial em Balneário Camboriú · 60 vagas
             </span>
           </div>
 
           {/* Meta strip — editorial colophon */}
-          <div className="l-rise-4" style={{
+          <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-            gap: "1.5rem 2rem",
-            marginTop: "clamp(3.5rem,7vw,5.5rem)",
+            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+            gap: "1rem",
+            marginTop: "clamp(3rem,7vw,5.5rem)",
             paddingTop: "1.75rem",
             borderTop: `1px solid ${C.lineLight}`,
             maxWidth: "780px",
@@ -293,14 +297,14 @@ function Page1() {
               { k: "Local", v: "Balneário Camboriú", s: "Centro · 25º andar" },
               { k: "Vagas", v: "60 lugares", s: "Estritamente limitadas" },
             ].map((m) => (
-              <div key={m.k}>
-                <p style={{ fontFamily: SANS, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accentDeep, margin: "0 0 0.5rem" }}>
+              <div key={m.k} style={{ minWidth: 0 }}>
+                <p style={{ fontFamily: SANS, fontSize: "0.625rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.accentDeep, margin: "0 0 0.4rem" }}>
                   {m.k}
                 </p>
-                <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.2, color: C.lightInk, margin: 0 }}>
+                <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(0.9375rem, 2.6vw, 1.0625rem)", lineHeight: 1.2, color: C.lightInk, margin: 0, wordBreak: "break-word" }}>
                   {m.v}
                 </p>
-                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, margin: "0.2rem 0 0" }}>
+                <p style={{ fontFamily: SANS, fontSize: "0.75rem", color: C.lightMuted, margin: "0.2rem 0 0", lineHeight: 1.35 }}>
                   {m.s}
                 </p>
               </div>
