@@ -98,10 +98,12 @@ function maskPhone(v: string): string {
 }
 
 function Page4() {
+  const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [fields, setFields] = useState({ name: "", email: "", phone: "", confirmedPresencial: false });
   const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string; confirmedPresencial?: string }>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const set = (k: "name" | "email" | "phone", v: string) => {
     setFields((p) => ({ ...p, [k]: k === "phone" ? maskPhone(v) : v }));
@@ -113,7 +115,7 @@ function Page4() {
     if (errors.confirmedPresencial) setErrors((p) => ({ ...p, confirmedPresencial: undefined }));
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs: typeof errors = {};
     if (fields.name.trim().length < 3) errs.name = "Informe seu nome completo.";
@@ -121,8 +123,25 @@ function Page4() {
     if (fields.phone.replace(/\D/g, "").length < 10) errs.phone = "Informe um telefone com DDD.";
     if (!fields.confirmedPresencial) errs.confirmedPresencial = "Confirme que está ciente de que o evento é presencial.";
     if (Object.keys(errs).length) { setErrors(errs); return; }
-    setSubmitted(true);
-    window.open(WHATSAPP_GROUP_URL, "_blank", "noopener,noreferrer");
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      await submitLead({
+        data: {
+          name: fields.name.trim(),
+          email: fields.email.trim(),
+          phone: fields.phone,
+          confirmedPresencial: fields.confirmedPresencial,
+          source: "landing_4",
+        },
+      });
+      sessionStorage.setItem("lead_ok", "1");
+      navigate({ to: "/obrigado" as any });
+    } catch (err) {
+      console.error("[submitLead] failed", err);
+      setSubmitError("Não foi possível enviar sua inscrição. Verifique sua conexão e tente novamente.");
+      setSubmitting(false);
+    }
   };
 
   const inputStyle = (err?: string): React.CSSProperties => ({
