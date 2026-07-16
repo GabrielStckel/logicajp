@@ -183,14 +183,13 @@ function Page1() {
 
       {/* NAVBAR — LIGHT */}
       <nav style={{
-        position: "fixed", top: 0, left: "1rem", right: "1rem", zIndex: 50,
         display: "flex", alignItems: "center", justifyContent: "space-between",
         padding: "0.875rem 1.5rem",
+        margin: "0 1rem",
         backgroundColor: `${C.lightBg}90`,
         backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)",
         border: `1px solid ${C.lineLight}`,
         borderTop: "none",
-        borderRadius: "0 0 24px 24px",
         boxShadow: `0 8px 32px -8px ${C.lightInk}10`,
       }}>
         <span style={{ fontFamily: DISPLAY, fontSize: "0.875rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: C.lightInk }}>
@@ -207,7 +206,7 @@ function Page1() {
       {/* HERO — LIGHT · Editorial */}
       <section style={{
         minHeight: "100svh", display: "flex", flexDirection: "column", justifyContent: "center",
-        paddingTop: "clamp(7rem,14vw,11rem)", paddingBottom: "clamp(3rem,6vw,5rem)",
+        paddingTop: "clamp(2rem,4vw,3rem)", paddingBottom: "clamp(3rem,6vw,5rem)",
         paddingLeft: "clamp(1.5rem,5vw,4rem)", paddingRight: "clamp(1.5rem,5vw,4rem)",
         position: "relative", overflow: "hidden", backgroundColor: C.lightBg,
       }}>
@@ -923,15 +922,6 @@ function Page1() {
         </div>
       </footer>
 
-      {/* Sticky CTA mobile */}
-      <a
-        href="#inscricao"
-        aria-label="Garantir minha vaga no workshop"
-        className="fixed inset-x-4 bottom-4 z-50 flex min-h-[52px] items-center justify-center rounded-full border border-accent bg-foreground px-5 py-3 text-center text-xs font-semibold uppercase tracking-widest text-background shadow-lg shadow-black/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:hidden"
-      >
-        Garantir vaga · 29 jul
-      </a>
-      <div aria-hidden className="h-20 md:hidden" />
     </div>
   );
 }

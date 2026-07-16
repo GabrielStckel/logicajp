@@ -216,7 +216,7 @@ function Index() {
   return (
     <div className="bg-background text-foreground">
       {/* Nav */}
-      <nav className="fixed top-0 z-50 flex w-full items-center justify-between border-b border-border bg-background/80 px-6 py-4 backdrop-blur-md">
+      <nav className="flex items-center justify-between border-b border-border bg-background/80 px-6 py-4 backdrop-blur-md">
         <span className="font-display text-xl font-bold tracking-tighter">A LÓGICA</span>
         <div className="flex items-center gap-6">
           <span className="hidden font-mono text-[10px] uppercase tracking-widest text-muted md:block">
@@ -232,7 +232,7 @@ function Index() {
       </nav>
 
       {/* Hero */}
-      <header className="relative overflow-hidden px-6 pb-24 pt-40">
+      <header className="relative overflow-hidden px-6 pb-24 pt-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 inline-block">
             <span className="rounded-full border border-accent/30 px-3 py-1 font-mono text-xs text-accent">
@@ -680,15 +680,6 @@ function Index() {
         </div>
       </footer>
 
-      {/* Sticky CTA mobile */}
-      <a
-        href="#inscricao"
-        aria-label="Garantir minha vaga no workshop"
-        className="fixed inset-x-4 bottom-4 z-50 flex min-h-[52px] items-center justify-center rounded-full border border-accent bg-foreground px-5 py-3 text-center text-xs font-semibold uppercase tracking-widest text-background shadow-lg shadow-black/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:hidden"
-      >
-        Garantir vaga · 29 jul
-      </a>
-      <div aria-hidden className="h-20 md:hidden" />
     </div>
   );
 }
