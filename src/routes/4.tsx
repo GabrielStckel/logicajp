@@ -892,9 +892,6 @@ function Page4() {
               <a href="mailto:contato@jonasperess.com" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
                 contato@jonasperess.com
               </a>
-              <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, textDecoration: "none" }}>
-                Grupo no WhatsApp
-              </a>
             </div>
           </div>
 
