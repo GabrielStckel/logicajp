@@ -732,19 +732,40 @@ function Page4() {
                     )}
                   </div>
 
-                  <button type="submit" className="l-cta" style={{
+                  <button type="submit" disabled={submitting} className="l-cta" style={{
                     marginTop: "0.5rem",
                     width: "100%", padding: "1.125rem", backgroundColor: C.accentDeep,
                     color: C.lightBg, border: "none", borderRadius: "2px",
                     fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600,
-                    letterSpacing: "0.02em", cursor: "pointer",
-                    transition: "background-color .2s ease, transform .2s ease",
+                    letterSpacing: "0.02em", cursor: submitting ? "not-allowed" : "pointer",
+                    opacity: submitting ? 0.75 : 1,
+                    transition: "background-color .2s ease, transform .2s ease, opacity .2s ease",
                     boxShadow: `0 14px 36px -14px ${C.accentDeep}AA`,
                     display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.625rem",
                   }}>
-                    Confirmar minha inscrição
-                    <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
+                    {submitting ? (
+                      <>
+                        <span aria-hidden style={{
+                          width: "0.9em", height: "0.9em", borderRadius: "50%",
+                          border: `2px solid ${C.lightBg}`, borderTopColor: "transparent",
+                          display: "inline-block", animation: "l-spin .8s linear infinite",
+                        }} />
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        Confirmar minha inscrição
+                        <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
+                      </>
+                    )}
                   </button>
+
+                  {submitError && (
+                    <p role="alert" style={{ fontFamily: SANS, fontSize: "0.8125rem", color: "#C0392B", margin: 0, lineHeight: 1.5 }}>
+                      {submitError}
+                    </p>
+                  )}
+
 
                   {/* Trust row */}
                   <div style={{
