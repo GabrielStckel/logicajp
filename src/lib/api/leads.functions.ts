@@ -83,6 +83,33 @@ function looksDuplicate(payload: any): boolean {
   );
 }
 
+function extractManychatErrorMessage(json: any, httpStatus: number): string {
+  const stringify = (v: any): string | null => {
+    if (v == null) return null;
+    if (typeof v === "string") return v;
+    if (typeof v === "object") {
+      if (typeof v.message === "string") return v.message;
+      try {
+        return JSON.stringify(v);
+      } catch {
+        return null;
+      }
+    }
+    return String(v);
+  };
+  const firstMsg = Array.isArray(json?.details?.messages)
+    ? stringify(json.details.messages[0])
+    : null;
+  const candidate =
+    firstMsg ||
+    stringify(json?.details?.message) ||
+    stringify(json?.details) ||
+    stringify(json?.message) ||
+    `HTTP ${httpStatus}`;
+  return candidate.slice(0, 500);
+}
+
+
 async function syncManychat(params: {
   apiKey: string;
   firstName: string;
@@ -101,6 +128,7 @@ async function syncManychat(params: {
         consent_phrase:
           "Aceitou receber mensagens no WhatsApp ao se inscrever no workshop A Lógica",
         has_opt_in_sms: true,
+        has_opt_in_email: true,
       },
     );
 
@@ -114,11 +142,10 @@ async function syncManychat(params: {
         duplicated = true;
         subscriberId = subscriberId ?? extractSubscriberId(createRes.json?.details);
       } else {
-        const msg =
-          createRes.json?.message ||
-          createRes.json?.details?.messages?.[0] ||
-          `HTTP ${createRes.status}`;
-        return { status: "error", message: String(msg).slice(0, 240) };
+        return {
+          status: "error",
+          message: extractManychatErrorMessage(createRes.json, createRes.status),
+        };
       }
     }
 
@@ -132,13 +159,13 @@ async function syncManychat(params: {
         },
       );
       if (!tagRes.ok || tagRes.json?.status === "error") {
-        const msg =
-          tagRes.json?.message ||
-          tagRes.json?.details?.messages?.[0] ||
-          `HTTP ${tagRes.status}`;
-        return { status: "error", message: `tag: ${String(msg).slice(0, 220)}` };
+        return {
+          status: "error",
+          message: `tag: ${extractManychatErrorMessage(tagRes.json, tagRes.status).slice(0, 480)}`,
+        };
       }
     }
+
 
     return { status: duplicated ? "duplicado" : "ok", subscriberId };
   } catch (err) {
