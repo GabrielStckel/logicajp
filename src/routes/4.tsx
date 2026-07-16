@@ -155,7 +155,7 @@ function Page4() {
   });
 
   return (
-    <div style={{ backgroundColor: C.lightBg, fontFamily: SANS, WebkitFontSmoothing: "antialiased" }}>
+    <div id="top" style={{ backgroundColor: C.lightBg, fontFamily: SANS, WebkitFontSmoothing: "antialiased" }}>
       <style>{`
         @keyframes l-spin { to { transform: rotate(360deg); } }
         @keyframes l-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
@@ -170,6 +170,8 @@ function Page4() {
         .l-faq-panel.open { grid-template-rows: 1fr; }
         .l-faq-panel > div { overflow: hidden; }
         input:focus { border-color: ${C.accent} !important; box-shadow: 0 0 0 3px ${C.accent}22; }
+        .l-cta:focus-visible, .l-ghost:focus-visible, .l-faq-btn:focus-visible, .l-footer-link:focus-visible { outline: 2px solid ${C.accent}; outline-offset: 2px; }
+        input[type="checkbox"]:focus-visible { outline: 2px solid ${C.accent}; outline-offset: 2px; }
         .pain-card:hover { border-color: ${C.accent}44 !important; box-shadow: 0 8px 28px -8px ${C.lightInk}10; }
         .pain-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
         @media (min-width: 640px) { .pain-grid { grid-template-columns: repeat(2, 1fr); } }
