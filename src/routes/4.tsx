@@ -155,7 +155,7 @@ function Page4() {
   });
 
   return (
-    <div style={{ backgroundColor: C.lightBg, fontFamily: SANS, WebkitFontSmoothing: "antialiased" }}>
+    <div id="top" style={{ backgroundColor: C.lightBg, fontFamily: SANS, WebkitFontSmoothing: "antialiased" }}>
       <style>{`
         @keyframes l-spin { to { transform: rotate(360deg); } }
         @keyframes l-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
@@ -170,6 +170,8 @@ function Page4() {
         .l-faq-panel.open { grid-template-rows: 1fr; }
         .l-faq-panel > div { overflow: hidden; }
         input:focus { border-color: ${C.accent} !important; box-shadow: 0 0 0 3px ${C.accent}22; }
+        .l-cta:focus-visible, .l-ghost:focus-visible, .l-faq-btn:focus-visible, .l-footer-link:focus-visible { outline: 2px solid ${C.accent}; outline-offset: 2px; }
+        input[type="checkbox"]:focus-visible { outline: 2px solid ${C.accent}; outline-offset: 2px; }
         .pain-card:hover { border-color: ${C.accent}44 !important; box-shadow: 0 8px 28px -8px ${C.lightInk}10; }
         .pain-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
         @media (min-width: 640px) { .pain-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -677,9 +679,9 @@ function Page4() {
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "1.125rem" }}>
                   {([
-                    { k: "name" as const, label: "Nome completo", type: "text", placeholder: "Seu nome completo", autoComplete: "name" },
-                    { k: "email" as const, label: "E-mail", type: "email", placeholder: "seu@email.com", autoComplete: "email" },
-                    { k: "phone" as const, label: "WhatsApp", type: "tel", placeholder: "(47) 99999-0000", autoComplete: "tel" },
+                    { k: "name" as const, label: "Nome completo", type: "text", placeholder: "Seu nome completo", autoComplete: "name", inputMode: undefined as React.HTMLAttributes<HTMLInputElement>["inputMode"], enterKeyHint: "next" as const },
+                    { k: "email" as const, label: "E-mail", type: "email", placeholder: "seu@email.com", autoComplete: "email", inputMode: "email" as const, enterKeyHint: "next" as const },
+                    { k: "phone" as const, label: "WhatsApp", type: "tel", placeholder: "(47) 99999-0000", autoComplete: "tel", inputMode: "numeric" as const, enterKeyHint: "send" as const },
                   ]).map((f) => (
                     <div key={f.k} style={{ display: "flex", flexDirection: "column", gap: "0.4375rem" }}>
                       <label htmlFor={`f-${f.k}`} style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: C.lightMuted }}>
@@ -687,12 +689,15 @@ function Page4() {
                       </label>
                       <input
                         id={`f-${f.k}`} type={f.type} autoComplete={f.autoComplete}
+                        inputMode={f.inputMode} enterKeyHint={f.enterKeyHint}
                         placeholder={f.placeholder} value={fields[f.k]}
                         onChange={(e) => set(f.k, e.target.value)}
+                        aria-invalid={!!errors[f.k]}
+                        aria-describedby={errors[f.k] ? `f-${f.k}-error` : undefined}
                         style={inputStyle(errors[f.k])}
                       />
                       {errors[f.k] && (
-                        <p style={{ fontFamily: SANS, fontSize: "0.75rem", color: "#C0392B", margin: 0 }}>{errors[f.k]}</p>
+                        <p id={`f-${f.k}-error`} style={{ fontFamily: SANS, fontSize: "0.75rem", color: "#C0392B", margin: 0 }}>{errors[f.k]}</p>
                       )}
                     </div>
                   ))}
@@ -799,11 +804,14 @@ function Page4() {
             return (
               <div key={i} style={{ borderBottom: `1px solid ${C.lineLight}` }}>
                 <button
+                  id={`faq-btn-${i}`}
+                  className="l-faq-btn"
                   onClick={() => setOpenFaq(open ? null : i)}
                   aria-expanded={open}
+                  aria-controls={`faq-panel-${i}`}
                   style={{
                     width: "100%", display: "flex", justifyContent: "space-between",
-                    alignItems: "center", padding: "1.25rem 0",
+                    alignItems: "center", padding: "1.25rem 0", minHeight: "44px",
                     background: "none", border: "none", cursor: "pointer",
                     textAlign: "left", gap: "1rem", color: "inherit",
                   }}
@@ -813,7 +821,13 @@ function Page4() {
                   </span>
                   <span aria-hidden style={{ color: C.accentDeep, fontSize: "1.375rem", lineHeight: 1, flexShrink: 0, transform: open ? "rotate(45deg)" : "rotate(0deg)", transition: "transform .25s ease" }}>+</span>
                 </button>
-                <div className={`l-faq-panel${open ? " open" : ""}`}>
+                <div
+                  id={`faq-panel-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-btn-${i}`}
+                  hidden={!open}
+                  className={`l-faq-panel${open ? " open" : ""}`}
+                >
                   <div>
                     <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify" }}>
                       {f.a}
@@ -879,7 +893,7 @@ function Page4() {
               </p>
               <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightInk, margin: "0 0 0.25rem" }}>29 de julho · 2026</p>
               <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.7, color: C.lightMuted, margin: "0 0 0.875rem" }}>Balneário Camboriú · SC</p>
-              <a href="#inscricao" style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.accentDeep, textDecoration: "none", borderBottom: `1px solid ${C.accent}55`, paddingBottom: "2px" }}>
+              <a href="#inscricao" className="l-footer-link" style={{ display: "inline-flex", alignItems: "center", minHeight: "44px", fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, color: C.accentDeep, textDecoration: "none", borderBottom: `1px solid ${C.accent}55`, paddingBottom: "2px" }}>
                 Garantir vaga →
               </a>
             </div>
@@ -889,7 +903,7 @@ function Page4() {
               <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.lightMuted, margin: "0 0 1rem" }}>
                 Contato
               </p>
-              <a href="mailto:contato@jonasperess.com" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
+              <a href="mailto:contato@jonasperess.com" className="l-footer-link" style={{ display: "inline-flex", alignItems: "center", minHeight: "44px", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
                 contato@jonasperess.com
               </a>
             </div>
@@ -902,7 +916,7 @@ function Page4() {
             <p style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, margin: 0 }}>
               © 2026 Jonas Peress
             </p>
-            <a href="#top" style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, textDecoration: "none" }}>
+            <a href="#top" className="l-footer-link" style={{ display: "inline-flex", alignItems: "center", minHeight: "44px", fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, textDecoration: "none" }}>
               Voltar ao topo ↑
             </a>
           </div>
