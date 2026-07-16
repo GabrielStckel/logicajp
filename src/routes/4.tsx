@@ -1,5 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { submitLead } from "@/lib/api/leads.functions";
 
 // Paleta espelhada da página "/" (tokens em src/styles.css)
 // background hsl(30 15% 98%) · foreground hsl(215 25% 12%) · muted hsl(215 15% 45%)
@@ -25,7 +26,7 @@ const DISPLAY = "'Inter Tight', sans-serif";
 const SANS = "'Inter', system-ui, sans-serif";
 const MONO = "'JetBrains Mono', monospace";
 
-const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/SEU-LINK-AQUI";
+
 
 const painPoints = [
   { label: "Cobrança", text: "Você não consegue cobrar pelo seu trabalho — sente vergonha e acha que não merece receber." },
@@ -97,10 +98,12 @@ function maskPhone(v: string): string {
 }
 
 function Page4() {
+  const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [fields, setFields] = useState({ name: "", email: "", phone: "", confirmedPresencial: false });
   const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string; confirmedPresencial?: string }>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const set = (k: "name" | "email" | "phone", v: string) => {
     setFields((p) => ({ ...p, [k]: k === "phone" ? maskPhone(v) : v }));
@@ -112,7 +115,7 @@ function Page4() {
     if (errors.confirmedPresencial) setErrors((p) => ({ ...p, confirmedPresencial: undefined }));
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs: typeof errors = {};
     if (fields.name.trim().length < 3) errs.name = "Informe seu nome completo.";
@@ -120,8 +123,25 @@ function Page4() {
     if (fields.phone.replace(/\D/g, "").length < 10) errs.phone = "Informe um telefone com DDD.";
     if (!fields.confirmedPresencial) errs.confirmedPresencial = "Confirme que está ciente de que o evento é presencial.";
     if (Object.keys(errs).length) { setErrors(errs); return; }
-    setSubmitted(true);
-    window.open(WHATSAPP_GROUP_URL, "_blank", "noopener,noreferrer");
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      await submitLead({
+        data: {
+          name: fields.name.trim(),
+          email: fields.email.trim(),
+          phone: fields.phone,
+          confirmedPresencial: fields.confirmedPresencial,
+          source: "landing_4",
+        },
+      });
+      sessionStorage.setItem("lead_ok", "1");
+      navigate({ to: "/obrigado" as any });
+    } catch (err) {
+      console.error("[submitLead] failed", err);
+      setSubmitError("Não foi possível enviar sua inscrição. Verifique sua conexão e tente novamente.");
+      setSubmitting(false);
+    }
   };
 
   const inputStyle = (err?: string): React.CSSProperties => ({
@@ -644,20 +664,8 @@ function Page4() {
               background: `linear-gradient(90deg, transparent, ${C.accent}, transparent)`,
             }} />
 
-            {submitted ? (
-              <div style={{ textAlign: "center", padding: "1rem 0" }}>
-                <div style={{ width: 56, height: 56, borderRadius: "50%", border: `1.5px solid ${C.accent}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem", fontSize: "1.5rem", color: C.accentDeep }}>✓</div>
-                <h3 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.375rem,3vw,1.875rem)", lineHeight: 1.2, color: C.lightInk, margin: "0 0 0.875rem" }}>Inscrição confirmada.</h3>
-                <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.65, color: C.lightMuted, margin: "0 0 0.5rem" }}>
-                  O grupo do WhatsApp foi aberto em uma nova aba. Você receberá todas as informações por lá.
-                </p>
-                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, margin: 0 }}>
-                  Se a aba não abriu,{" "}
-                  <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ color: C.accentDeep, textDecoration: "underline" }}>clique aqui para entrar no grupo</a>.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={submit}>
+            <form onSubmit={submit}>
+
                 <div style={{ marginBottom: "1.5rem" }}>
                   <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accentDeep, margin: "0 0 0.625rem" }}>
                     Garanta sua vaga
@@ -724,19 +732,40 @@ function Page4() {
                     )}
                   </div>
 
-                  <button type="submit" className="l-cta" style={{
+                  <button type="submit" disabled={submitting} className="l-cta" style={{
                     marginTop: "0.5rem",
                     width: "100%", padding: "1.125rem", backgroundColor: C.accentDeep,
                     color: C.lightBg, border: "none", borderRadius: "2px",
                     fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600,
-                    letterSpacing: "0.02em", cursor: "pointer",
-                    transition: "background-color .2s ease, transform .2s ease",
+                    letterSpacing: "0.02em", cursor: submitting ? "not-allowed" : "pointer",
+                    opacity: submitting ? 0.75 : 1,
+                    transition: "background-color .2s ease, transform .2s ease, opacity .2s ease",
                     boxShadow: `0 14px 36px -14px ${C.accentDeep}AA`,
                     display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.625rem",
                   }}>
-                    Confirmar minha inscrição
-                    <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
+                    {submitting ? (
+                      <>
+                        <span aria-hidden style={{
+                          width: "0.9em", height: "0.9em", borderRadius: "50%",
+                          border: `2px solid ${C.lightBg}`, borderTopColor: "transparent",
+                          display: "inline-block", animation: "l-spin .8s linear infinite",
+                        }} />
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        Confirmar minha inscrição
+                        <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
+                      </>
+                    )}
                   </button>
+
+                  {submitError && (
+                    <p role="alert" style={{ fontFamily: SANS, fontSize: "0.8125rem", color: "#C0392B", margin: 0, lineHeight: 1.5 }}>
+                      {submitError}
+                    </p>
+                  )}
+
 
                   {/* Trust row */}
                   <div style={{
@@ -752,7 +781,7 @@ function Page4() {
                   </div>
                 </div>
               </form>
-            )}
+
           </div>
         </div>
       </section>
@@ -862,9 +891,6 @@ function Page4() {
               </p>
               <a href="mailto:contato@jonasperess.com" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
                 contato@jonasperess.com
-              </a>
-              <a href={WHATSAPP_GROUP_URL} target="_blank" rel="noopener noreferrer" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, textDecoration: "none" }}>
-                Grupo no WhatsApp
               </a>
             </div>
           </div>
