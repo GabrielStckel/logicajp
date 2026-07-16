@@ -216,7 +216,7 @@ function Index() {
   return (
     <div className="bg-background text-foreground">
       {/* Nav */}
-      <nav className="fixed top-0 z-50 flex w-full items-center justify-between border-b border-border bg-background/80 px-6 py-4 backdrop-blur-md">
+      <nav className="flex items-center justify-between border-b border-border bg-background/80 px-6 py-4 backdrop-blur-md">
         <span className="font-display text-xl font-bold tracking-tighter">A LÓGICA</span>
         <div className="flex items-center gap-6">
           <span className="hidden font-mono text-[10px] uppercase tracking-widest text-muted md:block">
