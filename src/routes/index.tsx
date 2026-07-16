@@ -232,7 +232,7 @@ function Index() {
       </nav>
 
       {/* Hero */}
-      <header className="relative overflow-hidden px-6 pb-24 pt-40">
+      <header className="relative overflow-hidden px-6 pb-24 pt-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 inline-block">
             <span className="rounded-full border border-accent/30 px-3 py-1 font-mono text-xs text-accent">
