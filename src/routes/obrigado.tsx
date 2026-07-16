@@ -171,8 +171,8 @@ function ObrigadoPage() {
               transition: "background-color .2s ease, transform .2s ease",
             }}
           >
-            Entrar no grupo e receber o link
-            <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
+            Entrar no grupo{"\n"}
+            <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>{"\n"}
           </a>
           <p
             style={{
