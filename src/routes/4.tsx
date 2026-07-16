@@ -804,11 +804,14 @@ function Page4() {
             return (
               <div key={i} style={{ borderBottom: `1px solid ${C.lineLight}` }}>
                 <button
+                  id={`faq-btn-${i}`}
+                  className="l-faq-btn"
                   onClick={() => setOpenFaq(open ? null : i)}
                   aria-expanded={open}
+                  aria-controls={`faq-panel-${i}`}
                   style={{
                     width: "100%", display: "flex", justifyContent: "space-between",
-                    alignItems: "center", padding: "1.25rem 0",
+                    alignItems: "center", padding: "1.25rem 0", minHeight: "44px",
                     background: "none", border: "none", cursor: "pointer",
                     textAlign: "left", gap: "1rem", color: "inherit",
                   }}
@@ -818,7 +821,13 @@ function Page4() {
                   </span>
                   <span aria-hidden style={{ color: C.accentDeep, fontSize: "1.375rem", lineHeight: 1, flexShrink: 0, transform: open ? "rotate(45deg)" : "rotate(0deg)", transition: "transform .25s ease" }}>+</span>
                 </button>
-                <div className={`l-faq-panel${open ? " open" : ""}`}>
+                <div
+                  id={`faq-panel-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-btn-${i}`}
+                  hidden={!open}
+                  className={`l-faq-panel${open ? " open" : ""}`}
+                >
                   <div>
                     <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify" }}>
                       {f.a}
