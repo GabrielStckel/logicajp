@@ -21,11 +21,11 @@ export const Route = createFileRoute("/")({
         content:
           "Workshop presencial gratuito em Balneário Camboriú. 29 de julho de 2026. Vagas limitadas.",
       },
-      { property: "og:url", content: "/" },
-      { property: "og:image", content: truthImage },
-      { name: "twitter:image", content: truthImage },
+      { property: "og:url", content: `${SITE_URL}/` },
+      { property: "og:image", content: `${SITE_URL}${truthImage}` },
+      { name: "twitter:image", content: `${SITE_URL}${truthImage}` },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
     scripts: [
       {
         type: "application/ld+json",
