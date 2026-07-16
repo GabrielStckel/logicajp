@@ -179,6 +179,15 @@ function Page1() {
         .l-benefit-card:hover { box-shadow: 0 8px 28px -8px ${C.lightInk}18 !important; }
         .form-card { transition: box-shadow .4s ease, transform .4s ease; }
         .form-card:hover { box-shadow: 0 40px 100px -30px ${C.darkBg}CC, 0 0 0 1px ${C.accent}40; transform: translateY(-2px); }
+        @media (max-width: 640px) { .l-justify { text-align: left !important; } }
+        .event-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.125rem 0; border-bottom: 1px solid ${C.lineLight}; }
+        .event-row .event-value { text-align: right; }
+        @media (max-width: 480px) {
+          .event-row { flex-direction: column; align-items: flex-start; gap: 0.375rem; }
+          .event-row .event-value { text-align: left; }
+        }
+        .l-cta-primary { background-color: ${C.accent} !important; color: ${C.darkBg} !important; }
+        .l-cta-primary:hover { background-color: ${C.accentLight} !important; }
       `}</style>
 
       {/* NAVBAR — LIGHT */}

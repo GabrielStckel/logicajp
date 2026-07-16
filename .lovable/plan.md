@@ -1,76 +1,77 @@
 ## Escopo
 
-Arquivo único: `src/routes/index.tsx`. Sem novas dependências, sem sticky, sem tocar em `1.tsx`/`obrigado.tsx`/`leads.functions.ts`. Funil, textos longos e checkbox presencial intactos. Apenas: recomposição mobile do hero, passe mobile seção por seção, e microcopy/posicionamento dos CTAs.
+Arquivo único: `src/routes/1.tsx`. Preserva estilos inline + paleta `C`. Sem sticky, sem dependências, sem tocar em `/`, `/obrigado`, `leads.functions.ts`. Sem a linha anti-objeção da variante A. Textos longos, checkbox presencial, data e funil (`source: "landing_1"`) intactos.
 
-## 1) Hero recomposto (mobile-first, 360–390px como alvo)
+## 1) Hero mobile (390×689 alvo)
 
-Ordem de leitura em 3 segundos: **CHIP → H1 → subheadline curta → data/local compactos → CTA primário → nota de vagas**.
-
-- Chip "Workshop Presencial Gratuito": reduzir para `text-[10px] tracking-widest` em mobile, com bolinha `bg-accent` à esquerda (continuidade com o dot pulsante do form).
-- H1 (copy exata "Dinheiro & Abundância Sistêmica"):
-  - mobile `text-[2.75rem] leading-[0.95]`; itálico dourado preservado.
-  - `md:text-7xl lg:text-8xl` (reduz do 8xl atual). `text-balance` mantido.
-- Subheadline: copy mantida, `max-w-[38ch] text-base leading-relaxed md:text-xl` (hoje começa em `text-xl` mobile e compete com o H1).
-- Bloco Data/Local: no mobile deixa de ser coluna com `border-l pl-8`. Vira **duas colunas compactas** com hairline `border-t border-border`:
-  - "Quando": `29 Jul · Qua · 19h30`
-  - "Onde": `Balneário Camboriú · SC`
-  - Nota "60 vagas presenciais" abaixo em mono, `text-accent text-[11px]`.
-  - `grid grid-cols-2 gap-x-6 gap-y-1` mobile; layout editorial atual preservado em `md:`.
-- **CTA primário no hero (novo)**: `bg-accent text-background`, `w-full md:w-auto`, `min-h-[52px] px-8`, `text-sm font-bold uppercase tracking-widest`. Microcopy padronizada abaixo (ver §3).
-- Glow reduzido em mobile (`h-64 w-64`) para evitar overflow horizontal.
-- Padding: `px-5 pt-10 pb-16` mobile. Meta: CTA visível a ≤ um flick em 375×667.
+- **Remover animações `l-rise`, `l-rise-2`, `l-rise-3`, `l-rise-4`** do JSX do hero (escalonamento 0.15/0.3/0.45s atrasa o LCP). Manter keyframes `l-spin`/`l-pulse` no `<style>` (usados abaixo da dobra).
+- **Section**: remover `minHeight: "100svh"` — evita espaço vazio artificial e mantém o CTA a ≤ um flick.
+- **H1**: `clamp(2.25rem, 8vw, 5rem)` (hoje `2.5rem` estoura em 360px), `maxWidth: "14ch"`. Copy intacta.
+- **Subtítulo**: `textAlign: "left"` (hoje `justify` gera rios), `maxWidth: "40ch"`. Copy intacta.
+- **CTA row**: no mobile CTA principal `width: "100%"`; microcopy padronizada abaixo em linha própria (ver §3).
+- **Meta strip**: trocar `minmax(160px,1fr)` por `repeat(3, minmax(0,1fr))` — Data/Local/Vagas lado a lado mesmo em 360px. Valor `clamp(0.9375rem, 2.6vw, 1.0625rem)`; `gap: 1rem`.
 
 ## 2) Passe mobile — seção por seção
 
-Ritmo vertical unificado: `py-20 md:py-28`. Paleta/fontes intocadas.
+Adicionar no bloco `<style>` central:
 
-- **Nav**: `px-5 py-3.5 md:px-6 md:py-4`; logo `text-lg md:text-xl`; CTA nav secundário (§3).
-- **Dores**: `py-20 md:py-28`, `px-5 md:px-6`, grid `gap-10 md:gap-20`. H2 `text-3xl md:text-5xl`. Itens `gap-4 pb-5 text-[15px] md:text-lg`.
-- **A Verdade**: imagem `aspect-[4/3] md:aspect-[21/9]`, `mb-10 md:mb-16`. Blockquote `text-2xl md:text-5xl`. Container `max-w-[62ch] md:max-w-4xl`.
-- **O que vai descobrir**: header `gap-3`; H2 `text-3xl md:text-5xl`. Em mobile trocar `gap-px` por `divide-y divide-border border border-border`; `md:` mantém grid 3-col com `gap-px`. Cards `p-8 md:p-12`. Números `text-3xl md:text-4xl`. **CTA secundário-primário ao fim do bloco** (§3).
-- **#inscricao**: padding vertical `clamp(3rem,7vw,6rem)`; gap mobile `2rem`; pitch H2 `clamp(1.75rem,7vw,3.25rem)` com `maxWidth:16ch` mobile; card form `padding: clamp(1.5rem, 5vw, 2.75rem)`; anti-objeção `lineHeight:1.6`; submit com padding maior e texto novo (§3); bloco "60 vagas" `marginTop:1.5rem`.
-- **FAQ**: `py-20 md:py-28 px-5 md:px-6`; header `mb-10 md:mb-16`; trigger `py-5 md:py-7 min-h-[56px]`; pergunta `text-[15px] leading-snug pr-4`; painel `pb-6 pr-2 md:pr-10 text-[14px]`.
-- **Final**: `py-20 md:py-24 px-5`; H2 `text-3xl md:text-5xl`; CTA `w-full md:w-auto min-h-[56px] px-8 py-4` (§3).
-- **Footer**: `px-5 py-8 md:py-12 gap-4`; centro em mobile.
+```css
+@media (max-width: 640px) {
+  .l-justify { text-align: left !important; }
+}
+.event-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.125rem 0; border-bottom: 1px solid ${C.lineLight}; }
+@media (max-width: 480px) {
+  .event-row { flex-direction: column; align-items: flex-start; gap: 0.375rem; }
+  .event-row .event-value { text-align: left !important; }
+}
+```
 
-## 3) CTAs — hierarquia, texto e posicionamento
+- **PAIN INTRO / PAIN MIRROR / ABOUT JONAS / QUOTE / EVENT / FAQ / CLOSING**: adicionar `className="l-justify"` nos `<p>` que usam `textAlign: "justify"` — desktop mantém justify, mobile volta para left.
+- **EVENT INFO rows**: trocar o `div` inline por `className="event-row"` com filho `event-value` — no mobile empilha limpo (label acima, valor à esquerda).
+- Pain grid, benefits grid, form dark, footer: já responsivos, sem mudança de layout.
+- FAQ trigger: `minHeight: 44px` já garantido; nenhuma mudança.
 
-Regra: **um primário por ponto de decisão**, todos apontando `#inscricao`, mesma promessa. Primário = `bg-accent text-background` (dourado sólido dominante). Secundário = fantasma `border-accent/40 text-accent`.
+## 3) CTAs — texto, posicionamento e contraste
 
-**Microcopy padronizada sob TODOS os CTAs primários fora do form** (idêntica nas 3 posições, sem variação):
+**Contraste corrigido**: par primário passa a ser `backgroundColor: C.accent` (#C9A84C) + `color: C.darkBg` (#171D26) — ~7,5:1 AA com folga; hover `accentLight` mantém texto escuro legível. Aplicado em **hero, closing e submit**.
+
+Sombras acompanham: onde hoje se usa `${C.accentDeep}55/AA`, trocar para `${C.darkBg}33` (sombra neutra escura, mantém profundidade sem depender do dourado).
+
+**Microcopy padronizada** sob TODOS os primários fora do form (idêntica, sem variação):
 
 > `Gratuito · Presencial em Balneário Camboriú · 60 vagas`
 
-Estilo: `font-mono text-[11px] tracking-widest text-muted`, `mt-3`, centralizada com o CTA.
+Estilo: `fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.lightMuted, marginTop: "0.75rem"`.
 
-| # | Posição | Tipo | Texto do botão | Microcopy abaixo |
-|---|---------|------|----------------|------------------|
-| 0 | Nav | Secundário fantasma, `min-h-[44px]`, `text-xs uppercase tracking-widest` | **"Quero minha vaga"** | — |
-| 1 | Hero | **Primário dominante** (accent sólido), `w-full md:w-auto min-h-[52px]` | **"Garantir minha vaga presencial"** | `Gratuito · Presencial em Balneário Camboriú · 60 vagas` |
-| 2 | Fim de "O que vai descobrir" | **Primário** (accent sólido), `w-full md:w-auto` | **"Garantir minha vaga presencial"** | `Gratuito · Presencial em Balneário Camboriú · 60 vagas` |
-| 3 | Submit do form | Botão dourado existente, texto novo | Idle: **"Confirmar minha vaga presencial →"** · Loading: **"Enviando..."** (mantido) | — (dentro do form; nota 🔒 já cobre) |
-| 4 | Fechamento | **Primário** (accent sólido), `w-full md:w-auto min-h-[56px]` | **"Garantir minha vaga presencial"** | `Gratuito · Presencial em Balneário Camboriú · 60 vagas` |
+| # | Posição | Tipo | Cores | Texto | Microcopy |
+|---|---|---|---|---|---|
+| 0 | Nav (`l-ghost`) | Secundário fantasma | `color: C.accentDeep`, borda `${C.accent}33` (mantido) | **"Quero minha vaga"** | — |
+| 1 | Hero (`l-cta`) | Primário mobile `w-full` | `bg: C.accent`, `color: C.darkBg`, `boxShadow: 0 14px 40px -12px ${C.darkBg}33` | **"Garantir minha vaga presencial"** | `Gratuito · Presencial em Balneário Camboriú · 60 vagas` |
+| 2 | Submit form | Botão dourado | `bg: C.accent`, `color: C.darkBg`, `boxShadow: 0 14px 36px -14px ${C.darkBg}55`; spinner `border-color: C.darkBg` (era `lightBg` — agora precisa ser escuro para aparecer no fundo dourado) | Idle: **"Confirmar minha vaga presencial →"** · Loading: **"Enviando..."** (mantido) | — |
+| 3 | Closing CTA | Primário | `bg: C.accent`, `color: C.darkBg` (já era essa combinação — apenas atualizar texto e adicionar microcopy) | **"Garantir minha vaga presencial"** (hoje "Garantir meu lugar em \"A Lógica\"") | Substituir o `<p>` "Dia 29 de julho · Vagas limitadas..." pela microcopy padronizada |
+| 4 | Footer link | Link textual | mantido | **"Garantir vaga →"** mantido | — |
 
-**Não** haverá CTA antes do FAQ (dúvida ≠ decisão; CTA #2 e #4 cobrem o percurso).
+**Sem CTA extra pós-benefícios**: Benefits → Event Info → Form são imediatos; CTAs 1, 3 e submit (2) cobrem os pontos de decisão.
 
 ## 4) Psicologia aplicada
 
-- **Hierarquia**: um único elemento dourado sólido por dobra; fantasmas subordinados.
-- **Zona do polegar**: primários `w-full` no mobile, ≥52px, na metade inferior de cada dobra.
-- **Proximidade + consistência**: microcopy idêntica sob cada primário cria repetição de âncoras factuais ("gratuito · presencial · 60 vagas") — o cérebro para de reavaliar o "custo" a cada CTA.
-- **Consistência de texto**: mesmo botão (1, 2, 4), ecoado no submit (3). Repetição → confiança.
-- **Uma-ação-por-tela**: nenhum CTA compete com outro clicável na mesma seção.
-- **Carga cognitiva**: infos do hero reagrupadas em pares (data | local).
-- **Ética**: zero contador, zero depoimento, zero escassez fabricada. "60 vagas" é fato do briefing.
+- **Contraste AA**: par `accent`/`darkBg` (~7,5:1) garante que o CTA seja o elemento mais legível de cada dobra — pré-requisito de acessibilidade e de dominância visual.
+- **Hierarquia**: um único par primário em toda a página; fantasma no nav e link textual no footer subordinados.
+- **Consistência**: mesmo texto em hero, closing e ecoado no submit — "presencial" repetido combate a objeção nº1 (é online?).
+- **Repetição factual**: microcopy idêntica ancora custo, formato e escassez real em cada primário.
+- **LCP**: remoção das animações `l-rise*` acima da dobra libera o hero para renderização imediata.
+- **Mobile-first**: primário `w-full`, ≥52px de altura, dentro da zona do polegar.
+- **Ética**: nenhum contador, depoimento inventado ou escassez fabricada.
 
 ## 5) Verificação
 
 - `bun run build` passa.
-- Preview em 375×667: hero cabe até o CTA primário ou ≤ ~120px de rolagem.
-- FAQ triggers ≥ 44px de toque.
-- Sem overflow horizontal em 360px.
-- `submitLead({..., source: "landing_principal"})` inalterado; checkbox presencial inalterado; anti-objeção presente.
+- `/1` em 390×689: hero cabe até o CTA primário; meta strip em 3 col; sem overflow horizontal em 360px.
+- Contraste do CTA verificado: `#C9A84C` + `#171D26` ≈ 7,5:1 (AA/AAA).
+- `submitLead({..., source: "landing_1"})`, `sessionStorage.setItem("lead_ok","1")` e redirect `/obrigado` inalterados.
+- Checkbox presencial: texto e estado inicial intactos.
+- `/` não sofre alteração.
 
 ## Relatório final
 
-Após aplicar: mudanças por seção, tabela final de textos de botões (com microcopy padronizada), e racional resumido de cada decisão.
+Após aplicar: mudanças por seção, tabela final dos botões (nav, hero, submit, closing, footer) com o par de cores AA, e racional psicológico de cada decisão.
