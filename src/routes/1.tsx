@@ -209,7 +209,7 @@ function Page1() {
           color: C.accentDeep, textDecoration: "none",
           padding: "0.5rem 1.125rem", border: `1px solid ${C.accent}33`,
           borderRadius: "2px", transition: "all .2s ease",
-        }}>Garantir vaga</a>
+        }}>Quero minha vaga</a>
       </nav>
 
       {/* HERO — LIGHT · Editorial */}
