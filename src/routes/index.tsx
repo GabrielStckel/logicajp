@@ -401,6 +401,7 @@ function Index() {
                       id="lead-phone"
                       type="tel"
                       inputMode="numeric"
+                      enterKeyHint="send"
                       autoComplete="tel"
                       placeholder="(00) 00000-0000"
                       value={fields.phone}
