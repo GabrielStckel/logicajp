@@ -186,7 +186,7 @@ function ObrigadoPage() {
               textAlign: "center",
             }}
           >
-            Passo obrigatório · sem o grupo, sem instruções
+            Recomendado · avisos e comunidade do evento em um só lugar
           </p>
         </div>
 
