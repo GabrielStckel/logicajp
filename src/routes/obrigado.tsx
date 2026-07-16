@@ -137,8 +137,9 @@ function ObrigadoPage() {
               maxWidth: "38ch",
             }}
           >
-            Falta o passo mais importante: entrar no grupo do WhatsApp onde
-            enviaremos o mapa, os lembretes e as instruções do dia.
+            Você receberá a confirmação e as instruções no seu WhatsApp.
+            Entre também no grupo para avisos e para se conectar com os outros
+            participantes.
           </p>
         </div>
 
@@ -185,7 +186,7 @@ function ObrigadoPage() {
               textAlign: "center",
             }}
           >
-            Passo obrigatório · sem o grupo, sem instruções
+            Recomendado · avisos e comunidade do evento em um só lugar
           </p>
         </div>
 
@@ -319,7 +320,7 @@ function ObrigadoPage() {
             maxWidth: "36ch",
           }}
         >
-          Se não conseguir comparecer, avise no grupo — a vaga é de outra pessoa.
+          Se não puder comparecer, responda à mensagem de confirmação no WhatsApp — assim sua vaga vai para outra pessoa.
         </p>
       </main>
     </div>
