@@ -205,18 +205,18 @@ function Index() {
       {/* Hero */}
       <header className="relative overflow-hidden px-6 pb-24 pt-40">
         <div className="mx-auto max-w-6xl">
-          <div className="animate-reveal mb-8 inline-block">
+          <div className="mb-8 inline-block">
             <span className="rounded-full border border-accent/30 px-3 py-1 font-mono text-xs text-accent">
               Workshop Presencial Gratuito
             </span>
           </div>
-          <h1 className="animate-reveal mb-12 text-balance font-display text-6xl font-extrabold leading-[0.9] tracking-tighter [animation-delay:100ms] md:text-8xl">
+          <h1 className="mb-12 text-balance font-display text-6xl font-extrabold leading-[0.9] tracking-tighter md:text-8xl">
             Dinheiro &amp;
             <br />
             <span className="font-normal italic text-accent">Abundância Sistêmica</span>
           </h1>
 
-          <div className="animate-reveal grid grid-cols-1 items-end gap-12 [animation-delay:200ms] md:grid-cols-12">
+          <div className="grid grid-cols-1 items-end gap-12 md:grid-cols-12">
             <div className="md:col-span-7">
               <p className="max-w-[36ch] text-pretty text-xl leading-relaxed text-muted md:text-2xl">
                 Uma investigação profunda sobre as leis invisíveis que governam sua prosperidade
