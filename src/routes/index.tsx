@@ -276,14 +276,14 @@ function Index() {
       </header>
 
       {/* Dores */}
-      <section className="bg-foreground py-28 text-background md:py-32">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-16 md:grid-cols-2 md:gap-20">
-            <div className="space-y-8">
+      <section className="bg-foreground px-5 py-20 text-background md:px-6 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-10 md:grid-cols-2 md:gap-20">
+            <div className="space-y-6 md:space-y-8">
               <span className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
                 01 / Reconhecimento
               </span>
-              <h2 className="font-display text-4xl font-bold leading-tight md:text-5xl">
+              <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">
                 Você se reconhece em algum destes padrões?
               </h2>
               <p className="max-w-md text-background/60">
@@ -291,16 +291,16 @@ function Index() {
                 fraqueza sua. É algo muito mais profundo.
               </p>
             </div>
-            <ul className="space-y-6">
+            <ul className="space-y-5 md:space-y-6">
               {pains.map((p, i) => (
                 <li
                   key={i}
-                  className="flex gap-6 border-b border-background/10 pb-6 last:border-0"
+                  className="flex gap-4 border-b border-background/10 pb-5 last:border-0 md:gap-6 md:pb-6"
                 >
                   <span className="font-mono text-xs text-accent">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-base leading-relaxed opacity-80 md:text-lg">{p}</p>
+                  <p className="text-[15px] leading-relaxed opacity-80 md:text-lg">{p}</p>
                 </li>
               ))}
             </ul>
@@ -309,8 +309,8 @@ function Index() {
       </section>
 
       {/* A Verdade */}
-      <section className="px-6 py-28 md:py-32">
-        <div className="mx-auto max-w-4xl text-center">
+      <section className="px-5 py-20 md:px-6 md:py-28">
+        <div className="mx-auto max-w-[62ch] text-center md:max-w-4xl">
           <img
             src={truthImage}
             srcSet={`${truthImage800} 800w, ${truthImage1600} 1600w`}
@@ -320,12 +320,12 @@ function Index() {
             height={768}
             loading="lazy"
             decoding="async"
-            className="mb-16 aspect-[21/9] w-full rounded-sm object-cover opacity-90"
+            className="mb-10 aspect-[4/3] w-full rounded-sm object-cover opacity-90 md:mb-16 md:aspect-[21/9]"
           />
           <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-accent">
             A Verdade Que Ninguém Te Contou
           </h2>
-          <blockquote className="mb-10 font-display text-3xl font-bold leading-tight tracking-tight md:text-5xl">
+          <blockquote className="mb-10 font-display text-2xl font-bold leading-tight tracking-tight md:text-5xl">
             "A maioria dos seus problemas com dinheiro não são sobre dinheiro. São sobre como sua
             consciência funciona."
           </blockquote>
@@ -337,14 +337,14 @@ function Index() {
       </section>
 
       {/* O que vai descobrir */}
-      <section className="bg-surface py-28 md:py-32">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <section className="bg-surface px-5 py-20 md:px-6 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 flex flex-col gap-3 md:mb-16 md:flex-row md:items-end md:justify-between md:gap-4">
             <div>
               <span className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
                 02 / Conteúdo
               </span>
-              <h2 className="mt-4 font-display text-4xl font-bold leading-tight md:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-bold leading-tight md:text-5xl">
                 O que você vai descobrir
               </h2>
             </div>
@@ -353,14 +353,26 @@ function Index() {
               jeito que nunca pôde antes.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+          <div className="divide-y divide-border border border-border md:grid md:grid-cols-3 md:gap-px md:divide-y-0 md:border-0 md:bg-border">
             {discoveries.map((d) => (
-              <div key={d.n} className="space-y-5 bg-surface p-10 md:p-12">
-                <span className="font-display text-3xl font-bold text-accent/40">{d.n}</span>
-                <h3 className="text-xl font-bold">{d.title}</h3>
+              <div key={d.n} className="space-y-4 bg-surface p-8 md:space-y-5 md:p-12">
+                <span className="font-display text-3xl font-bold text-accent/40 md:text-4xl">{d.n}</span>
+                <h3 className="text-lg font-bold md:text-xl">{d.title}</h3>
                 <p className="text-sm leading-relaxed text-muted">{d.body}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-12 flex flex-col items-center text-center md:mt-16">
+            <a
+              href="#inscricao"
+              className="inline-flex w-full items-center justify-center bg-accent px-8 text-sm font-bold uppercase tracking-widest text-background transition-colors hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:w-auto"
+              style={{ minHeight: 52 }}
+            >
+              Garantir minha vaga presencial
+            </a>
+            <p className="mt-3 font-mono text-[11px] uppercase tracking-widest text-muted">
+              Gratuito · Presencial em Balneário Camboriú · 60 vagas
+            </p>
           </div>
         </div>
       </section>
