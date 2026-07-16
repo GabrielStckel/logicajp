@@ -183,14 +183,13 @@ function Page1() {
 
       {/* NAVBAR — LIGHT */}
       <nav style={{
-        position: "fixed", top: 0, left: "1rem", right: "1rem", zIndex: 50,
         display: "flex", alignItems: "center", justifyContent: "space-between",
         padding: "0.875rem 1.5rem",
+        margin: "0 1rem",
         backgroundColor: `${C.lightBg}90`,
         backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)",
         border: `1px solid ${C.lineLight}`,
         borderTop: "none",
-        borderRadius: "0 0 24px 24px",
         boxShadow: `0 8px 32px -8px ${C.lightInk}10`,
       }}>
         <span style={{ fontFamily: DISPLAY, fontSize: "0.875rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: C.lightInk }}>
