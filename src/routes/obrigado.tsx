@@ -320,7 +320,7 @@ function ObrigadoPage() {
             maxWidth: "36ch",
           }}
         >
-          Se não conseguir comparecer, avise no grupo — a vaga é de outra pessoa.
+          Se não puder comparecer, responda à mensagem de confirmação no WhatsApp — assim sua vaga vai para outra pessoa.
         </p>
       </main>
     </div>
