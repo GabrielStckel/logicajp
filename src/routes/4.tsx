@@ -679,9 +679,9 @@ function Page4() {
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "1.125rem" }}>
                   {([
-                    { k: "name" as const, label: "Nome completo", type: "text", placeholder: "Seu nome completo", autoComplete: "name" },
-                    { k: "email" as const, label: "E-mail", type: "email", placeholder: "seu@email.com", autoComplete: "email" },
-                    { k: "phone" as const, label: "WhatsApp", type: "tel", placeholder: "(47) 99999-0000", autoComplete: "tel" },
+                    { k: "name" as const, label: "Nome completo", type: "text", placeholder: "Seu nome completo", autoComplete: "name", inputMode: undefined as React.HTMLAttributes<HTMLInputElement>["inputMode"], enterKeyHint: "next" as const },
+                    { k: "email" as const, label: "E-mail", type: "email", placeholder: "seu@email.com", autoComplete: "email", inputMode: "email" as const, enterKeyHint: "next" as const },
+                    { k: "phone" as const, label: "WhatsApp", type: "tel", placeholder: "(47) 99999-0000", autoComplete: "tel", inputMode: "numeric" as const, enterKeyHint: "send" as const },
                   ]).map((f) => (
                     <div key={f.k} style={{ display: "flex", flexDirection: "column", gap: "0.4375rem" }}>
                       <label htmlFor={`f-${f.k}`} style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: C.lightMuted }}>
@@ -689,12 +689,15 @@ function Page4() {
                       </label>
                       <input
                         id={`f-${f.k}`} type={f.type} autoComplete={f.autoComplete}
+                        inputMode={f.inputMode} enterKeyHint={f.enterKeyHint}
                         placeholder={f.placeholder} value={fields[f.k]}
                         onChange={(e) => set(f.k, e.target.value)}
+                        aria-invalid={!!errors[f.k]}
+                        aria-describedby={errors[f.k] ? `f-${f.k}-error` : undefined}
                         style={inputStyle(errors[f.k])}
                       />
                       {errors[f.k] && (
-                        <p style={{ fontFamily: SANS, fontSize: "0.75rem", color: "#C0392B", margin: 0 }}>{errors[f.k]}</p>
+                        <p id={`f-${f.k}-error`} style={{ fontFamily: SANS, fontSize: "0.75rem", color: "#C0392B", margin: 0 }}>{errors[f.k]}</p>
                       )}
                     </div>
                   ))}
