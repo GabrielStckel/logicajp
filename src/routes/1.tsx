@@ -179,6 +179,15 @@ function Page1() {
         .l-benefit-card:hover { box-shadow: 0 8px 28px -8px ${C.lightInk}18 !important; }
         .form-card { transition: box-shadow .4s ease, transform .4s ease; }
         .form-card:hover { box-shadow: 0 40px 100px -30px ${C.darkBg}CC, 0 0 0 1px ${C.accent}40; transform: translateY(-2px); }
+        @media (max-width: 640px) { .l-justify { text-align: left !important; } }
+        .event-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.125rem 0; border-bottom: 1px solid ${C.lineLight}; }
+        .event-row .event-value { text-align: right; }
+        @media (max-width: 480px) {
+          .event-row { flex-direction: column; align-items: flex-start; gap: 0.375rem; }
+          .event-row .event-value { text-align: left; }
+        }
+        .l-cta-primary { background-color: ${C.accent} !important; color: ${C.darkBg} !important; }
+        .l-cta-primary:hover { background-color: ${C.accentLight} !important; }
       `}</style>
 
       {/* NAVBAR — LIGHT */}
@@ -200,12 +209,12 @@ function Page1() {
           color: C.accentDeep, textDecoration: "none",
           padding: "0.5rem 1.125rem", border: `1px solid ${C.accent}33`,
           borderRadius: "2px", transition: "all .2s ease",
-        }}>Garantir vaga</a>
+        }}>Quero minha vaga</a>
       </nav>
 
       {/* HERO — LIGHT · Editorial */}
       <section style={{
-        minHeight: "100svh", display: "flex", flexDirection: "column", justifyContent: "center",
+        display: "flex", flexDirection: "column", justifyContent: "center",
         paddingTop: "clamp(2rem,4vw,3rem)", paddingBottom: "clamp(3rem,6vw,5rem)",
         paddingLeft: "clamp(1.5rem,5vw,4rem)", paddingRight: "clamp(1.5rem,5vw,4rem)",
         position: "relative", overflow: "hidden", backgroundColor: C.lightBg,
@@ -218,7 +227,7 @@ function Page1() {
 
         <div style={{ position: "relative", zIndex: 1, maxWidth: "1180px", width: "100%", margin: "0 auto" }}>
           {/* Eyebrow with dot */}
-          <div className="l-rise" style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "clamp(2rem,4vw,3rem)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "clamp(2rem,4vw,3rem)" }}>
             <span aria-hidden style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: C.accent, boxShadow: `0 0 14px ${C.accent}66`, flexShrink: 0 }} />
             <span style={{ ...eyebrow(C.lightMuted), marginBottom: 0 }}>
               Workshop Presencial · Edição única
@@ -226,55 +235,59 @@ function Page1() {
           </div>
 
           {/* Headline — massive editorial */}
-          <h1 className="l-rise-2" style={{
+          <h1 style={{
             fontFamily: SERIF, fontWeight: 700,
-            fontSize: "clamp(2.5rem, 7vw, 5rem)", lineHeight: 0.96,
+            fontSize: "clamp(2.25rem, 8vw, 5rem)", lineHeight: 0.96,
             letterSpacing: "-0.035em", color: C.lightInk,
-            margin: 0, maxWidth: "16ch", whiteSpace: "pre-line",
+            margin: 0, maxWidth: "14ch", whiteSpace: "pre-line",
           }}>
             A lógica por trás{"\n"}do <span style={{ color: C.accentDeep }}>dinheiro</span>
             <span style={{ color: C.accentDeep }}>.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="l-rise-3" style={{
+          <p style={{
             fontFamily: SANS, fontWeight: 400,
             fontSize: "clamp(1.0625rem, 1.6vw, 1.25rem)", lineHeight: 1.6,
-            color: C.lightMuted, maxWidth: "44ch",
+            color: C.lightMuted, maxWidth: "40ch",
             margin: "clamp(1.75rem,3.5vw,2.75rem) 0 0",
-            textAlign: "justify",
+            textAlign: "left",
           }}>
             A maioria dos seus problemas com dinheiro <span style={{ color: C.lightInk, fontWeight: 500 }}>não são sobre dinheiro</span>. Uma investigação presencial sobre as leis sistêmicas invisíveis que governam a sua prosperidade.
           </p>
 
           {/* CTA row */}
-          <div className="l-rise-4" style={{
-            display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1.25rem 1.75rem",
+          <div style={{
+            display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "0.75rem",
             marginTop: "clamp(2.25rem,4vw,3rem)",
           }}>
             <a href="#inscricao" className="l-cta" style={{
-              display: "inline-flex", alignItems: "center", gap: "0.6rem",
+              display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.6rem",
               fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600, letterSpacing: "0.02em",
-              color: C.lightBg, backgroundColor: C.accentDeep, textDecoration: "none",
+              color: C.darkBg, backgroundColor: C.accent, textDecoration: "none",
               padding: "1.1rem 2.25rem", borderRadius: "2px",
               transition: "background-color .2s ease, transform .2s ease",
-              boxShadow: `0 14px 40px -12px ${C.accentDeep}55`,
+              boxShadow: `0 14px 40px -12px ${C.darkBg}33`,
+              width: "100%", maxWidth: "440px", minHeight: "52px", boxSizing: "border-box",
             }}>
-              Garantir minha vaga
+              Garantir minha vaga presencial
               <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
             </a>
-            <span style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, letterSpacing: "0.02em" }}>
-              <span style={{ color: C.accentDeep, fontWeight: 600 }}>Gratuito</span>
-              {" · "}Inscrição obrigatória
+            <span style={{
+              fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500,
+              letterSpacing: "0.16em", textTransform: "uppercase",
+              color: C.lightMuted,
+            }}>
+              Gratuito · Presencial em Balneário Camboriú · 60 vagas
             </span>
           </div>
 
           {/* Meta strip — editorial colophon */}
-          <div className="l-rise-4" style={{
+          <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-            gap: "1.5rem 2rem",
-            marginTop: "clamp(3.5rem,7vw,5.5rem)",
+            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+            gap: "1rem",
+            marginTop: "clamp(3rem,7vw,5.5rem)",
             paddingTop: "1.75rem",
             borderTop: `1px solid ${C.lineLight}`,
             maxWidth: "780px",
@@ -284,14 +297,14 @@ function Page1() {
               { k: "Local", v: "Balneário Camboriú", s: "Centro · 25º andar" },
               { k: "Vagas", v: "60 lugares", s: "Estritamente limitadas" },
             ].map((m) => (
-              <div key={m.k}>
-                <p style={{ fontFamily: SANS, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accentDeep, margin: "0 0 0.5rem" }}>
+              <div key={m.k} style={{ minWidth: 0 }}>
+                <p style={{ fontFamily: SANS, fontSize: "0.625rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.accentDeep, margin: "0 0 0.4rem" }}>
                   {m.k}
                 </p>
-                <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "1.0625rem", lineHeight: 1.2, color: C.lightInk, margin: 0 }}>
+                <p style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(0.9375rem, 2.6vw, 1.0625rem)", lineHeight: 1.2, color: C.lightInk, margin: 0, wordBreak: "break-word" }}>
                   {m.v}
                 </p>
-                <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, margin: "0.2rem 0 0" }}>
+                <p style={{ fontFamily: SANS, fontSize: "0.75rem", color: C.lightMuted, margin: "0.2rem 0 0", lineHeight: 1.35 }}>
                   {m.s}
                 </p>
               </div>
@@ -313,7 +326,7 @@ function Page1() {
             <>E pior: você sente uma <strong style={{ fontWeight: 600 }}>impotência profunda</strong>. Uma inferioridade e insuficiência constante. Como se houvesse algo errado com você. Você tenta ganhar mais, economizar, investir. Nada soluciona. A <strong style={{ fontWeight: 600 }}>carga emocional</strong> é tão pesada que você acaba desistindo.</>,
             <>E então, você se culpa. Mas a verdade é diferente do que te contaram. A maioria dos seus problemas com dinheiro <strong style={{ fontWeight: 600 }}>não são sobre dinheiro</strong>. São sobre como sua consciência funciona — padrões inconscientes, crenças herdadas, lealdades sistêmicas. Mas quando você percebe… <strong style={{ fontWeight: 600 }}>tudo muda</strong>.</>,
           ].map((p, i) => (
-            <p key={i} style={{ fontFamily: SANS, fontSize: "clamp(1rem,1.5vw,1.0625rem)", lineHeight: 1.75, color: C.lightInk, marginBottom: "1.25rem", textAlign: "justify" }}>{p}</p>
+            <p key={i} className="l-justify" style={{ fontFamily: SANS, fontSize: "clamp(1rem,1.5vw,1.0625rem)", lineHeight: 1.75, color: C.lightInk, marginBottom: "1.25rem", textAlign: "justify" }}>{p}</p>
           ))}
         </div>
       </section>
@@ -396,7 +409,7 @@ function Page1() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <p style={{
+                <p className="l-justify" style={{
                   fontFamily: SANS,
                   fontSize: "0.9375rem",
                   lineHeight: 1.7,
@@ -451,10 +464,10 @@ function Page1() {
               <p style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C.accentDeep, marginBottom: "1.5rem" }}>
                 Facilitador · Ciência Sistêmica
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, marginBottom: "1rem", textAlign: "justify" }}>
+              <p className="l-justify" style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, marginBottom: "1rem", textAlign: "justify" }}>
                 Há mais de uma década investigando os sistemas invisíveis que governam nossas vidas, Jonas sistematizou os padrões que mantêm as pessoas presas em ciclos de escassez — mesmo quando ganham bem, trabalham muito ou já fizeram terapia.
               </p>
-              <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, margin: 0, textAlign: "justify" }}>
+              <p className="l-justify" style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.75, color: C.lightMuted, margin: 0, textAlign: "justify" }}>
                 Sua abordagem une <span style={{ color: C.accentDeep, fontWeight: 600 }}>ciência sistêmica</span> à leitura de comportamento financeiro inconsciente. Não é terapia convencional — é um sistema de percepção que muda a relação com o dinheiro a partir da raiz.
               </p>
             </div>
@@ -544,13 +557,13 @@ function Page1() {
             Um encontro presencial{" "}
             <span style={{ color: C.accentDeep, fontWeight: 600 }}>exclusivo</span>
           </h2>
-          <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2rem", textAlign: "justify" }}>
+          <p className="l-justify" style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.7, color: C.lightMuted, marginBottom: "2rem", textAlign: "justify" }}>
             Este é um encontro presencial exclusivo em Balneário Camboriú, desenhado para quem busca respostas profundas e definitivas.
           </p>
           {eventDetails.map((d, i) => (
-            <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "1.125rem 0", borderBottom: `1px solid ${C.lineLight}`, gap: "1rem", flexWrap: "wrap" }}>
+            <div key={i} className="event-row">
               <span style={{ fontFamily: MONO, fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.lightMuted, minWidth: "90px", paddingTop: "0.2rem" }}>{d.label}</span>
-              <div style={{ textAlign: "right" }}>
+              <div className="event-value">
                 <p style={{ fontFamily: DISPLAY, fontSize: "1.0625rem", fontWeight: d.label === "Investimento" ? 700 : 400, color: d.label === "Investimento" ? C.accentDeep : C.lightInk, margin: 0, lineHeight: 1.3 }}>{d.value}</p>
                 <p style={{ fontFamily: SANS, fontSize: "0.8125rem", color: C.lightMuted, margin: "0.2rem 0 0" }}>{d.sub}</p>
               </div>
@@ -738,27 +751,28 @@ function Page1() {
 
                   <button type="submit" disabled={submitting} className="l-cta" style={{
                     marginTop: "0.5rem",
-                    width: "100%", padding: "1.125rem", backgroundColor: C.accentDeep,
-                    color: C.lightBg, border: "none", borderRadius: "2px",
+                    width: "100%", padding: "1.125rem", backgroundColor: C.accent,
+                    color: C.darkBg, border: "none", borderRadius: "2px",
                     fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600,
                     letterSpacing: "0.02em", cursor: submitting ? "not-allowed" : "pointer",
                     opacity: submitting ? 0.75 : 1,
                     transition: "background-color .2s ease, transform .2s ease, opacity .2s ease",
-                    boxShadow: `0 14px 36px -14px ${C.accentDeep}AA`,
+                    boxShadow: `0 14px 36px -14px ${C.darkBg}55`,
                     display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.625rem",
+                    minHeight: "52px",
                   }}>
                     {submitting ? (
                       <>
                         <span aria-hidden style={{
                           width: "0.9em", height: "0.9em", borderRadius: "50%",
-                          border: `2px solid ${C.lightBg}`, borderTopColor: "transparent",
+                          border: `2px solid ${C.darkBg}`, borderTopColor: "transparent",
                           display: "inline-block", animation: "l-spin .8s linear infinite",
                         }} />
                         Enviando...
                       </>
                     ) : (
                       <>
-                        Confirmar minha inscrição
+                        Confirmar minha vaga presencial
                         <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
                       </>
                     )}
@@ -828,7 +842,7 @@ function Page1() {
                   className={`l-faq-panel${open ? " open" : ""}`}
                 >
                   <div>
-                    <p style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify" }}>
+                    <p className="l-justify" style={{ fontFamily: SANS, fontSize: "0.9375rem", lineHeight: 1.72, color: C.lightMuted, paddingBottom: "1.375rem", margin: 0, textAlign: "justify" }}>
                       {f.a}
                     </p>
                   </div>
@@ -849,15 +863,19 @@ function Page1() {
           <p style={{ fontFamily: SANS, fontSize: "1rem", lineHeight: 1.72, color: C.lightMuted, marginBottom: "2.25rem" }}>
             Você merece sair do ciclo de inferioridade e da sensação de impotência que a escassez provoca. Você merece, finalmente, compreender a lógica sistêmica do dinheiro e assumir o seu lugar de abundância.
           </p>
-          <p style={{ fontFamily: SANS, fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: C.lightMuted, marginBottom: "2rem" }}>
-            Dia 29 de julho · Vagas limitadas · Estou esperando por você.
+          <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.lightMuted, marginBottom: "1.25rem" }}>
+            Gratuito · Presencial em Balneário Camboriú · 60 vagas
           </p>
           <a href="#inscricao" className="l-cta" style={{
-            display: "inline-block", fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 500, letterSpacing: "0.04em",
+            display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.6rem",
+            fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600, letterSpacing: "0.02em",
             color: C.darkBg, backgroundColor: C.accent, textDecoration: "none",
-            padding: "1.0625rem 2.5rem", borderRadius: "2px", transition: "background-color .2s ease",
+            padding: "1.1rem 2.5rem", borderRadius: "2px", transition: "background-color .2s ease, transform .2s ease",
+            boxShadow: `0 14px 40px -12px ${C.darkBg}33`,
+            minHeight: "52px",
           }}>
-            Garantir meu lugar em "A Lógica"
+            Garantir minha vaga presencial
+            <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
           </a>
         </div>
       </section>
