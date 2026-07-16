@@ -288,11 +288,12 @@ function Index() {
             width={1600}
             height={768}
             loading="lazy"
+            decoding="async"
             className="mb-16 aspect-[21/9] w-full rounded-sm object-cover opacity-90"
           />
-          <h3 className="mb-6 font-mono text-xs uppercase tracking-widest text-accent">
+          <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-accent">
             A Verdade Que Ninguém Te Contou
-          </h3>
+          </h2>
           <blockquote className="mb-10 font-display text-3xl font-bold leading-tight tracking-tight md:text-5xl">
             "A maioria dos seus problemas com dinheiro não são sobre dinheiro. São sobre como sua
             consciência funciona."
