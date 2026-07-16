@@ -21,8 +21,6 @@ const MONO = "'JetBrains Mono', monospace";
 
 const WHATSAPP_GROUP =
   "https://chat.whatsapp.com/C2fkN1xmpaE6H5agOyKBjx?mode=gi_t";
-const MAPS_URL =
-  "https://maps.google.com/?q=Rua+1500,+820+-+Centro,+Balneário+Camboriú+-+SC";
 
 export const Route = createFileRoute("/obrigado")({
   head: () => ({
@@ -278,28 +276,6 @@ function ObrigadoPage() {
           Entrar no grupo do WhatsApp
         </a>
 
-        {/* Link secundário — mapa */}
-        <a
-          href={MAPS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="l-link"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: 44,
-            padding: "0.5rem 0.75rem",
-            fontFamily: SANS,
-            fontSize: "0.875rem",
-            color: C.lightMuted,
-            textDecoration: "underline",
-            textDecorationColor: `${C.accent}66`,
-            textUnderlineOffset: "4px",
-          }}
-        >
-          Guarde este endereço no seu mapa →
-        </a>
       </main>
     </div>
   );
