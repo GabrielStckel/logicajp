@@ -578,7 +578,7 @@ function Index() {
                     </>
                   ) : (
                     <>
-                      Confirmar minha inscrição
+                      Confirmar minha vaga presencial
                       <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
                     </>
                   )}
@@ -608,9 +608,9 @@ function Index() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-border px-6 py-28 md:py-32">
+      <section className="border-t border-border px-5 py-20 md:px-6 md:py-28">
         <div className="mx-auto max-w-3xl">
-          <div className="mb-16 text-center">
+          <div className="mb-10 text-center md:mb-16">
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
               04 / Dúvidas
             </span>
@@ -628,11 +628,12 @@ function Index() {
                   <button
                     id={triggerId}
                     onClick={() => setOpenFaq(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between py-7 text-left transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                    className="flex w-full items-center justify-between py-5 text-left transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:py-7"
+                    style={{ minHeight: 56 }}
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                   >
-                    <h3 className="pr-6 font-bold">{item.q}</h3>
+                    <h3 className="pr-4 text-[15px] font-bold leading-snug md:text-base">{item.q}</h3>
                     <span className="font-mono text-xl text-accent">{isOpen ? "−" : "+"}</span>
                   </button>
                   {isOpen && (
@@ -640,7 +641,7 @@ function Index() {
                       id={panelId}
                       role="region"
                       aria-labelledby={triggerId}
-                      className="animate-reveal pb-7 pr-10 text-sm leading-relaxed text-muted"
+                      className="animate-reveal pb-6 pr-2 text-[14px] leading-relaxed text-muted md:pr-10 md:text-sm"
                     >
                       {item.a}
                     </div>
@@ -653,9 +654,9 @@ function Index() {
       </section>
 
       {/* Final */}
-      <section className="bg-surface px-6 py-28 text-center">
+      <section className="bg-surface px-5 py-20 text-center md:px-6 md:py-24">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-6 font-display text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="mb-6 font-display text-3xl font-bold leading-tight md:text-5xl">
             Você merece compreender.
           </h2>
           <p className="mb-10 text-muted">
@@ -663,16 +664,20 @@ function Index() {
           </p>
           <a
             href="#inscricao"
-            className="inline-block bg-foreground px-10 py-5 text-sm font-bold uppercase tracking-widest text-background transition-colors hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="inline-flex w-full items-center justify-center bg-accent px-8 py-4 text-sm font-bold uppercase tracking-widest text-background transition-colors hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:w-auto"
+            style={{ minHeight: 56 }}
           >
-            Garantir meu lugar
+            Garantir minha vaga presencial
           </a>
+          <p className="mt-3 font-mono text-[11px] uppercase tracking-widest text-muted">
+            Gratuito · Presencial em Balneário Camboriú · 60 vagas
+          </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border px-6 py-12">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
+      <footer className="border-t border-border px-5 py-8 md:px-6 md:py-12">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
           <span className="font-display text-lg font-bold tracking-tighter">A LÓGICA</span>
           <p className="font-mono text-[10px] uppercase tracking-widest text-muted">
             © 2026 Jonas Sistêmica — Balneário Camboriú, SC
