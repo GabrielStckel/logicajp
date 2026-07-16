@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import truthImage from "@/assets/truth.jpg";
 import venueImage from "@/assets/venue.jpg";
+import { submitLead } from "@/lib/api/leads.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -10,13 +11,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Workshop presencial gratuito em Balneário Camboriú, 08 de julho de 2026. Compreenda a lógica sistêmica que governa sua relação com o dinheiro. 60 vagas.",
+          "Workshop presencial gratuito em Balneário Camboriú, 29 de julho de 2026. Compreenda a lógica sistêmica que governa sua relação com o dinheiro. 60 vagas.",
       },
       { property: "og:title", content: "A Lógica — Dinheiro & Abundância Sistêmica" },
       {
         property: "og:description",
         content:
-          "Workshop presencial gratuito em Balneário Camboriú. 08 de julho de 2026. Vagas limitadas.",
+          "Workshop presencial gratuito em Balneário Camboriú. 29 de julho de 2026. Vagas limitadas.",
       },
       { property: "og:url", content: "/" },
       { property: "og:image", content: truthImage },
@@ -30,8 +31,8 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "Event",
           name: "A Lógica — Dinheiro & Abundância Sistêmica",
-          startDate: "2026-07-08T19:30:00-03:00",
-          endDate: "2026-07-08T22:30:00-03:00",
+          startDate: "2026-07-29T19:30:00-03:00",
+          endDate: "2026-07-29T22:30:00-03:00",
           eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
           eventStatus: "https://schema.org/EventScheduled",
           location: {
@@ -122,8 +123,64 @@ const faqs = [
   },
 ];
 
+function maskPhone(v: string): string {
+  const d = v.replace(/\D/g, "").slice(0, 11);
+  if (d.length <= 2) return d;
+  if (d.length <= 7) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+}
+
 function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const navigate = useNavigate();
+  const [fields, setFields] = useState({ name: "", email: "", phone: "", confirmedPresencial: false });
+  const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string; confirmedPresencial?: string }>({});
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const set = (k: "name" | "email" | "phone", v: string) => {
+    setFields((p) => ({ ...p, [k]: k === "phone" ? maskPhone(v) : v }));
+    if (errors[k]) setErrors((p) => ({ ...p, [k]: undefined }));
+  };
+
+  const setConfirmedPresencial = (v: boolean) => {
+    setFields((p) => ({ ...p, confirmedPresencial: v }));
+    if (errors.confirmedPresencial) setErrors((p) => ({ ...p, confirmedPresencial: undefined }));
+  };
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const errs: typeof errors = {};
+    if (fields.name.trim().length < 3) errs.name = "Informe seu nome completo.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) errs.email = "Informe um e-mail válido.";
+    if (fields.phone.replace(/\D/g, "").length < 10) errs.phone = "Informe um telefone com DDD.";
+    if (!fields.confirmedPresencial) errs.confirmedPresencial = "Confirme que está ciente de que o evento é presencial.";
+    if (Object.keys(errs).length) { setErrors(errs); return; }
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      await submitLead({
+        data: {
+          name: fields.name.trim(),
+          email: fields.email.trim(),
+          phone: fields.phone,
+          confirmedPresencial: fields.confirmedPresencial,
+          source: "landing_principal",
+        },
+      });
+      sessionStorage.setItem("lead_ok", "1");
+      navigate({ to: "/obrigado" });
+    } catch {
+      setSubmitError("Não foi possível enviar sua inscrição. Verifique sua conexão e tente novamente.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const inputCls =
+    "w-full bg-transparent border-b border-background/30 py-3 text-background placeholder:text-background/30 focus:border-accent outline-none min-h-[44px]";
+  const labelCls = "block font-mono text-[10px] uppercase tracking-widest text-background/50 mb-2";
+  const errCls = "mt-2 font-mono text-[10px] uppercase tracking-widest text-accent";
 
   return (
     <div className="bg-background text-foreground">
@@ -132,7 +189,7 @@ function Index() {
         <span className="font-display text-xl font-bold tracking-tighter">A LÓGICA</span>
         <div className="flex items-center gap-6">
           <span className="hidden font-mono text-[10px] uppercase tracking-widest text-muted md:block">
-            08 Julho 2026 — Balneário Camboriú
+            29 Julho 2026 — Balneário Camboriú
           </span>
           <a
             href="#inscricao"
@@ -169,7 +226,7 @@ function Index() {
                 <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
                   Data e Local
                 </span>
-                <p className="font-medium">Quarta-feira, 08 de Julho · 19h30</p>
+                <p className="font-medium">Quarta-feira, 29 de Julho · 19h30</p>
                 <p className="text-sm text-muted">Balneário Camboriú, SC</p>
               </div>
               <div className="space-y-1">
@@ -292,22 +349,99 @@ function Index() {
                 </p>
 
                 <dl className="mb-10 space-y-4">
-                  <Row label="Data" value="08 de julho de 2026" />
+                  <Row label="Data" value="29 de julho de 2026" />
                   <Row label="Horário" value="19h30 às 22h30" />
                   <Row label="Local" value="Rua 1500, 820 — 25º andar, Centro, BC" />
                   <Row label="Vagas" value="60 (limitadas)" />
                   <Row label="Investimento" value="Gratuito" accent />
                 </dl>
 
-                <a
-                  href="https://wa.me/"
-                  className="block w-full bg-accent py-5 text-center text-base font-bold uppercase tracking-widest text-foreground transition-all duration-300 hover:bg-background"
-                >
-                  Quero me inscrever agora
-                </a>
-                <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-widest text-background/40">
-                  Confirmação enviada por e-mail
-                </p>
+                <form onSubmit={submit} noValidate className="space-y-6">
+                  <div>
+                    <label htmlFor="lead-name" className={labelCls}>Nome completo</label>
+                    <input
+                      id="lead-name"
+                      type="text"
+                      autoComplete="name"
+                      value={fields.name}
+                      onChange={(e) => set("name", e.target.value)}
+                      className={inputCls}
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? "lead-name-error" : undefined}
+                    />
+                    {errors.name && <p id="lead-name-error" className={errCls}>{errors.name}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="lead-email" className={labelCls}>E-mail</label>
+                    <input
+                      id="lead-email"
+                      type="email"
+                      inputMode="email"
+                      autoComplete="email"
+                      value={fields.email}
+                      onChange={(e) => set("email", e.target.value)}
+                      className={inputCls}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? "lead-email-error" : undefined}
+                    />
+                    {errors.email && <p id="lead-email-error" className={errCls}>{errors.email}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="lead-phone" className={labelCls}>WhatsApp</label>
+                    <input
+                      id="lead-phone"
+                      type="tel"
+                      inputMode="numeric"
+                      autoComplete="tel"
+                      placeholder="(00) 00000-0000"
+                      value={fields.phone}
+                      onChange={(e) => set("phone", e.target.value)}
+                      className={inputCls}
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={errors.phone ? "lead-phone-error" : undefined}
+                    />
+                    {errors.phone && <p id="lead-phone-error" className={errCls}>{errors.phone}</p>}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="lead-presencial"
+                      className="flex items-start gap-3 py-2 min-h-[44px] cursor-pointer text-sm leading-relaxed text-background/80"
+                    >
+                      <input
+                        id="lead-presencial"
+                        type="checkbox"
+                        checked={fields.confirmedPresencial}
+                        onChange={(e) => setConfirmedPresencial(e.target.checked)}
+                        className="mt-1 h-5 w-5 accent-accent"
+                        aria-invalid={!!errors.confirmedPresencial}
+                        aria-describedby={errors.confirmedPresencial ? "lead-presencial-error" : undefined}
+                      />
+                      <span>
+                        Estou ciente de que o evento é PRESENCIAL em Balneário Camboriú/SC e pretendo comparecer.
+                      </span>
+                    </label>
+                    {errors.confirmedPresencial && (
+                      <p id="lead-presencial-error" className={errCls}>{errors.confirmedPresencial}</p>
+                    )}
+                  </div>
+
+                  {submitError && (
+                    <p role="alert" className="font-mono text-xs uppercase tracking-widest text-accent">
+                      {submitError}
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="block w-full bg-accent py-5 text-center text-base font-bold uppercase tracking-widest text-foreground transition-all duration-300 hover:bg-background disabled:opacity-60 min-h-[44px]"
+                  >
+                    {submitting ? "Enviando..." : "Quero me inscrever agora"}
+                  </button>
+                </form>
               </div>
               <div className="hidden md:block">
                 <img
@@ -367,7 +501,7 @@ function Index() {
             Você merece compreender.
           </h2>
           <p className="mb-10 text-muted">
-            Dia 08 de julho. Vagas limitadas. Jonas está esperando por você.
+            Dia 29 de julho. Vagas limitadas. Jonas está esperando por você.
           </p>
           <a
             href="#inscricao"
