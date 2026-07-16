@@ -903,7 +903,7 @@ function Page4() {
               <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.lightMuted, margin: "0 0 1rem" }}>
                 Contato
               </p>
-              <a href="mailto:contato@jonasperess.com" style={{ display: "block", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
+              <a href="mailto:contato@jonasperess.com" className="l-footer-link" style={{ display: "inline-flex", alignItems: "center", minHeight: "44px", fontFamily: SANS, fontSize: "0.8125rem", color: C.lightInk, textDecoration: "none", margin: "0 0 0.5rem" }}>
                 contato@jonasperess.com
               </a>
             </div>
