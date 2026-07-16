@@ -1,31 +1,18 @@
-## Escopo
-Apenas `src/routes/4.tsx`. Sem novas deps, sem backend, sem mudar copy/cores/design existentes.
+## Estado atual
 
-## Mudanças
+Este pedido já foi totalmente implementado no turno anterior em `src/routes/4.tsx`. Verificação por `grep` confirma:
 
-### 1. Estado (linhas 101-102)
-- `fields`: adicionar `confirmedPresencial: false`.
-- `errors` type: adicionar `confirmedPresencial?: string`.
+- `WHATSAPP_GROUP_URL` removido do arquivo (constante e todos os usos: submit, bloco `submitted` e link do footer).
+- Estado `submitted` removido; substituído por `submitting` + `submitError`.
+- Import de `useNavigate` do `@tanstack/react-router` e de `submitLead` de `@/lib/api/leads.functions` adicionados.
+- Submit é `async`, mantém toda a validação client-side (name, email, phone, checkbox `confirmedPresencial`), chama `await submitLead({ data: { name, email, phone, confirmedPresencial, source: "landing_4" } })`.
+- Sucesso: `sessionStorage.setItem("lead_ok", "1")` + `navigate({ to: "/obrigado" })`.
+- Erro: exibe "Não foi possível enviar sua inscrição. Verifique sua conexão e tente novamente." abaixo do botão, no mesmo estilo dos erros existentes (`#C0392B`), sem limpar os campos, e o botão volta ao normal.
+- Botão em loading: `disabled`, texto "Enviando...", spinner usando o keyframe `l-spin` já existente, dimensões e cor preservadas (apenas `opacity` e `cursor` mudam durante loading).
+- Footer: link "Grupo no WhatsApp" removido; e-mail de contato e resto do layout intactos.
 
-### 2. Handler `onChange` (linha ~107)
-Já é genérico via `setFields`; adicionar helper específico para checkbox que atualiza `confirmedPresencial` e limpa `errors.confirmedPresencial` no mesmo padrão do texto.
+## Ação proposta
 
-### 3. Validação em `submit` (linhas 110-119)
-Após a validação de `phone`, adicionar:
-```
-if (!fields.confirmedPresencial) errs.confirmedPresencial = "Confirme que está ciente de que o evento é presencial.";
-```
+Nenhuma. Não há mudanças a fazer neste turno — o trabalho descrito já está no arquivo.
 
-### 4. UI (após os inputs mapeados, antes do `<button type="submit">` — depois da linha ~684)
-Inserir bloco:
-- `<label htmlFor="confirmedPresencial">` englobando checkbox + texto (área de toque total, cursor pointer, `display: flex`, `gap`, `alignItems: flex-start`, `padding: 0.5rem 0` para atingir ≥44px de altura).
-- `<input type="checkbox" id="confirmedPresencial">` com `checked`, `onChange`, `aria-invalid`, `style={{ accentColor: C.accentDeep, width: "1.125rem", height: "1.125rem", marginTop: "0.15rem", flexShrink: 0, cursor: "pointer" }}`. Borda via `accent-color` nativo + outline de foco visível (`:focus-visible` já herdado do browser; garantir com `outlineOffset`).
-- Texto exato: "Estou ciente de que o evento é PRESENCIAL em Balneário Camboriú/SC e pretendo comparecer." — fonte SANS, `fontSize: "0.8125rem"`, `color: C.lightMuted`, `lineHeight: 1.5`.
-- Abaixo do label, se houver erro: `<p>` no mesmo estilo dos demais (`fontFamily: SANS, fontSize: "0.75rem", color: "#C0392B", margin: 0`) exibindo `errors.confirmedPresencial`. Margem/gap coerente com o espaçamento do formulário atual.
-
-### 5. Acessibilidade
-- `id="confirmedPresencial"`, `htmlFor="confirmedPresencial"`.
-- `aria-invalid={!!errors.confirmedPresencial}`.
-- `aria-describedby` apontando para o `<p>` de erro (com `id="confirmedPresencial-error"`) quando presente.
-
-Sem alterações fora dessas duas regiões (estado + submit + JSX do form).
+Se quiser que eu revalide algo específico (rodar o build, testar o fluxo no preview via Playwright, ou revisar visualmente um trecho), me diga qual — caso contrário este pedido está concluído.
