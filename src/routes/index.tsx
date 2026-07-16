@@ -211,10 +211,7 @@ function Index() {
     }
   };
 
-  const inputCls =
-    "w-full bg-transparent border-b border-background/30 py-3 text-background placeholder:text-background/30 focus:border-accent outline-none min-h-[44px]";
-  const labelCls = "block font-mono text-[10px] uppercase tracking-widest text-background/50 mb-2";
-  const errCls = "mt-2 font-mono text-[10px] uppercase tracking-widest text-accent";
+
 
   return (
     <div className="bg-background text-foreground">
