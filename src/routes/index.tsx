@@ -693,21 +693,4 @@ function Index() {
   );
 }
 
-function Row({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
-  return (
-    <div className="flex items-baseline justify-between gap-4 border-b border-background/15 pb-3">
-      <dt className="font-mono text-[10px] uppercase tracking-widest text-background/50">
-        {label}
-      </dt>
-      <dd
-        className={
-          accent
-            ? "font-display text-lg font-bold tracking-tight text-accent"
-            : "text-right text-sm"
-        }
-      >
-        {value}
-      </dd>
-    </div>
-  );
-}
+
