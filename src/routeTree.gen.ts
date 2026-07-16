@@ -10,7 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ObrigadoRouteImport } from './routes/obrigado'
-import { Route as R4RouteImport } from './routes/4'
+import { Route as R1RouteImport } from './routes/1'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ObrigadoRoute = ObrigadoRouteImport.update({
@@ -18,9 +18,9 @@ const ObrigadoRoute = ObrigadoRouteImport.update({
   path: '/obrigado',
   getParentRoute: () => rootRouteImport,
 } as any)
-const R4Route = R4RouteImport.update({
-  id: '/4',
-  path: '/4',
+const R1Route = R1RouteImport.update({
+  id: '/1',
+  path: '/1',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,31 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/4': typeof R4Route
+  '/1': typeof R1Route
   '/obrigado': typeof ObrigadoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/4': typeof R4Route
+  '/1': typeof R1Route
   '/obrigado': typeof ObrigadoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/4': typeof R4Route
+  '/1': typeof R1Route
   '/obrigado': typeof ObrigadoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/4' | '/obrigado'
+  fullPaths: '/' | '/1' | '/obrigado'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/4' | '/obrigado'
-  id: '__root__' | '/' | '/4' | '/obrigado'
+  to: '/' | '/1' | '/obrigado'
+  id: '__root__' | '/' | '/1' | '/obrigado'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  R4Route: typeof R4Route
+  R1Route: typeof R1Route
   ObrigadoRoute: typeof ObrigadoRoute
 }
 
@@ -68,11 +68,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ObrigadoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/4': {
-      id: '/4'
-      path: '/4'
-      fullPath: '/4'
-      preLoaderRoute: typeof R4RouteImport
+    '/1': {
+      id: '/1'
+      path: '/1'
+      fullPath: '/1'
+      preLoaderRoute: typeof R1RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,7 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  R4Route: R4Route,
+  R1Route: R1Route,
   ObrigadoRoute: ObrigadoRoute,
 }
 export const routeTree = rootRouteImport

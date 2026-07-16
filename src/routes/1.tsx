@@ -62,7 +62,7 @@ const faqs = [
   { q: "O que acontece depois do evento?", a: "O workshop é completo em si mesmo. Para quem desejar aprofundamento, Jonas apresentará ao final os detalhes da Formação Completa em Ciência Sistêmica." },
 ];
 
-export const Route = createFileRoute("/4")({
+export const Route = createFileRoute("/1")({
   head: () => ({
     meta: [
       { title: "A Lógica — Dinheiro e Abundância Sistêmica · Workshop com Jonas Peress" },
@@ -76,7 +76,7 @@ export const Route = createFileRoute("/4")({
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" },
     ],
   }),
-  component: Page4,
+  component: Page1,
 });
 
 const eyebrow = (color: string): React.CSSProperties => ({
@@ -97,7 +97,7 @@ function maskPhone(v: string): string {
   return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
 }
 
-function Page4() {
+function Page1() {
   const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [fields, setFields] = useState({ name: "", email: "", phone: "", confirmedPresencial: false });
@@ -132,7 +132,7 @@ function Page4() {
           email: fields.email.trim(),
           phone: fields.phone,
           confirmedPresencial: fields.confirmedPresencial,
-          source: "landing_4",
+          source: "landing_1",
         },
       });
       sessionStorage.setItem("lead_ok", "1");
