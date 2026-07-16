@@ -326,7 +326,7 @@ function Page1() {
             <>E pior: você sente uma <strong style={{ fontWeight: 600 }}>impotência profunda</strong>. Uma inferioridade e insuficiência constante. Como se houvesse algo errado com você. Você tenta ganhar mais, economizar, investir. Nada soluciona. A <strong style={{ fontWeight: 600 }}>carga emocional</strong> é tão pesada que você acaba desistindo.</>,
             <>E então, você se culpa. Mas a verdade é diferente do que te contaram. A maioria dos seus problemas com dinheiro <strong style={{ fontWeight: 600 }}>não são sobre dinheiro</strong>. São sobre como sua consciência funciona — padrões inconscientes, crenças herdadas, lealdades sistêmicas. Mas quando você percebe… <strong style={{ fontWeight: 600 }}>tudo muda</strong>.</>,
           ].map((p, i) => (
-            <p key={i} style={{ fontFamily: SANS, fontSize: "clamp(1rem,1.5vw,1.0625rem)", lineHeight: 1.75, color: C.lightInk, marginBottom: "1.25rem", textAlign: "justify" }}>{p}</p>
+            <p key={i} className="l-justify" style={{ fontFamily: SANS, fontSize: "clamp(1rem,1.5vw,1.0625rem)", lineHeight: 1.75, color: C.lightInk, marginBottom: "1.25rem", textAlign: "justify" }}>{p}</p>
           ))}
         </div>
       </section>
