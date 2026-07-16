@@ -98,13 +98,18 @@ function maskPhone(v: string): string {
 
 function Page4() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [fields, setFields] = useState({ name: "", email: "", phone: "" });
-  const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
+  const [fields, setFields] = useState({ name: "", email: "", phone: "", confirmedPresencial: false });
+  const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string; confirmedPresencial?: string }>({});
   const [submitted, setSubmitted] = useState(false);
 
   const set = (k: "name" | "email" | "phone", v: string) => {
     setFields((p) => ({ ...p, [k]: k === "phone" ? maskPhone(v) : v }));
     if (errors[k]) setErrors((p) => ({ ...p, [k]: undefined }));
+  };
+
+  const setConfirmedPresencial = (v: boolean) => {
+    setFields((p) => ({ ...p, confirmedPresencial: v }));
+    if (errors.confirmedPresencial) setErrors((p) => ({ ...p, confirmedPresencial: undefined }));
   };
 
   const submit = (e: React.FormEvent) => {
@@ -113,6 +118,7 @@ function Page4() {
     if (fields.name.trim().length < 3) errs.name = "Informe seu nome completo.";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) errs.email = "Informe um e-mail válido.";
     if (fields.phone.replace(/\D/g, "").length < 10) errs.phone = "Informe um telefone com DDD.";
+    if (!fields.confirmedPresencial) errs.confirmedPresencial = "Confirme que está ciente de que o evento é presencial.";
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setSubmitted(true);
     window.open(WHATSAPP_GROUP_URL, "_blank", "noopener,noreferrer");
