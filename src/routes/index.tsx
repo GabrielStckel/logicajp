@@ -369,134 +369,243 @@ function Index() {
       </section>
 
       {/* CTA + Detalhes */}
-      <section id="inscricao" className="px-6 py-28 md:py-32">
-        <div className="mx-auto max-w-6xl">
-          <div className="relative overflow-hidden bg-foreground p-10 text-background md:p-20">
-            <div className="relative z-10 grid items-center gap-16 md:grid-cols-2">
-              <div>
-                <span className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
-                  03 / Garantir vaga
-                </span>
-                <h2 className="mb-8 mt-4 font-display text-4xl font-bold leading-tight md:text-5xl">
-                  Garanta sua presença.
-                </h2>
-                <p className="mb-10 text-background/60">
-                  As vagas são limitadas a 60 participantes devido à capacidade do auditório. Não
-                  deixe para depois o que pode ser a chave da sua liberdade emocional e financeira.
-                </p>
+      <section id="inscricao" style={{
+        position: "relative", overflow: "hidden",
+        backgroundColor: C.darkBg, color: C.darkInk,
+        padding: "clamp(4rem,8vw,7rem) clamp(1.25rem,4vw,3rem)",
+        borderTop: `1px solid ${C.lineDark}`,
+      }}>
+        <style>{`
+          @keyframes l-spin { to { transform: rotate(360deg); } }
+          @keyframes l-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.55; transform: scale(1.35); } }
+          #inscricao .l-cta:hover { background-color: ${C.accentLight} !important; transform: translateY(-1px); }
+          #inscricao input:focus { border-color: ${C.accent} !important; box-shadow: 0 0 0 3px ${C.accent}22; }
+          #inscricao .l-cta:focus-visible { outline: 2px solid ${C.accent}; outline-offset: 2px; }
+          #inscricao input[type="checkbox"]:focus-visible { outline: 2px solid ${C.accent}; outline-offset: 2px; }
+          #inscricao .form-card { transition: box-shadow .4s ease, transform .4s ease; }
+          #inscricao .form-card:hover { box-shadow: 0 40px 100px -30px ${C.darkBg}CC, 0 0 0 1px ${C.accent}40; transform: translateY(-2px); }
+        `}</style>
 
-                <dl className="mb-10 space-y-4">
-                  <Row label="Data" value="29 de julho de 2026" />
-                  <Row label="Horário" value="19h30 às 22h30" />
-                  <Row label="Local" value="Rua 1500, 820 — 25º andar, Centro, BC" />
-                  <Row label="Vagas" value="60 (limitadas)" />
-                  <Row label="Investimento" value="Gratuito" accent />
-                </dl>
+        <div aria-hidden style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: `radial-gradient(ellipse 60% 50% at 85% 20%, ${C.accent}22, transparent 60%), radial-gradient(ellipse 50% 45% at 5% 90%, ${C.accent}14, transparent 60%)`,
+        }} />
 
-                <p className="mb-6 font-mono text-[11px] uppercase tracking-widest text-accent">
-                  Presencial e gratuito · Sem venda dura durante o evento — a Formação Completa é apresentada apenas ao final, para quem quiser.
-                </p>
+        <div style={{
+          position: "relative", zIndex: 1, maxWidth: "1100px", margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
+          gap: "clamp(2.5rem, 5vw, 4.5rem)",
+          alignItems: "center",
+        }}>
+          {/* LEFT — Editorial pitch */}
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.625rem", marginBottom: "1.75rem" }}>
+              <span aria-hidden style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: C.accent, boxShadow: `0 0 14px ${C.accent}88`, flexShrink: 0 }} />
+              <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accent }}>
+                Inscrição · Edição única
+              </span>
+            </div>
 
-                <form onSubmit={submit} noValidate className="space-y-6">
-                  <div>
-                    <label htmlFor="lead-name" className={labelCls}>Nome completo</label>
-                    <input
-                      id="lead-name"
-                      type="text"
-                      autoComplete="name"
-                      value={fields.name}
-                      onChange={(e) => set("name", e.target.value)}
-                      className={inputCls}
-                      aria-invalid={!!errors.name}
-                      aria-describedby={errors.name ? "lead-name-error" : undefined}
-                    />
-                    {errors.name && <p id="lead-name-error" className={errCls}>{errors.name}</p>}
-                  </div>
+            <h2 style={{
+              fontFamily: SERIF, fontWeight: 700,
+              fontSize: "clamp(2rem, 5vw, 3.25rem)", lineHeight: 1.02,
+              letterSpacing: "-0.025em", color: C.darkInk,
+              margin: "0 0 1.5rem", maxWidth: "14ch",
+            }}>
+              Você merece{" "}
+              <span style={{ color: C.accent, fontStyle: "italic", fontWeight: 400 }}>compreender</span>
+            </h2>
 
-                  <div>
-                    <label htmlFor="lead-email" className={labelCls}>E-mail</label>
-                    <input
-                      id="lead-email"
-                      type="email"
-                      inputMode="email"
-                      autoComplete="email"
-                      value={fields.email}
-                      onChange={(e) => set("email", e.target.value)}
-                      className={inputCls}
-                      aria-invalid={!!errors.email}
-                      aria-describedby={errors.email ? "lead-email-error" : undefined}
-                    />
-                    {errors.email && <p id="lead-email-error" className={errCls}>{errors.email}</p>}
-                  </div>
+            <p style={{
+              fontFamily: SANS, fontSize: "1rem", lineHeight: 1.7,
+              color: C.darkMuted, margin: "0 0 2rem", maxWidth: "38ch",
+            }}>
+              Uma noite presencial em Balneário Camboriú dedicada às leis sistêmicas invisíveis que governam sua relação com o dinheiro.
+            </p>
 
-                  <div>
-                    <label htmlFor="lead-phone" className={labelCls}>WhatsApp</label>
-                    <input
-                      id="lead-phone"
-                      type="tel"
-                      inputMode="numeric"
-                      enterKeyHint="send"
-                      autoComplete="tel"
-                      placeholder="(00) 00000-0000"
-                      value={fields.phone}
-                      onChange={(e) => set("phone", e.target.value)}
-                      className={inputCls}
-                      aria-invalid={!!errors.phone}
-                      aria-describedby={errors.phone ? "lead-phone-error" : undefined}
-                    />
-                    {errors.phone && <p id="lead-phone-error" className={errCls}>{errors.phone}</p>}
-                  </div>
+            <div style={{ display: "grid", gap: "0.875rem", maxWidth: "360px" }}>
+              {[
+                { k: "Quando", v: "29 jul · 2026 · 19h30" },
+                { k: "Onde", v: "Balneário Camboriú · SC" },
+                { k: "Investimento", v: "Gratuito" },
+              ].map((r) => (
+                <div key={r.k} style={{
+                  display: "flex", justifyContent: "space-between", alignItems: "baseline",
+                  gap: "1rem", padding: "0.75rem 0",
+                  borderBottom: `1px solid ${C.lineDark}`,
+                }}>
+                  <span style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: C.darkMuted }}>
+                    {r.k}
+                  </span>
+                  <span style={{ fontFamily: DISPLAY, fontSize: "0.9375rem", fontWeight: 600, color: C.darkInk, textAlign: "right" }}>
+                    {r.v}
+                  </span>
+                </div>
+              ))}
+            </div>
 
-                  <div>
-                    <label
-                      htmlFor="lead-presencial"
-                      className="flex items-start gap-3 py-2 min-h-[44px] cursor-pointer text-sm leading-relaxed text-background/80"
-                    >
-                      <input
-                        id="lead-presencial"
-                        type="checkbox"
-                        checked={fields.confirmedPresencial}
-                        onChange={(e) => setConfirmedPresencial(e.target.checked)}
-                        className="mt-1 h-5 w-5 accent-accent"
-                        aria-invalid={!!errors.confirmedPresencial}
-                        aria-describedby={errors.confirmedPresencial ? "lead-presencial-error" : undefined}
-                      />
-                      <span>
-                        Estou ciente de que o evento é PRESENCIAL em Balneário Camboriú/SC e pretendo comparecer.
-                      </span>
+            <div style={{
+              marginTop: "2rem", padding: "1rem 1.125rem",
+              border: `1px solid ${C.accent}40`,
+              backgroundColor: `${C.accent}0F`,
+              borderRadius: "2px",
+              display: "flex", alignItems: "center", gap: "0.75rem",
+            }}>
+              <span aria-hidden style={{
+                width: 8, height: 8, borderRadius: "50%",
+                backgroundColor: C.accent,
+                boxShadow: `0 0 12px ${C.accent}AA`,
+                flexShrink: 0,
+                animation: "l-pulse 2s ease-in-out infinite",
+              }} />
+              <p style={{ fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.5, color: C.darkInk, margin: 0 }}>
+                <strong style={{ fontWeight: 600 }}>60 vagas</strong>{" "}
+                <span style={{ color: C.darkMuted }}>· estritamente limitadas pelo espaço.</span>
+              </p>
+            </div>
+          </div>
+
+          {/* RIGHT — Form card */}
+          <div className="form-card" style={{
+            backgroundColor: C.lightBg, color: C.lightInk,
+            padding: "clamp(1.75rem, 3.5vw, 2.75rem)",
+            border: `1px solid ${C.lineDark}`,
+            borderRadius: "4px",
+            boxShadow: `0 30px 80px -30px ${C.darkBg}AA, 0 0 0 1px ${C.accent}1F`,
+            position: "relative",
+          }}>
+            <div aria-hidden style={{
+              position: "absolute", top: 0, left: "1.5rem", right: "1.5rem",
+              height: "2px",
+              background: `linear-gradient(90deg, transparent, ${C.accent}, transparent)`,
+            }} />
+
+            <div style={{ marginBottom: "1.5rem" }}>
+              <p style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.18em", textTransform: "uppercase", color: C.accentDeep, margin: "0 0 0.625rem" }}>
+                Garanta sua vaga
+              </p>
+              <h3 style={{ fontFamily: DISPLAY, fontWeight: 700, fontSize: "clamp(1.25rem, 2.4vw, 1.625rem)", lineHeight: 1.2, letterSpacing: "-0.015em", color: C.lightInk, margin: 0 }}>
+                Preencha para receber o acesso ao grupo.
+              </h3>
+            </div>
+
+            <p style={{
+              fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500,
+              letterSpacing: "0.16em", textTransform: "uppercase",
+              color: C.accentDeep, margin: "0 0 1.25rem", lineHeight: 1.55,
+            }}>
+              Presencial e gratuito · Sem venda dura durante o evento — a Formação Completa é apresentada apenas ao final, para quem quiser.
+            </p>
+
+            <form onSubmit={submit} noValidate>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.125rem" }}>
+                {([
+                  { k: "name" as const, label: "Nome completo", type: "text", placeholder: "Seu nome completo", autoComplete: "name", inputMode: undefined as React.HTMLAttributes<HTMLInputElement>["inputMode"], enterKeyHint: "next" as const },
+                  { k: "email" as const, label: "E-mail", type: "email", placeholder: "seu@email.com", autoComplete: "email", inputMode: "email" as const, enterKeyHint: "next" as const },
+                  { k: "phone" as const, label: "WhatsApp", type: "tel", placeholder: "(47) 99999-0000", autoComplete: "tel", inputMode: "numeric" as const, enterKeyHint: "send" as const },
+                ]).map((f) => (
+                  <div key={f.k} style={{ display: "flex", flexDirection: "column", gap: "0.4375rem" }}>
+                    <label htmlFor={`f-${f.k}`} style={{ fontFamily: MONO, fontSize: "0.6875rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: C.lightMuted }}>
+                      {f.label}
                     </label>
-                    {errors.confirmedPresencial && (
-                      <p id="lead-presencial-error" className={errCls}>{errors.confirmedPresencial}</p>
+                    <input
+                      id={`f-${f.k}`} type={f.type} autoComplete={f.autoComplete}
+                      inputMode={f.inputMode} enterKeyHint={f.enterKeyHint}
+                      placeholder={f.placeholder} value={fields[f.k]}
+                      onChange={(e) => set(f.k, e.target.value)}
+                      aria-invalid={!!errors[f.k]}
+                      aria-describedby={errors[f.k] ? `f-${f.k}-error` : undefined}
+                      style={inputStyle(errors[f.k])}
+                    />
+                    {errors[f.k] && (
+                      <p id={`f-${f.k}-error`} style={{ fontFamily: SANS, fontSize: "0.75rem", color: "#C0392B", margin: 0 }}>{errors[f.k]}</p>
                     )}
                   </div>
+                ))}
 
-                  {submitError && (
-                    <p role="alert" className="font-mono text-xs uppercase tracking-widest text-accent">
-                      {submitError}
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.4375rem" }}>
+                  <label
+                    htmlFor="confirmedPresencial"
+                    style={{
+                      display: "flex", alignItems: "flex-start", gap: "0.625rem",
+                      padding: "0.625rem 0", minHeight: "44px",
+                      cursor: "pointer",
+                      fontFamily: SANS, fontSize: "0.8125rem", lineHeight: 1.5,
+                      color: C.lightMuted,
+                    }}
+                  >
+                    <input
+                      id="confirmedPresencial"
+                      type="checkbox"
+                      checked={fields.confirmedPresencial}
+                      onChange={(e) => setConfirmedPresencial(e.target.checked)}
+                      aria-invalid={!!errors.confirmedPresencial}
+                      aria-describedby={errors.confirmedPresencial ? "confirmedPresencial-error" : undefined}
+                      style={{
+                        accentColor: C.accentDeep,
+                        width: "1.125rem", height: "1.125rem",
+                        marginTop: "0.15rem", flexShrink: 0, cursor: "pointer",
+                        outlineOffset: "2px",
+                        border: `1px solid ${errors.confirmedPresencial ? "#C0392B" : C.lineLight}`,
+                      }}
+                    />
+                    <span>Estou ciente de que o evento é PRESENCIAL em Balneário Camboriú/SC e pretendo comparecer.</span>
+                  </label>
+                  {errors.confirmedPresencial && (
+                    <p id="confirmedPresencial-error" style={{ fontFamily: SANS, fontSize: "0.75rem", color: "#C0392B", margin: 0 }}>
+                      {errors.confirmedPresencial}
                     </p>
                   )}
+                </div>
 
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className="block w-full bg-accent py-5 text-center text-base font-bold uppercase tracking-widest text-foreground transition-all duration-300 hover:bg-background disabled:opacity-60 min-h-[44px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                  >
-                    {submitting ? "Enviando..." : "Quero me inscrever agora"}
-                  </button>
-                </form>
+                <button type="submit" disabled={submitting} className="l-cta" style={{
+                  marginTop: "0.5rem",
+                  width: "100%", padding: "1.125rem", backgroundColor: C.accentDeep,
+                  color: C.lightBg, border: "none", borderRadius: "2px",
+                  fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600,
+                  letterSpacing: "0.02em", cursor: submitting ? "not-allowed" : "pointer",
+                  opacity: submitting ? 0.75 : 1,
+                  transition: "background-color .2s ease, transform .2s ease, opacity .2s ease",
+                  boxShadow: `0 14px 36px -14px ${C.accentDeep}AA`,
+                  display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.625rem",
+                }}>
+                  {submitting ? (
+                    <>
+                      <span aria-hidden style={{
+                        width: "0.9em", height: "0.9em", borderRadius: "50%",
+                        border: `2px solid ${C.lightBg}`, borderTopColor: "transparent",
+                        display: "inline-block", animation: "l-spin .8s linear infinite",
+                      }} />
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      Confirmar minha inscrição
+                      <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
+                    </>
+                  )}
+                </button>
+
+                {submitError && (
+                  <p role="alert" style={{ fontFamily: SANS, fontSize: "0.8125rem", color: "#C0392B", margin: 0, lineHeight: 1.5 }}>
+                    {submitError}
+                  </p>
+                )}
+
+                <div style={{
+                  display: "flex", alignItems: "center", gap: "0.625rem",
+                  marginTop: "0.25rem",
+                  paddingTop: "1rem",
+                  borderTop: `1px solid ${C.lineLight}`,
+                }}>
+                  <span aria-hidden style={{ color: C.accentDeep, fontSize: "0.9rem", lineHeight: 1 }}>🔒</span>
+                  <p style={{ fontFamily: SANS, fontSize: "0.75rem", lineHeight: 1.5, color: C.lightMuted, margin: 0 }}>
+                    Seus dados são usados apenas para confirmar sua participação no evento.
+                  </p>
+                </div>
               </div>
-              <div className="hidden md:block">
-                <img
-                  src={venueImage}
-                  alt="Auditório onde o workshop será realizado em Balneário Camboriú"
-                  width={800}
-                  height={1024}
-                  loading="lazy"
-                  decoding="async"
-                  className="aspect-[4/5] w-full rounded-sm object-cover"
-                />
-              </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
