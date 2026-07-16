@@ -458,6 +458,7 @@ function Index() {
                   width={800}
                   height={1024}
                   loading="lazy"
+                  decoding="async"
                   className="aspect-[4/5] w-full rounded-sm object-cover"
                 />
               </div>
