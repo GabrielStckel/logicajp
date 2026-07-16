@@ -751,27 +751,28 @@ function Page1() {
 
                   <button type="submit" disabled={submitting} className="l-cta" style={{
                     marginTop: "0.5rem",
-                    width: "100%", padding: "1.125rem", backgroundColor: C.accentDeep,
-                    color: C.lightBg, border: "none", borderRadius: "2px",
+                    width: "100%", padding: "1.125rem", backgroundColor: C.accent,
+                    color: C.darkBg, border: "none", borderRadius: "2px",
                     fontFamily: SANS, fontSize: "0.9375rem", fontWeight: 600,
                     letterSpacing: "0.02em", cursor: submitting ? "not-allowed" : "pointer",
                     opacity: submitting ? 0.75 : 1,
                     transition: "background-color .2s ease, transform .2s ease, opacity .2s ease",
-                    boxShadow: `0 14px 36px -14px ${C.accentDeep}AA`,
+                    boxShadow: `0 14px 36px -14px ${C.darkBg}55`,
                     display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.625rem",
+                    minHeight: "52px",
                   }}>
                     {submitting ? (
                       <>
                         <span aria-hidden style={{
                           width: "0.9em", height: "0.9em", borderRadius: "50%",
-                          border: `2px solid ${C.lightBg}`, borderTopColor: "transparent",
+                          border: `2px solid ${C.darkBg}`, borderTopColor: "transparent",
                           display: "inline-block", animation: "l-spin .8s linear infinite",
                         }} />
                         Enviando...
                       </>
                     ) : (
                       <>
-                        Confirmar minha inscrição
+                        Confirmar minha vaga presencial
                         <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
                       </>
                     )}
