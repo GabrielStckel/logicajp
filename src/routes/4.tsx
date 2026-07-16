@@ -916,7 +916,7 @@ function Page4() {
             <p style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, margin: 0 }}>
               © 2026 Jonas Peress
             </p>
-            <a href="#top" style={{ fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, textDecoration: "none" }}>
+            <a href="#top" className="l-footer-link" style={{ display: "inline-flex", alignItems: "center", minHeight: "44px", fontFamily: MONO, fontSize: "0.6875rem", letterSpacing: "0.12em", textTransform: "uppercase", color: C.lightMuted, textDecoration: "none" }}>
               Voltar ao topo ↑
             </a>
           </div>
