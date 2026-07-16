@@ -359,6 +359,10 @@ function Index() {
                   <Row label="Investimento" value="Gratuito" accent />
                 </dl>
 
+                <p className="mb-6 font-mono text-[11px] uppercase tracking-widest text-accent">
+                  Presencial e gratuito · Sem venda dura durante o evento — a Formação Completa é apresentada apenas ao final, para quem quiser.
+                </p>
+
                 <form onSubmit={submit} noValidate className="space-y-6">
                   <div>
                     <label htmlFor="lead-name" className={labelCls}>Nome completo</label>
