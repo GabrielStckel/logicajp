@@ -316,6 +316,8 @@ function Index() {
         <div className="mx-auto max-w-4xl text-center">
           <img
             src={truthImage}
+            srcSet={`${truthImage800} 800w, ${truthImage1600} 1600w`}
+            sizes="(max-width: 768px) 100vw, 896px"
             alt="Luz atravessando uma superfície cristalina escura"
             width={1600}
             height={768}
