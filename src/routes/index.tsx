@@ -4,6 +4,8 @@ import truthImage from "@/assets/truth.jpg";
 import venueImage from "@/assets/venue.jpg";
 import { submitLead } from "@/lib/api/leads.functions";
 
+const SITE_URL = "https://logicajp.lovable.app";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
