@@ -536,7 +536,7 @@ function Index() {
               letterSpacing: "0.16em", textTransform: "uppercase",
               color: C.accentDeep, margin: "0 0 1.25rem", lineHeight: 1.55,
             }}>
-              Presencial e gratuito · Sem venda dura durante o evento — a Formação Completa é apresentada apenas ao final, para quem quiser.
+              {"\n"}
             </p>
 
             <form onSubmit={submit} noValidate>
@@ -724,7 +724,7 @@ function Index() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
           <span className="font-display text-lg font-bold tracking-tighter">A LÓGICA</span>
           <p className="font-mono text-[10px] uppercase tracking-widest text-muted">
-            © 2026 Jonas Sistêmica — Balneário Camboriú, SC
+            © 2026 JONAS PERES — BALNEÁRIO CAMBORIÚ, SC
           </p>
         </div>
       </footer>
