@@ -137,8 +137,9 @@ function ObrigadoPage() {
               maxWidth: "38ch",
             }}
           >
-            Falta o passo mais importante: entrar no grupo do WhatsApp onde
-            enviaremos o mapa, os lembretes e as instruções do dia.
+            Você receberá a confirmação e as instruções no seu WhatsApp.
+            Entre também no grupo para avisos e para se conectar com os outros
+            participantes.
           </p>
         </div>
 
