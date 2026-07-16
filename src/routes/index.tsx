@@ -216,74 +216,106 @@ function Index() {
   return (
     <div className="bg-background text-foreground">
       {/* Nav */}
-      <nav className="flex items-center justify-between border-b border-border bg-background/80 px-6 py-4 backdrop-blur-md">
-        <span className="font-display text-xl font-bold tracking-tighter">A LÓGICA</span>
+      <nav className="flex items-center justify-between border-b border-border bg-background/80 px-5 py-3.5 backdrop-blur-md md:px-6 md:py-4">
+        <span className="font-display text-lg font-bold tracking-tighter md:text-xl">A LÓGICA</span>
         <div className="flex items-center gap-6">
           <span className="hidden font-mono text-[10px] uppercase tracking-widest text-muted md:block">
             29 Julho 2026 — Balneário Camboriú
           </span>
           <a
             href="#inscricao"
-            className="inline-flex min-h-[44px] items-center bg-foreground px-5 py-2 text-xs font-medium uppercase tracking-widest text-background transition-colors hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="inline-flex min-h-[44px] items-center border border-accent/40 px-4 py-2 text-xs font-medium uppercase tracking-widest text-accent transition-colors hover:bg-accent hover:text-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
-            Inscrever-se
+            Quero minha vaga
           </a>
         </div>
       </nav>
 
       {/* Hero */}
-      <header className="relative overflow-hidden px-6 pb-24 pt-16">
+      <header className="relative overflow-hidden px-5 pb-16 pt-10 md:px-6 md:pb-24 md:pt-16">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-8 inline-block">
-            <span className="rounded-full border border-accent/30 px-3 py-1 font-mono text-xs text-accent">
+          <div className="mb-6 inline-flex items-center gap-2 md:mb-8">
+            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_var(--color-accent)]" />
+            <span className="rounded-full border border-accent/30 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-accent md:text-xs md:normal-case md:tracking-normal">
               Workshop Presencial Gratuito
             </span>
           </div>
-          <h1 className="mb-12 text-balance font-display text-6xl font-extrabold leading-[0.9] tracking-tighter md:text-8xl">
+          <h1 className="mb-8 text-balance font-display text-[2.75rem] font-extrabold leading-[0.95] tracking-tighter md:mb-12 md:text-7xl lg:text-8xl">
             Dinheiro &amp;
             <br />
             <span className="font-normal italic text-accent">Abundância Sistêmica</span>
           </h1>
 
-          <div className="grid grid-cols-1 items-end gap-12 md:grid-cols-12">
+          <div className="grid grid-cols-1 items-end gap-8 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-7">
-              <p className="max-w-[36ch] text-pretty text-xl leading-relaxed text-muted md:text-2xl">
+              <p className="max-w-[38ch] text-pretty text-base leading-relaxed text-muted md:text-2xl">
                 Uma investigação profunda sobre as leis invisíveis que governam sua prosperidade
                 financeira e os emaranhados geracionais que a sustentam.
               </p>
             </div>
-            <div className="flex flex-col gap-5 border-l border-border pl-8 md:col-span-5">
-              <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
-                  Data e Local
-                </span>
-                <p className="font-medium">Quarta-feira, 29 de Julho · 19h30</p>
-                <p className="text-sm text-muted">Balneário Camboriú, SC</p>
+
+            {/* Data/Local — mobile: 2 colunas compactas com hairline; md: layout editorial original */}
+            <div className="md:col-span-5">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-1 border-t border-border pt-5 md:hidden">
+                <div className="space-y-0.5">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted">Quando</span>
+                  <p className="text-sm font-medium leading-tight">29 Jul · Qua · 19h30</p>
+                </div>
+                <div className="space-y-0.5">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted">Onde</span>
+                  <p className="text-sm font-medium leading-tight">Balneário Camboriú · SC</p>
+                </div>
+                <p className="col-span-2 mt-2 font-mono text-[11px] uppercase tracking-widest text-accent">
+                  60 vagas presenciais
+                </p>
               </div>
-              <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
-                  Disponibilidade
-                </span>
-                <p className="font-medium">Apenas 60 vagas presenciais</p>
+              <div className="hidden flex-col gap-5 border-l border-border pl-8 md:flex">
+                <div className="space-y-1">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                    Data e Local
+                  </span>
+                  <p className="font-medium">Quarta-feira, 29 de Julho · 19h30</p>
+                  <p className="text-sm text-muted">Balneário Camboriú, SC</p>
+                </div>
+                <div className="space-y-1">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
+                    Disponibilidade
+                  </span>
+                  <p className="font-medium">Apenas 60 vagas presenciais</p>
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* CTA primário do hero */}
+          <div className="mt-10 flex flex-col items-start md:mt-14">
+            <a
+              href="#inscricao"
+              className="inline-flex w-full items-center justify-center bg-accent px-8 text-sm font-bold uppercase tracking-widest text-background transition-colors hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:w-auto"
+              style={{ minHeight: 52 }}
+            >
+              Garantir minha vaga presencial
+            </a>
+            <p className="mt-3 w-full text-center font-mono text-[11px] uppercase tracking-widest text-muted md:w-auto md:text-left">
+              Gratuito · Presencial em Balneário Camboriú · 60 vagas
+            </p>
           </div>
         </div>
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-accent/10 blur-[120px]"
+          className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-accent/10 blur-[120px] md:h-96 md:w-96"
         />
       </header>
 
       {/* Dores */}
-      <section className="bg-foreground py-28 text-background md:py-32">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-16 md:grid-cols-2 md:gap-20">
-            <div className="space-y-8">
+      <section className="bg-foreground px-5 py-20 text-background md:px-6 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-10 md:grid-cols-2 md:gap-20">
+            <div className="space-y-6 md:space-y-8">
               <span className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
                 01 / Reconhecimento
               </span>
-              <h2 className="font-display text-4xl font-bold leading-tight md:text-5xl">
+              <h2 className="font-display text-3xl font-bold leading-tight md:text-5xl">
                 Você se reconhece em algum destes padrões?
               </h2>
               <p className="max-w-md text-background/60">
@@ -291,16 +323,16 @@ function Index() {
                 fraqueza sua. É algo muito mais profundo.
               </p>
             </div>
-            <ul className="space-y-6">
+            <ul className="space-y-5 md:space-y-6">
               {pains.map((p, i) => (
                 <li
                   key={i}
-                  className="flex gap-6 border-b border-background/10 pb-6 last:border-0"
+                  className="flex gap-4 border-b border-background/10 pb-5 last:border-0 md:gap-6 md:pb-6"
                 >
                   <span className="font-mono text-xs text-accent">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-base leading-relaxed opacity-80 md:text-lg">{p}</p>
+                  <p className="text-[15px] leading-relaxed opacity-80 md:text-lg">{p}</p>
                 </li>
               ))}
             </ul>
@@ -309,8 +341,8 @@ function Index() {
       </section>
 
       {/* A Verdade */}
-      <section className="px-6 py-28 md:py-32">
-        <div className="mx-auto max-w-4xl text-center">
+      <section className="px-5 py-20 md:px-6 md:py-28">
+        <div className="mx-auto max-w-[62ch] text-center md:max-w-4xl">
           <img
             src={truthImage}
             srcSet={`${truthImage800} 800w, ${truthImage1600} 1600w`}
@@ -320,12 +352,12 @@ function Index() {
             height={768}
             loading="lazy"
             decoding="async"
-            className="mb-16 aspect-[21/9] w-full rounded-sm object-cover opacity-90"
+            className="mb-10 aspect-[4/3] w-full rounded-sm object-cover opacity-90 md:mb-16 md:aspect-[21/9]"
           />
           <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-accent">
             A Verdade Que Ninguém Te Contou
           </h2>
-          <blockquote className="mb-10 font-display text-3xl font-bold leading-tight tracking-tight md:text-5xl">
+          <blockquote className="mb-10 font-display text-2xl font-bold leading-tight tracking-tight md:text-5xl">
             "A maioria dos seus problemas com dinheiro não são sobre dinheiro. São sobre como sua
             consciência funciona."
           </blockquote>
@@ -337,14 +369,14 @@ function Index() {
       </section>
 
       {/* O que vai descobrir */}
-      <section className="bg-surface py-28 md:py-32">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <section className="bg-surface px-5 py-20 md:px-6 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 flex flex-col gap-3 md:mb-16 md:flex-row md:items-end md:justify-between md:gap-4">
             <div>
               <span className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
                 02 / Conteúdo
               </span>
-              <h2 className="mt-4 font-display text-4xl font-bold leading-tight md:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-bold leading-tight md:text-5xl">
                 O que você vai descobrir
               </h2>
             </div>
@@ -353,14 +385,26 @@ function Index() {
               jeito que nunca pôde antes.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3">
+          <div className="divide-y divide-border border border-border md:grid md:grid-cols-3 md:gap-px md:divide-y-0 md:border-0 md:bg-border">
             {discoveries.map((d) => (
-              <div key={d.n} className="space-y-5 bg-surface p-10 md:p-12">
-                <span className="font-display text-3xl font-bold text-accent/40">{d.n}</span>
-                <h3 className="text-xl font-bold">{d.title}</h3>
+              <div key={d.n} className="space-y-4 bg-surface p-8 md:space-y-5 md:p-12">
+                <span className="font-display text-3xl font-bold text-accent/40 md:text-4xl">{d.n}</span>
+                <h3 className="text-lg font-bold md:text-xl">{d.title}</h3>
                 <p className="text-sm leading-relaxed text-muted">{d.body}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-12 flex flex-col items-center text-center md:mt-16">
+            <a
+              href="#inscricao"
+              className="inline-flex w-full items-center justify-center bg-accent px-8 text-sm font-bold uppercase tracking-widest text-background transition-colors hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:w-auto"
+              style={{ minHeight: 52 }}
+            >
+              Garantir minha vaga presencial
+            </a>
+            <p className="mt-3 font-mono text-[11px] uppercase tracking-widest text-muted">
+              Gratuito · Presencial em Balneário Camboriú · 60 vagas
+            </p>
           </div>
         </div>
       </section>
@@ -578,7 +622,7 @@ function Index() {
                     </>
                   ) : (
                     <>
-                      Confirmar minha inscrição
+                      Confirmar minha vaga presencial
                       <span aria-hidden style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
                     </>
                   )}
@@ -608,9 +652,9 @@ function Index() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-border px-6 py-28 md:py-32">
+      <section className="border-t border-border px-5 py-20 md:px-6 md:py-28">
         <div className="mx-auto max-w-3xl">
-          <div className="mb-16 text-center">
+          <div className="mb-10 text-center md:mb-16">
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
               04 / Dúvidas
             </span>
@@ -628,11 +672,12 @@ function Index() {
                   <button
                     id={triggerId}
                     onClick={() => setOpenFaq(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between py-7 text-left transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                    className="flex w-full items-center justify-between py-5 text-left transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:py-7"
+                    style={{ minHeight: 56 }}
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                   >
-                    <h3 className="pr-6 font-bold">{item.q}</h3>
+                    <h3 className="pr-4 text-[15px] font-bold leading-snug md:text-base">{item.q}</h3>
                     <span className="font-mono text-xl text-accent">{isOpen ? "−" : "+"}</span>
                   </button>
                   {isOpen && (
@@ -640,7 +685,7 @@ function Index() {
                       id={panelId}
                       role="region"
                       aria-labelledby={triggerId}
-                      className="animate-reveal pb-7 pr-10 text-sm leading-relaxed text-muted"
+                      className="animate-reveal pb-6 pr-2 text-[14px] leading-relaxed text-muted md:pr-10 md:text-sm"
                     >
                       {item.a}
                     </div>
@@ -653,9 +698,9 @@ function Index() {
       </section>
 
       {/* Final */}
-      <section className="bg-surface px-6 py-28 text-center">
+      <section className="bg-surface px-5 py-20 text-center md:px-6 md:py-24">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-6 font-display text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="mb-6 font-display text-3xl font-bold leading-tight md:text-5xl">
             Você merece compreender.
           </h2>
           <p className="mb-10 text-muted">
@@ -663,16 +708,20 @@ function Index() {
           </p>
           <a
             href="#inscricao"
-            className="inline-block bg-foreground px-10 py-5 text-sm font-bold uppercase tracking-widest text-background transition-colors hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="inline-flex w-full items-center justify-center bg-accent px-8 py-4 text-sm font-bold uppercase tracking-widest text-background transition-colors hover:bg-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:w-auto"
+            style={{ minHeight: 56 }}
           >
-            Garantir meu lugar
+            Garantir minha vaga presencial
           </a>
+          <p className="mt-3 font-mono text-[11px] uppercase tracking-widest text-muted">
+            Gratuito · Presencial em Balneário Camboriú · 60 vagas
+          </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border px-6 py-12">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
+      <footer className="border-t border-border px-5 py-8 md:px-6 md:py-12">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
           <span className="font-display text-lg font-bold tracking-tighter">A LÓGICA</span>
           <p className="font-mono text-[10px] uppercase tracking-widest text-muted">
             © 2026 Jonas Sistêmica — Balneário Camboriú, SC
