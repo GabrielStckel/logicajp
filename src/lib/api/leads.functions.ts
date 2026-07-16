@@ -150,6 +150,20 @@ async function syncManychat(params: {
     }
 
     if (subscriberId) {
+      // Remover a tag primeiro — garante que o gatilho "Tag aplicada" no
+      // ManyChat dispare no addTagByName seguinte, mesmo para contatos
+      // duplicados que já tinham a tag. Erros aqui são esperados na 1ª
+      // inscrição (contato ainda não tem a tag) e são ignorados.
+      try {
+        await manychatFetch(
+          "https://api.manychat.com/fb/subscriber/removeTagByName",
+          params.apiKey,
+          { subscriber_id: subscriberId, tag_name: "inscrito_confirmou" },
+        );
+      } catch {
+        // silencioso — comportamento esperado
+      }
+
       const tagRes = await manychatFetch(
         "https://api.manychat.com/fb/subscriber/addTagByName",
         params.apiKey,
