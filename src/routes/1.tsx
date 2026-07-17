@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { submitLead } from "@/lib/api/leads.functions";
+import jonasPhoto from "@/assets/jonas.jpg.asset.json";
 
 // Paleta espelhada da página "/" (tokens em src/styles.css)
 // background hsl(30 15% 98%) · foreground hsl(215 25% 12%) · muted hsl(215 15% 45%)
