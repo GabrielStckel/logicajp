@@ -453,9 +453,12 @@ function Page1() {
           <p style={eyebrow(C.lightMuted)}>Quem conduz</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "3rem", alignItems: "center" }}>
             <div style={{ position: "relative", borderRadius: "2px", overflow: "hidden", aspectRatio: "4/5", backgroundColor: C.lightBgSoft }}>
-              <div aria-hidden style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: C.lightMuted, fontFamily: SANS, fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                Foto de Jonas
-              </div>
+              <img
+                src={jonasPhoto.url}
+                alt="Jonas Peress"
+                loading="lazy"
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+              />
               <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(to top, ${C.lightBgSoft}BB 0%, transparent 55%, ${C.accent}0A 100%)` }} />
             </div>
             <div>
