@@ -71,11 +71,7 @@ export const Route = createFileRoute("/1")({
       { property: "og:title", content: "A Lógica — Workshop Presencial · Jonas Peress" },
       { property: "og:description", content: "A maioria dos seus problemas com dinheiro não são sobre dinheiro. 60 vagas. Balneário Camboriú." },
     ],
-    links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" },
-    ],
+    links: [],
   }),
   component: Page1,
 });
