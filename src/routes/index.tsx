@@ -47,11 +47,11 @@ export const Route = createFileRoute("/")({
         content:
           "Workshop presencial gratuito em Balneário Camboriú, 29 de julho de 2026. Compreenda a lógica sistêmica que governa sua relação com o dinheiro. 60 vagas.",
       },
-      { property: "og:title", content: "A Lógica — Dinheiro & Abundância Sistêmica" },
+      { property: "og:title", content: "A Lógica — Dinheiro & Abundância Sistêmica | Workshop com Jonas" },
       {
         property: "og:description",
         content:
-          "Workshop presencial gratuito em Balneário Camboriú. 29 de julho de 2026. Vagas limitadas.",
+          "Workshop presencial gratuito em Balneário Camboriú, 29 de julho de 2026. Compreenda a lógica sistêmica que governa sua relação com o dinheiro. 60 vagas.",
       },
       { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:image", content: `${SITE_URL}${truthImage}` },
