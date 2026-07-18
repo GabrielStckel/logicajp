@@ -1,57 +1,26 @@
-## Objetivo
+## Auditoria PageSpeed Insights (mobile)
 
-Eliminar as duas requisições render-blocking ao Google Fonts servindo todas as fontes localmente via `@fontsource`, sem alterar nomes, pesos ou aparência intencional. Playfair Display passa a carregar globalmente (correção do fallback acidental para Georgia em `/` e `/obrigado`).
+Sem baseline anterior fornecido, o plano é medir o estado atual e deixar os números registrados na conversa para servirem de baseline para a próxima comparação (pós self-host de fontes).
 
-## Passos
+### Passos
 
-### 1. Instalar pacotes (bun add)
+1. Chamar a API pública do PSI (`https://www.googleapis.com/pagespeedonline/v5/runPagespeed`) via `curl`, com `strategy=mobile` e `category=performance`, para cada URL:
+   - `https://alogica.lovable.app/`
+   - `https://alogica.lovable.app/1`
+   - `https://alogica.lovable.app/obrigado`
+2. Extrair de cada resposta:
+   - `lighthouseResult.categories.performance.score` (nota 0–100)
+   - `audits["first-contentful-paint"].numericValue` → FCP (ms)
+   - `audits["largest-contentful-paint"].numericValue` → LCP (ms)
+   - `audits["total-blocking-time"].numericValue` → TBT (ms)
+   - `audits["cumulative-layout-shift"].numericValue` → CLS
+   - `audits["speed-index"].numericValue` → SI (ms)
+3. Consolidar em uma tabela markdown única (rota × métrica), destacando FCP e LCP.
+4. Comentar brevemente o que o self-host de fontes deve ter impactado (FCP/LCP via remoção de round-trip para `fonts.googleapis.com` + preload dos `.woff2` críticos) e o que ainda pode ser otimizado se algum LCP > 2.5s.
+5. Pedir ao usuário que, na próxima rodada, cole os números atuais como baseline — assim a comparação futura fica automática.
 
-- `@fontsource/playfair-display`
-- `@fontsource/inter`
-- `@fontsource/inter-tight`
-- `@fontsource/jetbrains-mono`
+### Observações
 
-### 2. Imports por peso em `src/styles.css`
-
-Adicionar no topo do arquivo, **antes** de `@import "tailwindcss"` (Lightning CSS exige que todos os `@import` venham antes de qualquer outra regra):
-
-```css
-@import "@fontsource/playfair-display/400.css";
-@import "@fontsource/playfair-display/700.css";
-@import "@fontsource/playfair-display/400-italic.css";
-
-@import "@fontsource/inter/400.css";
-@import "@fontsource/inter/500.css";
-@import "@fontsource/inter/600.css";
-
-@import "@fontsource/inter-tight/600.css";
-@import "@fontsource/inter-tight/700.css";
-@import "@fontsource/inter-tight/800.css";
-
-@import "@fontsource/jetbrains-mono/400.css";
-@import "@fontsource/jetbrains-mono/500.css";
-@import "@fontsource/jetbrains-mono/600.css";
-
-@import "tailwindcss" source(none);
-@source "../src";
-@import "tw-animate-css";
-```
-
-`@fontsource` já emite `font-display: swap` nos seus `@font-face` — nada a sobrescrever.
-
-### 3. Remover Google Fonts
-
-- `src/routes/__root.tsx` (dentro de `links:`): remover os 2 `preconnect` para `fonts.googleapis.com` / `fonts.gstatic.com` e o `stylesheet` para `fonts.googleapis.com/css2?...`. Manter o `stylesheet` de `appCss`.
-- `src/routes/1.tsx`: remover os 2 `preconnect` e o `stylesheet` de Playfair Display do `head().links`.
-- `src/routes/index.tsx` e `src/routes/obrigado.tsx`: já sem links de Google Fonts — nada a fazer.
-
-### 4. Nada mais muda
-
-- Constantes `SERIF/DISPLAY/SANS/MONO` nas rotas, pesos usados nos componentes, Meta Pixel, formulários, server functions — todos intactos.
-- Não tocar em `.env`, `src/integrations/supabase/*`, `routeTree.gen.ts`.
-
-## Verificação final
-
-- DevTools → Network: zero requests para `fonts.googleapis.com` / `fonts.gstatic.com`; `.woff2` do `@fontsource` servidos localmente pelo Vite.
-- Build de produção compila sem erros.
-- `/`, `/1`, `/obrigado`: SERIF renderiza em Playfair Display em todas as rotas; DISPLAY/SANS/MONO inalterados.
+- PSI é lab data (Lighthouse) — variações de ±5–10% entre runs são normais; se algum resultado parecer fora da curva, rodo uma segunda vez naquela URL.
+- Sem alterações de código nesta tarefa. Apenas medição e relatório.
+- Se a API do PSI responder com erro de quota/rede para alguma rota, reporto e tento novamente.
