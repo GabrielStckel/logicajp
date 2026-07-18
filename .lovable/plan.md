@@ -1,17 +1,57 @@
 ## Objetivo
 
-Trocar o placeholder atual "Foto de Jonas" na seção **Quem conduz** de `src/routes/1.tsx` (linhas 454–459) pela foto enviada.
+Eliminar as duas requisições render-blocking ao Google Fonts servindo todas as fontes localmente via `@fontsource`, sem alterar nomes, pesos ou aparência intencional. Playfair Display passa a carregar globalmente (correção do fallback acidental para Georgia em `/` e `/obrigado`).
 
 ## Passos
 
-1. Subir a foto para o CDN via `lovable-assets` a partir de `/mnt/user-uploads/WhatsApp_Image_2026-03-04_at_14.46.08.jpeg`, salvando o ponteiro em `src/assets/jonas.jpg.asset.json`. Sem cópia do binário para o repo, sem novas dependências.
-2. Em `src/routes/1.tsx`:
-   - Importar `jonasPhoto from "@/assets/jonas.jpg.asset.json"`.
-   - Substituir o `<div aria-hidden>` com o texto "Foto de Jonas" por um `<img src={jonasPhoto.url} alt="Jonas Peress" loading="lazy" />` cobrindo o container (`position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position: center top`).
-   - Manter o wrapper `aspectRatio: "4/5"`, o `borderRadius`, o `overflow: hidden` e o overlay dourado existente (`linear-gradient` na linha 458) — o overlay fica *acima* da imagem preservando a integração visual editorial.
-3. Nenhuma outra alteração: copy, tipografia, cores e layout permanecem idênticos. Nenhuma outra rota é tocada.
+### 1. Instalar pacotes (bun add)
 
-## Verificação
+- `@fontsource/playfair-display`
+- `@fontsource/inter`
+- `@fontsource/inter-tight`
+- `@fontsource/jetbrains-mono`
 
-- Rota `/1`, seção "Quem conduz": foto renderiza no bloco 4:5 com crop centrado no rosto; overlay dourado preservado; sem CLS.
-- Build/typecheck limpos.
+### 2. Imports por peso em `src/styles.css`
+
+Adicionar no topo do arquivo, **antes** de `@import "tailwindcss"` (Lightning CSS exige que todos os `@import` venham antes de qualquer outra regra):
+
+```css
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/playfair-display/400-italic.css";
+
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@import "@fontsource/inter-tight/600.css";
+@import "@fontsource/inter-tight/700.css";
+@import "@fontsource/inter-tight/800.css";
+
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "@fontsource/jetbrains-mono/600.css";
+
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+```
+
+`@fontsource` já emite `font-display: swap` nos seus `@font-face` — nada a sobrescrever.
+
+### 3. Remover Google Fonts
+
+- `src/routes/__root.tsx` (dentro de `links:`): remover os 2 `preconnect` para `fonts.googleapis.com` / `fonts.gstatic.com` e o `stylesheet` para `fonts.googleapis.com/css2?...`. Manter o `stylesheet` de `appCss`.
+- `src/routes/1.tsx`: remover os 2 `preconnect` e o `stylesheet` de Playfair Display do `head().links`.
+- `src/routes/index.tsx` e `src/routes/obrigado.tsx`: já sem links de Google Fonts — nada a fazer.
+
+### 4. Nada mais muda
+
+- Constantes `SERIF/DISPLAY/SANS/MONO` nas rotas, pesos usados nos componentes, Meta Pixel, formulários, server functions — todos intactos.
+- Não tocar em `.env`, `src/integrations/supabase/*`, `routeTree.gen.ts`.
+
+## Verificação final
+
+- DevTools → Network: zero requests para `fonts.googleapis.com` / `fonts.gstatic.com`; `.woff2` do `@fontsource` servidos localmente pelo Vite.
+- Build de produção compila sem erros.
+- `/`, `/1`, `/obrigado`: SERIF renderiza em Playfair Display em todas as rotas; DISPLAY/SANS/MONO inalterados.
